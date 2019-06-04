@@ -3,6 +3,7 @@ let ejs = require('ejs');
 let bodyParser = require('body-parser');
 let socket = require('socket.io')
 let PORT = 5555
+const router = require('./router/router.js')
 
 let http = require('http').createServer(express)
 
@@ -11,9 +12,8 @@ let app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
-app.get('/', function(req, res) {
-  res.render("index")
-})
+app.use('/', router)
+
 
 app.listen(PORT)
 console.log(`Port ${PORT}`);
