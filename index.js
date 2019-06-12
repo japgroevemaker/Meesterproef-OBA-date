@@ -8,6 +8,9 @@ let express = require('express');
 let app = express();
 let http = require('http').Server(app)
 
+const db = require('./data/db')
+db();
+
 const socketServer = require('./source/socketServer.js')
 
 
@@ -19,7 +22,6 @@ app.use('/', router)
 
 http.listen(PORT)
 console.log(`Port ${PORT}`);
-
 
 let io = require('socket.io')(http)
 socketServer(io);
