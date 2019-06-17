@@ -45,7 +45,7 @@ module.exports = postModel;
 
 
     /////// log existing documents (modelName.find)
-getDocuments(postModel)
+//getDocuments(postModel)
 
 
     function getDocuments(modelName){
