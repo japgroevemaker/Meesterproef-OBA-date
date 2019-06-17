@@ -4,7 +4,10 @@ const router = express.Router()
 
 // index page
 router.get('/',(req,res)=>{
+
     console.log('entered index')
+    console.log('entered startup')
+
     res.render('./pages/startup')
 })
 
@@ -50,7 +53,11 @@ router.get('/messageOverview', (req,res)=>{
     console.log('entered messageOverview')
     res.render('./pages/messageOverview')
 })
-
+// create new call page
+router.get('/oproepPlaatsen', (req,res)=>{
+    console.log('entered oproepPlaatsen')
+    res.render('./pages/oproepPlaatsen')
+})
 
 
 module.exports = router;
