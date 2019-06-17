@@ -22,7 +22,7 @@ header h2 {
 }
 
 #startupList {
-  margin: 10em auto;
+  margin: 50% auto;
 }
 
 #startupList ul {
@@ -32,7 +32,7 @@ header h2 {
 }
 
 #startupList ul li {
-  margin: 5em 0 5em 0;
+  margin: 2em 0 2em 0;
   border-bottom: solid 0.01em var(--OBA-red);
   display: grid;
   grid-template-columns: 90% 10%;
