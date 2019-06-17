@@ -1,12 +1,16 @@
+<% include ../components/header.ejs %>
   <header>
-  <h1>Oke, </h1> <h2>wat voor doel heb je?</h2>
-  </header>  
+  <h2>Oke, </h2> <h2>wat voor doel heb je?</h2>
+  </header>
 
-    <ul>
-        <li><a href="shareKnowledge">ik wil kennis delen</a></li>
-        <li><a href="helpMe">ik heb kennis/hulp nodig</a></li>
-        <li><a href="somethingTogether">ik wil samen iets doen</a></li>
-        <li><a href="break">ik heb pauze</a></li>
-        <li><a href="discover">ik wil toch verkennen</a></li>
-    </ul>
-  
+<section id="startupList">
+  <ul>
+      <li><a href="shareKnowledge">ik wil kennis delen</a><img src="/assets/share-knowledge.svg" alt="share-knowledge"></li>
+      <li><a href="helpMe">ik heb kennis/hulp nodig</a><img src="/assets/need-knowledge.svg" alt="need-knowledge"></li>
+      <li><a href="somethingTogether">ik wil samen iets doen</a><img src="/assets/doing-together.svg" alt="doing-together"></li>
+      <li><a href="break">ik heb pauze</a><img src="/assets/break.svg" alt="break"></li>
+      <li><a href="discover">ik wil toch verkennen</a><img src="/assets/explore.svg" alt="explore"></li>
+  </ul>
+</section>
+
+<% include ../components/footer.ejs %>
