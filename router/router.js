@@ -5,7 +5,7 @@ const router = express.Router()
 // index page
 router.get('/',(req,res)=>{
     console.log('entered index')
-    res.render('./pages/index')
+    res.render('./pages/startup')
 })
 
 // dashboard page
@@ -14,27 +14,43 @@ router.get('/dashboard', (req,res)=>{
     res.render('./pages/dashboard')
 })
 
-// chat page
-router.get('/chat', (req,res)=>{
-    console.log('entered chat')
-    res.render('./pages/chat')
+router.get('/iHaveAGoal', (req,res)=>{
+    console.log('entered iHaveAGoal')
+    res.render('./pages/iHaveAGoal')
 })
 
-// login page
-router.get('/login', (req,res)=>{
-    console.log('entered login')
-    res.render('./pages/login')
+router.get('/shareKnowledge', (req,res)=>{
+    console.log('entered shareKnowledge')
+    res.render('./pages/hasGoal/shareKnowledge')
 })
 
-// create new call page
-router.get('/oproepPlaatsen', (req,res)=>{
-    console.log('entered oproepPlaatsen')
-    res.render('./pages/oproepPlaatsen')
+router.get('/helpMe', (req,res)=>{
+    console.log('entered HelpMe')
+    res.render('./pages/hasGoal/helpMe')
 })
-// create register page
-router.get('/register', (req,res)=>{
-    console.log('entered register')
-    res.render('./pages/register')
+router.get('/somethingTogether', (req,res)=>{
+    console.log('entered somethingTogether')
+    res.render('./pages/hasGoal/somethingTogether')
 })
+router.get('/break', (req,res)=>{
+    console.log('entered break')
+    res.render('./pages/hasGoal/break')
+})
+router.get('/discover', (req,res)=>{
+    console.log('entered discover')
+    res.render('./pages/hasGoal/discover')
+})
+
+
+router.get('/recognition', (req,res)=>{
+    console.log('entered recognition')
+    res.render('./pages/recognition')
+})
+router.get('/messageOverview', (req,res)=>{
+    console.log('entered messageOverview')
+    res.render('./pages/messageOverview')
+})
+
+
 
 module.exports = router;

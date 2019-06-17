@@ -2,11 +2,9 @@
 
 const postModel = require('./post.js')
 
-console.log('addposts')
-
 function addPost(username, profilePic){
 
-    console.log('adding')
+    console.log(`Adding ${username}`)
 
     const post = new postModel()
 
@@ -25,4 +23,4 @@ function addPost(username, profilePic){
     })
 }
 
-addPost('stan', 'foto')
+//addPost('stan', 'foto')
