@@ -1,6 +1,6 @@
 ///
 
-const postModel = require('./post.js'
+const postModel = require('./post.js')
 
 function addPost(username, profilePic){
 
