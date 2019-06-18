@@ -1,3 +1,4 @@
+  <body>
   <header>
   <h1>Oke, </h1> <h2>over wat voor soort kennis beschik je?</h2>
   <p>* vul minimaal 3 keuzes in</p>
@@ -7,12 +8,36 @@
   <button type="">voeg toe</button>
   
   <h2>geef een naam aan je bericht</h2>
-  <input type="textarea">
+  <input type="textarea" name="messageName">
 
   <h2>typ je bericht</h2>
-    <input type="textarea">
+    <input type="textarea" name="message">
+
+
+    <header>
+<h2>maak jezelf herkenbaar </h2>
+<p></p>
+</header>
+
+<section id="profilePic">
+<form action="getPicture.js">
+    <article id="picBox"></article>
+    <button type=""> upload foto</button>
+    <input type="file" accept="image/   *" name="pic">
+    <input type="submit">
+</form>
+</section>
+
+<section>   
+<h1>geef jezelf een naam</h1>
+<input type="textarea" name="username" placeholder="jou naam...">
+</section>
 
 <a href="">Vorige</a>
 [Help]
 
-<a href="recognition">volgende</a>
+<a href="messageOverview" id="nextButton">volgende</a>
+
+
+<% include ../../components/scripts.ejs %>
+</body>

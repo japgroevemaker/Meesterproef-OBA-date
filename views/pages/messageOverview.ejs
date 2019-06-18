@@ -1,12 +1,19 @@
-<h1>zo ziet je bericht er uit:</h1>
+<body>
+
+<h1>zo ziet je bericht er uit <span name="username" class="data"></span>:</h1>
 
 
 <div>
-    <h2>Title</h2>
-    <p>time</p>
-    <p>date</p>
-    <p>text</p>
-    <p>tags</p>
-    <h2>username + pic</h2>
+    <h2>Title: <span name="messageName" class="data"></span></h2>
+    <p>time: <span name="time" class="data"></span></p>
+    <p>text: <span name="message" class="data"></span></p>
+    <p>tags: <span name="tag" class="data"></span></p>
 
+
+<a id="postButton" href="dashboard">POST</a>
 </div>
+
+
+<% include ../components/scripts.ejs %>
+
+</body>

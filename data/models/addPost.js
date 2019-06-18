@@ -22,5 +22,4 @@ function addPost(username, profilePic){
         }
     })
 }
-
 //addPost('stan', 'foto')
