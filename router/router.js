@@ -24,7 +24,7 @@ router.get('/iHaveAGoal', (req,res)=>{
 
 router.get('/shareKnowledge', (req,res)=>{
     console.log('entered shareKnowledge')
-    res.render('./pages/hasGoal/shareKnowledge')
+    res.render('./pages/shareKnowledge')
 })
 
 router.get('/helpMe', (req,res)=>{
