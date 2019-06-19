@@ -41,38 +41,74 @@ const serverSocket = function (io) {
             }
             // push input to the sockets data object
             postObject.postArray.push(input)
-            console.log(postObject)
-            console.log(postObject.postArray.length)
-
-
-            //         const newPost = new postModel({
-            // username: ''
-            // description: String,
-            // profilePic: String,
-            // reactions: Array,
-            // favorites: Array,
-            // tags: Array,
-            // date: String,
-            //         })
+            // console.log(postObject.postArray.length)
+            fs.writeFile('dummyTest.txt', input.data, (err) => {  
+                // throws an error, you could also catch it here
+                if (err) throw err;
+                // success case, the file was saved
+                console.log('file saved!');
+            });
+            
             
         })
         
         
         // when the user clicks POST button to POST 
-        socket.on('postRequest', function(){
-            console.log('posting ' + postObject.postArray[1])
+        socket.on('postRequest', function () {
+            // console.log('posting ' + postObject.postArray[1])
+            console.log(postObject)
             
         })
-        
+
         // send back input data 
-        socket.on('askData', function(){
-            
+        socket.on('askData', function () {
+
             console.log('------------------------')
-            console.log(postObject)
-            postObject.postArray[postObject.postArray.push({name: 'time', data: Date()})]
+            // add timestamp
+            postObject.postArray[postObject.postArray.push({
+                name: 'time',
+                data: Date()
+            })]
+            // send to the client
             socket.emit('emitData', postObject)
+            //console.log(postObject)
+            // reset the postArray
             postObject.postArray = []
-        
+
+        })
+        socket.on('savePost', function (data) {
+            console.log('saving post')
+            console.log(data.postArray)
+            const formattedData = {}
+            data.postArray.forEach(data=>{
+                const dataName = data.name
+                formattedData[dataName] = data.data
+            console.log(formattedData)
+            })
+            
+            const newPost = new postModel({
+                // tags
+                tags: formattedData.tag,
+                // title of the post
+                postName: formattedData.postName,
+                // description
+                postContent: formattedData.postContent,
+                // user profile pic = base64Encoded
+                profilePic: formattedData.imageBase64Encoded,
+                // creator's username
+                username: formattedData.username,
+                // reactions of other users:
+                reactions: "",
+                // favorite by user:
+                favorites: "",
+                // tijd
+                date: formattedData.time,
+            })
+            try{newPost.save()
+            console.log('succesfully Saved Post')}
+            catch(error){console.log(error)}
+            
+
         })
     })
 };
