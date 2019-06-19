@@ -4,18 +4,20 @@ const mongoose = require('mongoose');
 
 // define schema properties
 const postSchema= new mongoose.Schema({
+    // tags
+    tags: String,
+    // title of the post
+    postName: String,
+    // description
+    postContent: String,
+    // user profile pic = base64Encoded
+    profilePic: String,
     // creator's username
     username: String,
-    // description
-    description: String,
-    // user profile pic
-    profilePic: String,
     // reactions of other users:
-    reactions: Array,
+    reactions: String,
     // favorite by user:
-    favorites: Array,
-    // tags
-    tags: Array,
+    favorites: String,
     // tijd
     date: String,
 });

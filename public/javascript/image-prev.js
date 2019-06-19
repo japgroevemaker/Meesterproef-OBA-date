@@ -1,3 +1,6 @@
+import getInput from './catchInput.js'
+
+
 let form = document.querySelector('form');
 
 form.addEventListener('submit', function(e){
@@ -22,9 +25,13 @@ function showPic () {
   let img = inputImg.files[0]
   let reader = new FileReader();
   reader.readAsDataURL(img);
-
+  
+  
+  
+  
   reader.onload = function() {
     preview.setAttribute('src', reader.result)
+  getInput.getInput.handleImage(reader.result)
   }
 }
 

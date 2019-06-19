@@ -1,6 +1,6 @@
 import getInput from './catchInput.js'
 if(window.location.pathname == '/shareKnowledge'){
-  console.log(getInput)
+
   let currentPage = 0;
   
   let next = document.querySelector('.next');
@@ -23,7 +23,7 @@ if(window.location.pathname == '/shareKnowledge'){
   prev.addEventListener('click', function(){
     currentPage--
     console.log(currentPage);
-  
+
     let section = document.querySelectorAll('.section');
     section.forEach(function(hide){
       hide.classList.add('none')
