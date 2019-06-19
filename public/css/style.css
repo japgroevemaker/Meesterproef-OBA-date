@@ -1,7 +1,10 @@
 :root {
   --OBA-red: #FF0000;
-  --OBA-font: Avenir;
+  --OBA-subColor: #D9582B;
   --header-color: #707070;
+  --OBA-font: Avenir;
+  --input-background: #f6f6f6;
+  --input-border: 1px solid #e6e6e6;
 }
 
 * {
@@ -34,7 +37,7 @@ header h2 {
 
 #startupList ul li {
   margin: 2em 0 2em 0;
-  border-bottom: solid 0.01em var(--OBA-red);
+  border-bottom: solid 0.01em var(--OBA-subColor);
   display: grid;
   grid-template-columns: 90% 10%;
   grid-template-rows: 3em;
@@ -55,9 +58,17 @@ header h2 {
 
 footer#navigate-footer {
   width: 90%;
+  height: 5em;
   margin: auto;
   display: flex;
   flex-direction: row;
+}
+
+footer#navigate-footer div.prev-next-button {
+  background-color: #000;
+  width: 7em;
+  height: 2em;
+  text-align: center;
 }
 
 footer#navigate-footer img {
@@ -65,18 +76,17 @@ footer#navigate-footer img {
   margin: auto;
 }
 
-footer#navigate-footer h3 {
-  color: var(--header-color);
+footer#navigate-footer div.prev-next-button h3 {
+  color: #fff;
+  font-weight: lighter;
   font-family: var(--OBA-font);
-  font-weight: bold;
   font-size: 1.2em;
 }
 
-footer#navigate-footer a {
+footer#navigate-footer div.prev-next-button a {
   text-decoration: none;
-  color: var(--header-color);
+  color: #fff;
   font-family: var(--OBA-font);
-  font-weight: bold;
   font-size: 1.2em;
 }
 
@@ -105,13 +115,12 @@ section.input-field div#add-tags {
 }
 
 section.input-field div#add-tags input[type="text"]{
-  width: 50%;
+  width: 55%;
   height: 3em;
-  background-color: #ccc;
-  border: none;
-  border-radius: 1em;
+  background-color: var(--input-background);
+  border: var(--input-border);
   margin: 0;
-  padding-left: 10%;
+  padding-left: 5%;
 }
 
 section.input-field div#add-tags button{
@@ -119,10 +128,8 @@ section.input-field div#add-tags button{
   height: 3em;
   width: 30%;
   color: #fff;
-  font-weight: bold;
-  background-color: var(--OBA-red);
+  background-color: var(--OBA-subColor);
   border: none;
-  border-radius: 1em;
 }
 
 div#tags {
@@ -155,13 +162,12 @@ div#tags div.tag h3 {
 
 section.input-field input[type="text"]{
   font-size: 1em;
-  width: 80%;
+  width: 85%;
   height: 3em;
-  background-color: #ccc;
-  border: none;
-  border-radius: 1em;
+  background-color: var(--input-background);
+  border: var(--input-border);
   margin: 5% auto 10%;
-  padding-left: 10%;
+  padding-left: 5%;
 }
 
 .none {
@@ -172,13 +178,12 @@ section.input-field textarea{
   font-family: var(--OBA-font);
   font-size: 1.2em;
   line-height: 1.6em;
-  width: 80%;
+  width: 85%;
   height: 10em;
-  background-color: #ccc;
-  border: none;
-  border-radius: 1em;
+  background-color: var(--input-background);
+  border: var(--input-border);
   margin: 5% auto 10%;
-  padding-left: 10%;
+  padding-left: 5%;
 }
 
 section.recognition {
@@ -190,19 +195,36 @@ section.recognition {
 
 section.recognition section.profilePic {
   width: 90%;
-  margin: auto;
+  margin: 0 auto 10%;
   display: flex;
   flex-direction: column;
+}
+
+section.recognition section.profilePic form div.button-align {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+section.recognition section.profilePic form div.button-align button {
+  width: 25%;
+  padding: 0.5em;
+  color: #fff;
+  font-weight: lighter;
+  border: none;
+  background-color: #000;
+  font-family: var(--OBA-font);
+  text-align: center;
 }
 
 section.recognition section.profilePic form {
   display: flex;
   flex-direction: column;
-  margin: 10% auto;
 }
 
 section.recognition section.profilePic form img {
-  width: 50%;
+  width: 70%;
+  height: 15em;
   margin: 5% auto 5%;
   border-radius: 100%;
 }
@@ -211,12 +233,11 @@ section.recognition section.profilePic label {
   width: 50%;
   padding: 0.5em;
   color: #fff;
-  font-weight: bold;
-  background-color: var(--OBA-red);
+  font-weight: lighter;
+  background-color: var(--OBA-subColor);
   font-family: var(--OBA-font);
-  border-radius: 1em;
   text-align: center;
-  margin: 5% auto 10%;
+  /* margin: 5% auto 10%; */
 }
 
 section.recognition h2 {
@@ -229,12 +250,11 @@ section.recognition h2 {
 
 section.recognition input[type="text"]{
   font-size: 1em;
-  width: 79%;
+  width: 85%;
   height: 3em;
-  background-color: #ccc;
-  border: none;
-  border-radius: 1em;
+  background-color: var(--input-background);
+  border: var(--input-border);
   margin: 5% auto 10%;
-  padding-left: 10%;
+  padding-left: 5%;
 
 }

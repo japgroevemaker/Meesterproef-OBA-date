@@ -26,11 +26,14 @@
       <textarea placeholder="typ hier je bericht"></textarea>
 
       <footer id="navigate-footer">
-        <a href="iHaveAGoal">Terug</a>
+        <div class="prev-next-button">
+          <a href="iHaveAGoal">terug</a>
+        </div>
 
         <img src="/assets/question-mark.svg" alt="explore">
-
-        <h3 class="next">Volgende</h3>
+        <div class="prev-next-button">
+          <h3 class="next">volgende</h3>
+        </div>
       </footer>
 
     </section>
@@ -43,9 +46,14 @@
 
       <section class="profilePic">
       <form action="getPicture.js">
-          <img src="/assets/placeholder.jpg" alt="">
-          <input type="file" id="pic" accept="image/*" name="pic" class="none">
-          <label for="pic">upload foto</label>
+          <img id="profile-pic-preview" src="/assets/placeholder.jpg" alt="">
+          <input type="file" id="pic" accept="image/   *" name="pic" class="none">
+
+          <div class="button-align">
+            <label for="pic">upload foto</label>
+            <button id='remove-pic'>verwijder</button>
+          </div>
+
       </form>
       </section>
 
@@ -55,12 +63,15 @@
 
 
       <footer id="navigate-footer">
-        <h3 class="prev">Vorige</h3>
-
+        <div class="prev-next-button">
+          <h3 class="prev">terug</h3>
+        </div>
         <img src="/assets/question-mark.svg" alt="explore">
-
-        <a href="messageOverview">Volgende</a>
+        <div class="prev-next-button">
+          <a href="messageOverview">volgende</a>
+        </div>
       </footer>
 
-<script src="../javascript/prev-next.js" type="module"></script>
+<script defer src="../javascript/image-prev.js" type="module"></script>
+<script defer src="../javascript/prev-next.js" type="module"></script>
 <% include ../components/footer.ejs %>
