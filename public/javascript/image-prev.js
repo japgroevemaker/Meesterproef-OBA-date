@@ -29,11 +29,5 @@ function showPic () {
 }
 
 function removePreview () {
-  let img = inputImg.files[0]
-  let reader = new FileReader();
-  reader.readAsDataURL(img);
-
-  reader.onload = function() {
     preview.setAttribute('src', "/assets/placeholder.jpg")
-  }
 }
