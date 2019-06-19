@@ -41,6 +41,7 @@ const serverSocket = function (io) {
             }
             // push input to the sockets data object
             postObject.postArray.push(input)
+          
             // console.log(postObject.postArray.length)
             fs.writeFile('dummyTest.txt', input.data, (err) => {  
                 // throws an error, you could also catch it here
@@ -62,6 +63,32 @@ const serverSocket = function (io) {
 
         // send back input data 
         socket.on('askData', function () {
+          
+            console.log(postObject)
+            console.log(postObject.postArray.length)
+
+
+            //         const newPost = new postModel({
+            // username: ''
+            // description: String,
+            // profilePic: String,
+            // reactions: Array,
+            // favorites: Array,
+            // tags: Array,
+            // date: String,
+            //         })
+
+        })
+
+
+        // when the user clicks POST button to POST
+        socket.on('postRequest', function(){
+            console.log('posting ' + postObject.postArray[1])
+
+        })
+
+        // send back input data
+        socket.on('askData', function(){
 
             console.log('------------------------')
             // add timestamp

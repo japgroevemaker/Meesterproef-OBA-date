@@ -107,14 +107,19 @@ section.input-field h2 {
 }
 
 section.input-field div#add-tags {
-  display: flex;
-  flex-direction: row;
   width: 90%;
   margin: 5% auto 5%;
   justify-content: space-between;
 }
 
-section.input-field div#add-tags input[type="text"]{
+section.input-field div#add-tags form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section.input-field div#add-tags form input[type="text"]{
   width: 55%;
   height: 3em;
   background-color: var(--input-background);
@@ -123,7 +128,7 @@ section.input-field div#add-tags input[type="text"]{
   padding-left: 5%;
 }
 
-section.input-field div#add-tags button{
+section.input-field div#add-tags form button{
   font-size: 1em;
   height: 3em;
   width: 30%;
@@ -132,32 +137,37 @@ section.input-field div#add-tags button{
   border: none;
 }
 
-div#tags {
+section.input-field div#tags {
   width: 80%;
   margin: 0 auto 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-div#tags .tag {
+section.input-field div#tags .tag {
   background-color: var(--OBA-red);
-  max-width: 5em;
+  width: auto;
+  padding: 0 0.5em;
   height: 2em;
   border-radius: 2em;
   display: flex;
+  margin: 0.1em auto;
 }
 
-div#tags div.tag span.dot {
+section.input-field div#tags div.tag span.dot {
   color: #fff;
   border-radius: 100%;
   width: 1em;
   display: block;
 }
 
-div#tags div.tag h3 {
+section.input-field div#tags div.tag h3 {
   font-family: var(--OBA-font);
   font-size: 1em;
   font-weight: lighter;
   color: #fff;
-  margin: auto 40% auto;
+  margin: auto;
 }
 
 section.input-field input[type="text"]{
@@ -183,7 +193,7 @@ section.input-field textarea{
   background-color: var(--input-background);
   border: var(--input-border);
   margin: 5% auto 10%;
-  padding-left: 5%;
+  padding: 2%;
 }
 
 section.recognition {
@@ -256,5 +266,95 @@ section.recognition input[type="text"]{
   border: var(--input-border);
   margin: 5% auto 10%;
   padding-left: 5%;
+}
 
+/* ---------messageOverviewpage--------- */
+section#message {
+  width: 90%;
+  height: auto;
+  margin: 5% auto 10%;
+  border: var(--input-border);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+section#message div#header {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+section#message div#header h2 {
+  font-family: var(--OBA-font);
+  font-weight: bold;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+section#message div#header h4 {
+  font-family: var(--OBA-font);
+  font-weight: lighter;
+  color: #ccc;
+  font-size: 0.8em;
+  margin-left: 5%;
+}
+
+section#message p {
+  font-family: var(--OBA-font);
+  font-weight: lighter;
+  width: 90%;
+  margin: 5% auto 10%;
+  word-wrap: break-word;
+}
+
+section#message div#tags {
+  width: 80%;
+  margin: 0 auto 10%;
+}
+
+section#message div#tags .tag {
+  background-color: var(--OBA-red);
+  width: auto;
+  padding: 0 0.5em;
+  height: 2em;
+  border-radius: 2em;
+  display: flex;
+}
+
+section#message div#tags div.tag span.dot {
+  color: #fff;
+  border-radius: 100%;
+  width: 1em;
+  display: block;
+}
+
+section#message div#tags div.tag h3 {
+  font-family: var(--OBA-font);
+  font-size: 0.8em;
+  font-weight: lighter;
+  color: #fff;
+  margin: auto;
+}
+
+div#profilePic-name {
+  width: 90%;
+  height: 5em;
+  margin: 0 auto 10%;
+  display: flex;
+  flex-direction: row;
+}
+
+section#message div#profilePic-name img {
+  border-radius: 100%;
+  width: 30%;
+}
+
+section#message div#profilePic-name h2 {
+  font-family: var(--OBA-font);
+  font-weight: lighter;
+  margin: auto;
 }

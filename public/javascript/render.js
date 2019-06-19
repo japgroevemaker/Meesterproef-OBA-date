@@ -16,8 +16,8 @@ elements.forEach(element=>{
         // console.log(prop)
         // console.log(prop.name + ' ' + element.attributes.name.value)
             if(prop.name === element.attributes.name.value){
-        
-                element.insertAdjacentHTML('beforeend', `<p>${prop.data}</p>`)
+
+                element.insertAdjacentHTML('beforeend', `${prop.data}`)
             }
         })
 
