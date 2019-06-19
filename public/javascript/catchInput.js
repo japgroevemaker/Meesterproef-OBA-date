@@ -11,16 +11,16 @@ const getInput = {
         }
     },
     locate: function(){
-        const button = document.querySelector('#nextButton')
-        const element = document.querySelectorAll('input')
-if(button){
-    button.addEventListener('click', ()=>{
+        console.log('catchinput fired')
+
+        // set input fields
+        const element = document.querySelectorAll('input, textarea')
+        // check for emptiness (validation)
         element.forEach(element=>{
             if(element.value == ''){
                 console.log('reminder!!! Add user feedBack for empty inputfields!!!')
             }
             if(element.value != ''){
-
                 const input = {
                     name: element.name,
                     data: element.value
@@ -31,13 +31,13 @@ if(button){
 
         })
         console.log(element)
-    })
+
 
     // if(form.value != null || undefined || ''){
     //     console.log()
     // }
 
-}
+
     },
 }
 
