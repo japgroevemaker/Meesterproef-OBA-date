@@ -20,10 +20,10 @@
       </div>
 
       <h2>geef een naam aan je bericht</h2>
-      <input type="text" placeholder="typ hier je naam">
+      <input type="text" placeholder="typ hier je naam" name="postName">
 
       <h2>typ je bericht</h2>
-      <textarea placeholder="typ hier je bericht"></textarea>
+      <textarea placeholder="typ hier je bericht" name="postContent"></textarea>
 
       <footer id="navigate-footer">
         <a href="iHaveAGoal">Terug</a>
@@ -51,7 +51,7 @@
 
 
       <h2>geef jezelf een naam</h2>
-      <input type="text" name="firstname" placeholder="jouw naam...">
+      <input type="text" name="username" placeholder="jouw naam...">
 
 
       <footer id="navigate-footer">
@@ -62,5 +62,5 @@
         <a href="messageOverview">Volgende</a>
       </footer>
 
-<script defer src="../javascript/prev-next.js" type="module"></script>
 <% include ../components/footer.ejs %>
+<% include ../components/scripts.ejs %>

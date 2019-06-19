@@ -33,10 +33,13 @@ const serverSocket = function (io) {
 
         })
 
+
+        // listen for input message from client
         socket.on('input', function (input) {
             if (postObject.socket === '') {
                 postObject.socket = socket.id
             }
+            // push input to the sockets data object
             postObject.postArray.push(input)
             console.log(postObject)
             console.log(postObject.postArray.length)
@@ -51,19 +54,22 @@ const serverSocket = function (io) {
             // tags: Array,
             // date: String,
             //         })
-
+            
         })
-
-
+        
+        
         // when the user clicks POST button to POST 
         socket.on('postRequest', function(){
             console.log('posting ' + postObject.postArray[1])
+            
         })
-
+        
         // send back input data 
         socket.on('askData', function(){
+            
             console.log('------------------------')
             console.log(postObject)
+            postObject.postArray[postObject.postArray.push({name: 'time', data: Date()})]
             socket.emit('emitData', postObject)
             postObject.postArray = []
         
