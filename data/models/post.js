@@ -6,19 +6,18 @@ const mongoose = require('mongoose');
 const postSchema= new mongoose.Schema({
     // creator's username
     username: String,
-
     // description
     description: String,
-
     // user profile pic
     profilePic: String,
-    
     // reactions of other users:
     reactions: Array,
-
-    
     // favorite by user:
-    favorites: Array
+    favorites: Array,
+    // tags
+    tags: Array,
+    // tijd
+    date: String,
 });
 
 // set schema as mongoose model
