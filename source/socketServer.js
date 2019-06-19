@@ -1,12 +1,16 @@
 const fs = require('fs')
 
 // Declare socket api
+const postModel = require('../data/models/post')
 
-
+postObject = {
+    socket: '',
+    postArray: [],
+}
 
 ////////// SOCKET IO CODE //////////
 // setup socket.io
-const serverSocket = function(io){
+const serverSocket = function (io) {
     io.on('connection', function (socket) {
         console.log('a user connected');
         console.log('socket.id = ' + socket.id)
@@ -20,17 +24,52 @@ const serverSocket = function(io){
         });
 
         // catch maak een nieuwe oproep van de client
-        socket.on('nieuweOproep', function(data){
+        socket.on('nieuweOproep', function (data) {
             console.log(data)
-            fs.writeFile('../data/oproepen.json', data, (error)=>{
-                if(error) throw error;
+            fs.writeFile('../data/oproepen.json', data, (error) => {
+                if (error) throw error;
                 console.log('oproep saved')
             })
 
         })
-}
-    )};
-    
+
+        socket.on('input', function (input) {
+            if (postObject.socket === '') {
+                postObject.socket = socket.id
+            }
+            postObject.postArray.push(input)
+            console.log(postObject)
+            console.log(postObject.postArray.length)
+
+
+            //         const newPost = new postModel({
+            // username: ''
+            // description: String,
+            // profilePic: String,
+            // reactions: Array,
+            // favorites: Array,
+            // tags: Array,
+            // date: String,
+            //         })
+
+        })
+
+
+        // when the user clicks POST button to POST 
+        socket.on('postRequest', function(){
+            console.log('posting ' + postObject.postArray[1])
+        })
+
+        // send back input data 
+        socket.on('askData', function(){
+            console.log('------------------------')
+            console.log(postObject)
+            socket.emit('emitData', postObject)
+            postObject.postArray = []
+        
+        })
+    })
+};
 
 
 module.exports = serverSocket;

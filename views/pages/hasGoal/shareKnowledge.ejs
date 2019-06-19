@@ -1,22 +1,21 @@
   <body>
   <header>
-  <h1>Oke, </h1> <h2>aan wat voor soort hulp heb je behoefte?</h2>
+  <h1>Oke, </h1> <h2>over wat voor soort kennis beschik je?</h2>
   <p>* vul minimaal 3 keuzes in</p>
   </header>  
   
   <input type="text" name="tag" placeholder="typ hier">
   <button type="">voeg toe</button>
   
-  
   <h2>geef een naam aan je bericht</h2>
-  <input type="textarea">
+  <input type="textarea" name="messageName">
 
   <h2>typ je bericht</h2>
-    <input type="textarea">
+    <input type="textarea" name="message">
 
 
     <header>
-<h1>maak jezelf herkenbaar </h1>
+<h2>maak jezelf herkenbaar </h2>
 <p></p>
 </header>
 
@@ -30,14 +29,15 @@
 </section>
 
 <section>   
-<h2>geef jezelf een naam</h2>
-<input type="textarea" name="firstname" placeholder="jou naam...">
+<h1>geef jezelf een naam</h1>
+<input type="textarea" name="username" placeholder="jou naam...">
 </section>
 
 <a href="">Vorige</a>
 [Help]
 
 <a href="messageOverview" id="nextButton">volgende</a>
+
 
 <% include ../../components/scripts.ejs %>
 </body>
