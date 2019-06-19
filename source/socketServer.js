@@ -54,25 +54,25 @@ const serverSocket = function (io) {
             // tags: Array,
             // date: String,
             //         })
-            
+
         })
-        
-        
-        // when the user clicks POST button to POST 
+
+
+        // when the user clicks POST button to POST
         socket.on('postRequest', function(){
             console.log('posting ' + postObject.postArray[1])
-            
+
         })
-        
-        // send back input data 
+
+        // send back input data
         socket.on('askData', function(){
-            
+
             console.log('------------------------')
             console.log(postObject)
             postObject.postArray[postObject.postArray.push({name: 'time', data: Date()})]
             socket.emit('emitData', postObject)
             postObject.postArray = []
-        
+
         })
     })
 };

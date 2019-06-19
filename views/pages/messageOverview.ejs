@@ -1,19 +1,40 @@
-<body>
+<% include ../components/header.ejs %>
 
-<h1>zo ziet je bericht er uit <span name="username" class="data"></span>:</h1>
+<header>
+  <h2>zo ziet je bericht er uit</h2>
+</header>
 
+<section id="message">
+  <div id="header">
+    <h2 name="postName" class="data"></h2>
+    <h4 name="" class="data time-text"></h4>
+    <h4 name="" class="data date-text"></h4>
+  </div>
+    <p name="postContent" class="data content-text"></p>
 
-<div>
-    <h2>Title: <span name="postName" class="data"></span></h2>
-    <p>text: <span name="postContent" class="data"></span></p>
-    <p>tags: <span name="tag" class="data"></span></p>
-    <p>time: <span name="time" class="data"></span></p>
+    <div id="tags">
+      <div class="tag"> <!-- give created element this class -->
+        <h3 name="tag" class="data"></h3> <!-- store this elements in created div -->
+      </div>
+    </div>
 
+    <div id="profilePic-name">
+      <img src="/assets/placeholder.jpg" alt="">
+      <h2 name="username" class="data"></h2>
+    </div>
+</section>
 
-<a id="postButton" href="dashboard">POST</a>
-</div>
+<footer id="navigate-footer">
+  <div class="prev-next-button">
+    <a href="shareKnowledge">terug</a>
+  </div>
+  <img src="/assets/question-mark.svg" alt="explore">
+  <div class="prev-next-button">
+    <a id="postButton" href="dashboard">plaats</a>
+  </div>
+</footer>
 
-
+<script defer src="../javascript/slice-time.js" type="module"></script>
 <% include ../components/scripts.ejs %>
 
-</body>
+<% include ../components/footer.ejs %>
