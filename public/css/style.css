@@ -229,11 +229,12 @@ section.recognition h2 {
 
 section.recognition input[type="text"]{
   font-size: 1em;
-  width: 80%;
+  width: 79%;
   height: 3em;
   background-color: #ccc;
   border: none;
   border-radius: 1em;
   margin: 5% auto 10%;
   padding-left: 10%;
+
 }
