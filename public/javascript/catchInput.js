@@ -10,7 +10,7 @@ const getInput = {
             })
         }
     },
-    locate: function(io){
+    locate: function(){
         const button = document.querySelector('#nextButton')
         const element = document.querySelectorAll('input')
 if(button){
@@ -41,8 +41,6 @@ if(button){
     },
 }
 
-getInput.locate()
-
 const renderInput = {
     getData: function(){
         // when at the messageOverview page, retrieve the input data
@@ -58,3 +56,5 @@ const renderInput = {
 }
 
 renderInput.getData()
+
+export default {getInput, renderInput};
