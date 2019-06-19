@@ -1,3 +1,8 @@
+console.log('abvaksdv')
+
+
+// import getInput from './catchInput.js'
+console.log(getInput)
 let currentPage = 0;
 
 let next = document.querySelector('.next');
@@ -9,6 +14,7 @@ next.addEventListener('click', function(){
 
   let section = document.querySelectorAll('.section');
   section.forEach(function(hide){
+    getInput.locate()
     hide.classList.add('none')
   })
 
