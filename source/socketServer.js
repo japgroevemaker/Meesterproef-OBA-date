@@ -73,17 +73,18 @@ const socketServer = function (io) {
         })
         socket.on('savePost', function (data) {
             console.log('saving post')
-            console.log(data.postArray)
+            console.log(data.postArray[0].tags)
             const formattedData = {}
-            data.postArray.forEach(data => {
-                const dataName = data.name
-                formattedData[dataName] = data.data
+            data.postArray.forEach(doc => {
+                const dataName = doc.name
+                formattedData[dataName] = doc.data
                 console.log(formattedData)
             })
+            console.log(formattedData.tags)
             
             const newPost = new postModel({
                 // tags
-                tags: formattedData.tag,
+                tags: formattedData.tags,
                 // title of the post
                 postName: formattedData.postName,
                 // description
@@ -117,6 +118,25 @@ const socketServer = function (io) {
                     console.log(err.red)
                 } else{
                     if(oldData != docs){
+
+
+                        // unfinished filtering method to clear out undefined values from key-value pairs in retrieved data
+                        // console.log(docs.length)
+                        // let index = 0
+                        // docs.forEach((doc, index)=>{
+                        //     for (let [key, value] of Object.entries(doc)){
+                        //         if(doc.key == undefined || doc.key == ""){
+                        //             console.log('data contained undefined'.red)
+                        //         delete docs[index]
+                        //         }
+                                
+                        //     }
+                            
+                        // })
+                        // console.log(docs.length)
+
+
+
 
                         console.log(` number of documents retrieved: ${docs.length}`.underline.blue)
                         oldData = docs
