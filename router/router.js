@@ -33,15 +33,15 @@ router.get('/helpMe', (req,res)=>{
 })
 router.get('/somethingTogether', (req,res)=>{
     console.log('entered somethingTogether')
-    res.render('./pages/hasGoal/somethingTogether')
+    res.render('./pages/somethingTogether')
 })
 router.get('/break', (req,res)=>{
     console.log('entered break')
-    res.render('./pages/hasGoal/break')
+    res.render('./pages/break')
 })
 router.get('/discover', (req,res)=>{
     console.log('entered discover')
-    res.render('./pages/hasGoal/discover')
+    res.render('./pages/discover')
 })
 
 
