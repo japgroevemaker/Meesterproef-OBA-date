@@ -6,7 +6,9 @@ import getInput from './catchInput.js'
   let prev = document.querySelector('.prev')
 
   next.addEventListener('click', function(){
+    //get input from first
     getInput.getInput.locate()
+  
     currentPage++
     console.log(currentPage);
 

@@ -12,8 +12,8 @@ module.exports = function () {
         console.log('Connected to DB');
 
     });
-
     let db = mongoose.connection;
+    
 
     // if there is an error connecting to db - log it
     db.on('error', console.error.bind(console, 'connection error:'));
