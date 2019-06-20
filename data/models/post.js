@@ -25,9 +25,6 @@ const postSchema= new mongoose.Schema({
 // set schema as mongoose model
 const postModel = mongoose.model('postSchema', postSchema, 'posts');
 
-// export schema
-module.exports = postModel;
-
 
 /////// how to add a single property ---> $set
 
@@ -35,33 +32,26 @@ module.exports = postModel;
     //     // zoek op:
     //     Symbol: symbol
     // }, {
-//     // verander deze prop:
-//     $set: {
-    // newValue}
-    //     }
-    // )
-    
+        //     // verander deze prop:
+        //     $set: {
+            // newValue}
+            //     }
+            // )
+            
+            
+            
+            
+            
+            /////// log existing documents (modelName.find)
+            //getDocuments(postModel)
+            
+        
 
-
-
-
-    /////// log existing documents (modelName.find)
-//getDocuments(postModel)
-
-
-    function getDocuments(modelName){
-        modelName.find({}, function(err, docs){
-            if(err){
-                console.log(err)
-            } else{
-                docs.forEach(doc=>{
-                    console.log(doc)
-                    console.log('_')
-                })
-            }
-        })
-    }
-
-    
-    
+        
+            // export schema
+    module.exports = postModel;
+            
+            
+            
+            
     

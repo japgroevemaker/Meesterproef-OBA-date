@@ -1,39 +1,27 @@
 const fs = require('fs')
-
+const colors = require('colors')
 // Declare socket api
 const postModel = require('../data/models/post')
-
 postObject = {
     socket: '',
     postArray: [],
 }
 
+
 ////////// SOCKET IO CODE //////////
 // setup socket.io
-const serverSocket = function (io) {
+const socketServer = function (io) {
     io.on('connection', function (socket) {
         console.log('a user connected');
         console.log('socket.id = ' + socket.id)
-
-
+        
         // Send user disconnected log + socket.id
         socket.on('disconnect', function () {
             console.log('user disconnected');
             console.log('socket.id = ' + socket.id);
-
         });
-
-        // catch maak een nieuwe oproep van de client
-        socket.on('nieuweOproep', function (data) {
-            console.log(data)
-            fs.writeFile('../data/oproepen.json', data, (error) => {
-                if (error) throw error;
-                console.log('oproep saved')
-            })
-
-        })
-
-
+        
+        
         // listen for input message from client
         socket.on('input', function (input) {
             if (postObject.socket === '') {
@@ -41,55 +29,35 @@ const serverSocket = function (io) {
             }
             // push input to the sockets data object
             postObject.postArray.push(input)
-          
+            
             // console.log(postObject.postArray.length)
-            fs.writeFile('dummyTest.txt', input.data, (err) => {  
+            fs.writeFile('dummyTest.txt', input.data, (err) => {
                 // throws an error, you could also catch it here
                 if (err) throw err;
                 // success case, the file was saved
                 console.log('file saved!');
             });
-            
-            
         })
-        
         
         // when the user clicks POST button to POST 
         socket.on('postRequest', function () {
             // console.log('posting ' + postObject.postArray[1])
             console.log(postObject)
-            
         })
-
+        
         // send back input data 
         socket.on('askData', function () {
-          
             console.log(postObject)
             console.log(postObject.postArray.length)
-
-
-            //         const newPost = new postModel({
-            // username: ''
-            // description: String,
-            // profilePic: String,
-            // reactions: Array,
-            // favorites: Array,
-            // tags: Array,
-            // date: String,
-            //         })
-
         })
-
-
+        
         // when the user clicks POST button to POST
-        socket.on('postRequest', function(){
+        socket.on('postRequest', function () {
             console.log('posting ' + postObject.postArray[1])
-
         })
-
+        
         // send back input data
-        socket.on('askData', function(){
-
+        socket.on('askData', function () {
             console.log('------------------------')
             // add timestamp
             postObject.postArray[postObject.postArray.push({
@@ -101,16 +69,16 @@ const serverSocket = function (io) {
             //console.log(postObject)
             // reset the postArray
             postObject.postArray = []
-
+            
         })
         socket.on('savePost', function (data) {
             console.log('saving post')
             console.log(data.postArray)
             const formattedData = {}
-            data.postArray.forEach(data=>{
+            data.postArray.forEach(data => {
                 const dataName = data.name
                 formattedData[dataName] = data.data
-            console.log(formattedData)
+                console.log(formattedData)
             })
             
             const newPost = new postModel({
@@ -131,14 +99,47 @@ const serverSocket = function (io) {
                 // tijd
                 date: formattedData.time,
             })
-            try{newPost.save()
-            console.log('succesfully Saved Post')}
-            catch(error){console.log(error)}
-            
-
+            try {
+                newPost.save().then((newpost)=>{
+                    socket.broadcast.emit('threadGranted', newPost)
+                })
+    
+                console.log('succesfully Saved Post'.green)
+            } catch (error) {
+                console.log(error)
+            }
         })
+        
+        let oldData = {}
+        function getDocuments(modelName){
+            modelName.find({}, function(err, docs){
+                if(err || !docs){
+                    console.log(err.red)
+                } else{
+                    if(oldData != docs){
+
+                        console.log(` number of documents retrieved: ${docs.length}`.underline.blue)
+                        oldData = docs
+                        // logging individual docs
+                        docs.forEach(doc=>{
+                            // console.log(doc)
+                        })
+                        socket.emit('threadGranted', docs)
+                    }
+                }
+            })
+        }
+        // Listen for connection query db for them and send data to client
+        try{
+            data = getDocuments(postModel)
+        }
+        catch(error){
+            if(error){
+                console.log(error.red)
+            }
+        }
     })
 };
 
 
-module.exports = serverSocket;
+module.exports = {socketServer};
