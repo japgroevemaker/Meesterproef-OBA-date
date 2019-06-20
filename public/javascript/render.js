@@ -25,24 +25,28 @@ const render = {
             console.log(`${data[0].username}: ${data[0].postName}`)
         }
 
-        // for each doc
-        data.forEach(doc => {
+
+            // for each doc
+            data.forEach(doc => {
+
             console.log(data)
             const thread = document.querySelector('#thread')
             const element = document.createElement('section')
 
+
             element.setAttribute('class', 'message')
             // post htm;
             element.innerHTML += ` 
+
        <div id="header">
            <h2>${doc.postName}</h2>
        </header>
        <p>${doc.postContent}</p>
-       
+
         <div id="tags">
         <p>${doc.tags}</p>
         </div>
-    
+
         <div id="profilePic-name">
         ${JSON.stringify(doc)}
         </div>
@@ -56,8 +60,6 @@ const render = {
         })
 
     }
-
-
 
 
 
@@ -77,6 +79,7 @@ const render = {
     //             // case: it has -> render it to DOM
     //             // if there is allready content we need to make a new post element right now all titles end up in one box
 
+
     //            if(element.innerHTML !== ""){
 
     //            }
@@ -87,5 +90,5 @@ const render = {
 
 
 }
-
 export default render;
+
