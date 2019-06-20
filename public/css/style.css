@@ -366,3 +366,19 @@ section#message div#profilePic-name h2 {
   font-weight: lighter;
   margin: auto;
 }
+
+/* ---------dashboard--------- */
+form#dashboard-search {
+  display: flex;
+  flex-direction: column;
+}
+
+form#dashboard-search input[type="text"]{
+  font-size: 1em;
+  width: 85%;
+  height: 3em;
+  background-color: var(--input-background);
+  border: var(--input-border);
+  margin: 5% auto 10%;
+  padding-left: 5%;
+}
