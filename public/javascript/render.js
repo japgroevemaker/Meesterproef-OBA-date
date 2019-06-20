@@ -28,7 +28,7 @@ console.log('New data Retrieved')
 
 
             // for each doc
-            data.forEach(doc => {   
+            data.forEach(doc => {
             console.log(data)
 
                     const thread = document.querySelector('#thread')
@@ -36,16 +36,16 @@ console.log('New data Retrieved')
 
                     element.setAttribute('class', 'message')
                     // post htm;
-                    element.innerHTML += ` 
+                    element.innerHTML += `
        <div id="header">
            <h2>${doc.postName}</h2>
        </header>
        <p>${doc.postContent}</p>
-       
+
         <div id="tags">
         <p>${doc.tags}</p>
         </div>
-    
+
         <div id="profilePic-name">
         ${JSON.stringify(doc)}
         </div>
@@ -68,7 +68,7 @@ console.log(element)
             // // get all data elements from DOM
             // const elements = document.querySelectorAll('.data')
             // console.log(data)
-            // // for each element 
+            // // for each element
             // elements.forEach(element => {
             //     element.innerHTML = "";
             //     console.log(element.parentElement)
