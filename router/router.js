@@ -29,7 +29,7 @@ router.get('/shareKnowledge', (req,res)=>{
 
 router.get('/helpMe', (req,res)=>{
     console.log('entered HelpMe')
-    res.render('./pages/hasGoal/helpMe')
+    res.render('./pages/helpMe')
 })
 router.get('/somethingTogether', (req,res)=>{
     console.log('entered somethingTogether')
