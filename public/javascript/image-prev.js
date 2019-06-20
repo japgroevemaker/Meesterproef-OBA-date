@@ -13,12 +13,15 @@ let inputImg = document.querySelector('#pic')
 
 let removePic = document.querySelector('#remove-pic');
 
-removePic.addEventListener('click', function(){
+// added event as param and prevented page reload
+removePic.addEventListener('click', function(event){
   removePreview()
+  event.preventDefault()
 })
-
-inputImg.addEventListener('change', function(){
+// added event as param and prevented page reload
+inputImg.addEventListener('change', function(event){
   showPic()
+  event.preventDefault()
 });
 
 function showPic () {
@@ -29,9 +32,11 @@ function showPic () {
   
   
   
-  reader.onload = function() {
+  reader.onload = function(event) {
     preview.setAttribute('src', reader.result)
-  getInput.getInput.handleImage(reader.result)
+    getInput.getInput.handleImage(reader.result)
+    event.preventDefault()
+
   }
 }
 

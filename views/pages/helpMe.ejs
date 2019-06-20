@@ -1,43 +1,78 @@
-  <body>
-  <header>
-  <h1>Oke, </h1> <h2>aan wat voor soort hulp heb je behoefte?</h2>
+<% include ../components/header.ejs %>
+
+<section id="0" class="input-field section">
+<header>
+  <h2>Oke, </h2> <h2>aan wat voor soort hulp heb je behoefte?</h2>
   <p>* vul minimaal 3 keuzes in</p>
-  </header>  
-  
-  <input type="text" name="tag" placeholder="typ hier">
-  <button type="">voeg toe</button>
-  
-  
+  </header>
+
+  <div id="add-tags">
+    <form action="">
+      <input type="text" name="tag" placeholder="typ hier je tag">
+      <button type="submit">voeg toe</button>
+    </form>
+  </div>
+
+  <div id="tags">
+
+  </div>
+
   <h2>geef een naam aan je bericht</h2>
-  <input type="textarea">
+  <input type="text" placeholder="typ hier je naam" name="postName">
 
   <h2>typ je bericht</h2>
-    <input type="textarea">
+  <textarea placeholder="typ hier je bericht" name="postContent"></textarea>
 
+  <footer id="navigate-footer">
+    <div class="prev-next-button">
+      <a href="iHaveAGoal">terug</a>
+    </div>
 
-    <header>
-<h1>maak jezelf herkenbaar </h1>
-<p></p>
-</header>
+    <img src="/assets/question-mark.svg" alt="explore">
+    <div class="prev-next-button">
+      <h3 class="next">volgende</h3>
+    </div>
+  </footer>
 
-<section id="profilePic">
-<form action="getPicture.js">
-    <article id="picBox"></article>
-    <button type=""> upload foto</button>
-    <input type="file" accept="image/   *" name="pic">
-    <input type="submit">
-</form>
 </section>
 
-<section>   
-<h2>geef jezelf een naam</h2>
-<input type="textarea" name="firstname" placeholder="jou naam...">
-</section>
+<section id="1" class="recognition none section">
+  <header>
+  <h2>maak jezelf herkenbaar </h2>
+  <p></p>
+  </header>
 
-<a href="">Vorige</a>
-[Help]
+  <section class="profilePic">
+  <form action="getPicture.js">
+      <img id="profile-pic-preview" src="/assets/placeholder.jpg" alt="">
+      <input type="file" id="pic" accept="image/   *" name="pic" class="none">
 
-<a href="messageOverview" id="nextButton">volgende</a>
+      <div class="button-align">
+        <label for="pic">upload foto</label>
+        <button id='remove-pic'>verwijder</button>
+      </div>
+  </form>
+  </section>
 
-<% include ../../components/scripts.ejs %>
-</body>
+
+  <h2>geef jezelf een naam</h2>
+  <input type="text" name="username" placeholder="jouw naam...">
+
+
+  <footer id="navigate-footer">
+    <div class="prev-next-button">
+      <h3 class="prev">terug</h3>
+    </div>
+    <img src="/assets/question-mark.svg" alt="explore">
+    <div class="prev-next-button">
+      <a href="messageOverview">volgende</a>
+    </div>
+  </footer>
+
+
+<script defer src="../javascript/add-tag.js" type="module"></script>
+<script defer src="../javascript/image-prev.js" type="module"></script>
+<script defer src="../javascript/prev-next.js" type="module"></script>
+
+<% include ../components/footer.ejs %>
+<% include ../components/scripts.ejs %>

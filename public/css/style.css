@@ -15,7 +15,7 @@
 /* ---------index & goal page--------- */
 header {
   width: 90%;
-  margin: 10% auto;
+  margin: 5% auto 5%;
 }
 
 header h2 {
@@ -23,6 +23,13 @@ header h2 {
   font-family: var(--OBA-font);
   font-weight: lighter;
   color: var(--header-color);
+}
+
+header p {
+  font-family: var(--OBA-font);
+  font-weight: lighter;
+  color: var(--header-color);
+  margin-left: 5%;
 }
 
 #startupList {
@@ -72,7 +79,7 @@ footer#navigate-footer div.prev-next-button {
 }
 
 footer#navigate-footer img {
-  width: 3em;
+  width: 2.5em;
   margin: auto;
 }
 
@@ -237,6 +244,7 @@ section.recognition section.profilePic form img {
   height: 15em;
   margin: 5% auto 5%;
   border-radius: 100%;
+  border: var(--input-border);
 }
 
 section.recognition section.profilePic label {

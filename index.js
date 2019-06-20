@@ -11,8 +11,8 @@ let http = require('http').Server(app)
 const db = require('./data/db')
 db();
 
-const socketServer = require('./source/socketServer.js')
-
+const socket = require('./source/socketServer.js')
+const socketServer = socket.socketServer
 
 // middleware
 app.set('view engine', 'ejs');
