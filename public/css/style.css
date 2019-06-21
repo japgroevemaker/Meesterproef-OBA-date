@@ -2,7 +2,7 @@
   --OBA-red: #FF0000;
   --OBA-subColor: #D9582B;
   --header-color: #707070;
-  --OBA-font: Avenir;
+  --OBA-font: Avenir, sans-serif;
   --input-background: #f6f6f6;
   --input-border: 1px solid #e6e6e6;
 }
@@ -368,9 +368,98 @@ section#message div#profilePic-name h2 {
 }
 
 /* ---------dashboard--------- */
+header#dashboard-header {
+  display: grid;
+  width: 100%;
+  height: 3em;
+  background-color: var(--OBA-subColor);
+  grid-template-columns: 50%;
+  margin: 0 auto 10%;
+}
+
+header#dashboard-header h2 {
+  grid-column-start: 1;
+  margin: auto;
+}
+
+header#dashboard-header span.burger {
+  grid-column-start: 2;
+  font-size: 1.5em;
+  margin: auto 10%;
+  justify-self: end;
+}
+
+.nav-unfold {
+  right: 0 !important;
+  transition: right 300ms ease-in-out;
+}
+
+.close-nav {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+
+header#dashboard-header nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: #fff;
+  transition: right 300ms ease-in-out;
+}
+
+header nav ul {
+  list-style-type: none;
+  width: 80%;
+  margin: 50% auto;
+}
+
+header nav ul li {
+  margin: 2em 0 2em 0;
+  border-bottom: solid 0.01em var(--OBA-subColor);
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 3em;
+}
+
+header nav ul li img {
+  width: 2em;
+  grid-column-start: 2;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.5em;
+  font-family: var(--OBA-font);
+  grid-column-start: 1;
+}
+
 form#dashboard-search {
+  margin: auto;
+  width: 90%;
   display: flex;
   flex-direction: column;
+}
+
+form#dashboard-search div#checkbox {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+form#dashboard-search h2 {
+  font-family: var(--OBA-font);
+  font-weight: lighter;
+  font-size: 1em;
+  margin-top: 10%;
+  margin-left: 5%;
 }
 
 form#dashboard-search input[type="text"]{
@@ -379,6 +468,6 @@ form#dashboard-search input[type="text"]{
   height: 3em;
   background-color: var(--input-background);
   border: var(--input-border);
-  margin: 5% auto 10%;
+  margin: 0 auto 10%;
   padding-left: 5%;
 }
