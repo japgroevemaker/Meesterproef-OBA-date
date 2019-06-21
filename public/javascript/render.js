@@ -47,25 +47,47 @@ const render = {
       const postContent = document.createElement('p');
       postContent.innerHTML = doc.postContent
 
-      const tags = document.createElement('div');
+      let tags = document.createElement('div');
       tags.setAttribute('id', 'tags')
 
-      const tag =  document.createElement('div');
-      tag.setAttribute('class', 'tag')
+      let newTag = doc.tags
 
-      const tagName = document.createElement('h3');
-      tagName.innerHTML = doc.tags
+      newTag.forEach(function(completeTag){
+
+        const tag = document.createElement('div');
+        tag.setAttribute('class', 'tag')
+
+        const tagName = document.createElement('h3');
+        tagName.innerHTML = completeTag
+
+        tags.appendChild(tag);
+        tag.appendChild(tagName);
+      })
+
 
       const profilePicName = document.createElement('div')
       profilePicName.setAttribute('id', 'profilePic-name');
 
       const profilePic = document.createElement('img');
       profilePic.src = doc.profilePic
-      
+
         if (!doc.profilePic) {
           profilePic.src = "/assets/placeholder.jpg"
         }
 
+      const reactions = document.createElement('div');
+      reactions.setAttribute('id', 'reactions')
+
+      const reactionInput = document.createElement('input');
+      reactionInput.setAttribute('placeholder', 'schrijf een opmerking...')
+      reactionInput.setAttribute('type', 'text')
+
+      const reactionProfilePic = document.createElement('img');
+      reactionProfilePic.src = doc.profilePic
+
+      if (!doc.profilePic) {
+        profilePic.src = "/assets/placeholder.jpg"
+      }
 
         console.log(element)
         element.appendChild(headerDiv);
@@ -75,11 +97,14 @@ const render = {
         element.appendChild(postContent);
 
         element.appendChild(tags);
-          tags.appendChild(tag);
-          tag.appendChild(tagName);
+
 
         element.appendChild(profilePicName)
           profilePicName.appendChild(profilePic)
+
+        element.appendChild(reactions)
+          reactions.appendChild(reactionProfilePic)
+          reactions.appendChild(reactionInput);
 
         thread.appendChild(element)
 

@@ -278,18 +278,19 @@ section.recognition input[type="text"]{
 
 /* ---------messageOverviewpage--------- */
 section#message {
+  background-color: #FAFAFA;
   width: 90%;
   height: auto;
   margin: 5% auto 10%;
   border: var(--input-border);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
 section#message div#header {
-  width: 90%;
+  width: 100%;
+  margin: 5% auto 5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -315,18 +316,21 @@ section#message p {
   font-family: var(--OBA-font);
   font-weight: lighter;
   width: 90%;
-  margin: 5% auto 10%;
+  margin: 0 auto 5%;
   word-wrap: break-word;
 }
 
 section#message div#tags {
-  width: 80%;
-  margin: 0 auto 10%;
+  width: 90%;
+  margin: 5% auto 10%;
+  display: flex;
+  flex-direction: row;
 }
 
 section#message div#tags .tag {
   background-color: var(--OBA-red);
   width: auto;
+  margin: 0.2em;
   padding: 0 0.5em;
   height: 2em;
   border-radius: 2em;
@@ -354,11 +358,17 @@ div#profilePic-name {
   margin: 0 auto 10%;
   display: flex;
   flex-direction: row;
+  background-color: #EEEEEE;
+  border-radius: 1em;
+
 }
 
 section#message div#profilePic-name img {
   border-radius: 100%;
-  width: 30%;
+  width: 3.5em;
+  height: 3.5em;
+  border: solid #ccc 0.01em;
+  margin: auto 0.5em;
 }
 
 section#message div#profilePic-name h2 {
@@ -369,10 +379,11 @@ section#message div#profilePic-name h2 {
 
 /* ---------dashboard--------- */
 header#dashboard-header {
+  background-color: #fff;
   display: grid;
   width: 100%;
   height: 3em;
-  background-color: var(--OBA-subColor);
+  border-bottom: var(--input-border);
   grid-template-columns: 50%;
   margin: 0 auto 10%;
 }
@@ -459,15 +470,44 @@ form#dashboard-search h2 {
   font-weight: lighter;
   font-size: 1em;
   margin-top: 10%;
-  margin-left: 5%;
 }
 
 form#dashboard-search input[type="text"]{
   font-size: 1em;
-  width: 85%;
+  width: 95%;
   height: 3em;
   background-color: var(--input-background);
   border: var(--input-border);
   margin: 0 auto 10%;
   padding-left: 5%;
+}
+
+section#message div#reactions {
+  background-color: #fff;
+  padding: 0.5em 0;
+  width: 100%;
+  border-top: var(--input-border);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+section#message div#reactions input[type="text"] {
+  font-size: 1em;
+  width: 70%;
+  height: 2.5em;
+  font-weight: lighter;
+  background-color: var(--input-background);
+  border: none;
+  border-radius: 0.5em;
+  margin: auto;
+  padding-left: 5%;
+}
+
+section#message div#reactions img {
+  width: 2.5em;
+  height: 2.5em;
+  margin-left: 5%;
+  border: solid #ccc 0.01em;
+  border-radius: 100%;
 }
