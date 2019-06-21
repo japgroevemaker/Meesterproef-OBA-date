@@ -7,8 +7,9 @@ import getInput from './catchInput.js'
 
   next.addEventListener('click', function(){
     //get input from first
-    getInput.getInput.locate()
-  
+    getInput.getInput.locate(currentPage)
+    
+    
     currentPage++
     console.log(currentPage);
 
@@ -32,3 +33,4 @@ import getInput from './catchInput.js'
 
     document.getElementById(currentPage).classList.remove('none')
   })
+

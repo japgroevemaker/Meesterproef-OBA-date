@@ -3,10 +3,11 @@ import handlePost from './handlepost.js'
 const render = {
     renderInputData: function (data) {
 
-        // Call postRequest Submit Event Listener
+        // Call post Request Submit Event Listener
         handlePost.listener(data)
         // console.log(data)
         const elements = document.querySelectorAll('.data')
+        console.log(data)
         // console.log(elements)
         elements.forEach(element => {
             data.postArray.forEach(prop => {
@@ -27,7 +28,8 @@ const render = {
 
 
             // for each doc
-            data.forEach(doc => {
+            let i = 0
+            data.forEach((doc, i) => {
 
             console.log(data)
             const thread = document.querySelector('#thread')
@@ -48,12 +50,12 @@ const render = {
         </div>
 
         <div id="profilePic-name">
-        ${JSON.stringify(doc)}
+        
         </div>
        `
             console.log(element)
             thread.appendChild(element)
-
+    i++
 
 
             // need 2 remake the image from encoding

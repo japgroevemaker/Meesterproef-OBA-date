@@ -2,7 +2,8 @@ const fs = require('fs')
 const colors = require('colors')
 // Declare socket api
 const postModel = require('../data/models/post')
-postObject = {
+
+let postObject = {
     socket: '',
     postArray: [],
 }
@@ -29,32 +30,8 @@ const socketServer = function (io) {
             }
             // push input to the sockets data object
             postObject.postArray.push(input)
-            
-            // console.log(postObject.postArray.length)
-            fs.writeFile('dummyTest.txt', input.data, (err) => {
-                // throws an error, you could also catch it here
-                if (err) throw err;
-                // success case, the file was saved
-                console.log('file saved!');
-            });
         })
-        
-        // when the user clicks POST button to POST 
-        socket.on('postRequest', function () {
-            // console.log('posting ' + postObject.postArray[1])
-            console.log(postObject)
-        })
-        
-        // send back input data 
-        socket.on('askData', function () {
-            console.log(postObject)
-            console.log(postObject.postArray.length)
-        })
-        
-        // when the user clicks POST button to POST
-        socket.on('postRequest', function () {
-            console.log('posting ' + postObject.postArray[1])
-        })
+
         
         // send back input data
         socket.on('askData', function () {
@@ -73,6 +50,7 @@ const socketServer = function (io) {
         })
         socket.on('savePost', function (data) {
             console.log('saving post')
+            console.log(data)
             console.log(data.postArray[0].tags)
             const formattedData = {}
             data.postArray.forEach(doc => {
