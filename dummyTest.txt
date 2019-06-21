@@ -1,1 +1,4 @@
+<<<<<<< HEAD
 lekker knuser knus koffie drinken
+=======
+>>>>>>> 8ee22cc9927d9b0f4b09f43c444966076058e32d
