@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 
 // define schema properties
 const postSchema= new mongoose.Schema({
-    // tags
-    tags: String,
+    // tags = Array of String(s)
+    tags: [{  type: String }],
     // title of the post
     postName: String,
     // description

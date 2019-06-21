@@ -6,7 +6,7 @@ const getInput = {
         console.log('catchinput fired')
 
         // set input fields
-        const element = document.querySelectorAll('input, textarea')
+        const element = document.querySelectorAll('input, textarea, #tags')
 
         // check for emptiness (validation)
         element.forEach(element => {
@@ -22,18 +22,52 @@ const getInput = {
 
     },
     handleInput: function (element) {
+
+        if(element.getAttribute('id') == 'tags'){
+            console.log('found tags')
+            element = [element]
+            console.log(element)
+            // check if the tags are in an array
+            //   console.log(element[0].childNodes)
+            // if they are handle it seperately from the other inputs
+            let tagArray = []
+            // console.log(element[0].innerText)
+            element[0].childNodes.forEach(tag =>{
+                // the object holds a [0].innerText value of undefined by default so Error handling was added below
+            if(tag.innerText == undefined || tag.innerText == null){
+                console.log('tag.innerText == undefined || null . Tag Deleted')
+            } else{
+
+                tagArray.push(tag.innerText)
+                console.log(tag.innerText)
+                }
+                // tagArray = 
+                const input = {
+                    name: "tags",
+                    data: tagArray
+                }
+                // console.log(input)
+                // send to server
+                socket.emit('input', input)
+                
+            })
+            // console.log(element.children[0].innerText)
+        }
         // if input element is empty show feedback
         if (element.value == '') {
             console.log('reminder!!! Add user feedBack for empty inputfields!!!')
         }
         // if not empty handle the input value
         if (element.value != '' && element.type != 'file') {
-            
+            if(element.value == undefined || element.name == undefined){
+                console.log('reminder!!! Add user feedBack for empty inputfields!!!')
+                
+            }
                 const input = {
                     name: element.name,
                     data: element.value
                 }
-                console.log(input)
+                // console.log(input)
                 // send to server
                 socket.emit('input', input)
             }

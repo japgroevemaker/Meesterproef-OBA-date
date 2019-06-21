@@ -60,9 +60,9 @@ const render = {
       profilePicName.setAttribute('id', 'profilePic-name');
 
       const profilePic = document.createElement('img');
-        if (doc.profilePic) {
-          profilePic.src = doc.profilePic
-        } else {
+      profilePic.src = doc.profilePic
+      
+        if (!doc.profilePic) {
           profilePic.src = "/assets/placeholder.jpg"
         }
 
