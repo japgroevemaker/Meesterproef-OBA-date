@@ -492,22 +492,37 @@ section#message div#reactions {
   flex-wrap: wrap;
 }
 
-section#message div#reactions input[type="text"] {
-  font-size: 1em;
-  width: 70%;
-  height: 2.5em;
+section#message div#reactions form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+section#message div#reactions form input[type="text"] {
+  font-size: 0.8sem;
+  width: 50%;
+  height: auto;
   font-weight: lighter;
   background-color: var(--input-background);
   border: none;
-  border-radius: 0.5em;
-  margin: auto;
+  border-radius: 0.5em 0 0 0.5em;
+  margin-left: auto;
   padding-left: 5%;
 }
 
-section#message div#reactions img {
+section#message div#reactions form img {
   width: 2.5em;
   height: 2.5em;
   margin-left: 5%;
   border: solid #ccc 0.01em;
   border-radius: 100%;
+}
+
+section#message div#reactions form input[type="submit"] {
+  width: 20%;
+  color: #fff;
+  background-color: var(--OBA-subColor);
+  border: none;
+  border-radius:0 0.5em 0.5em 0;
+  margin-right: 5%;
 }
