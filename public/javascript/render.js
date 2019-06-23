@@ -78,12 +78,18 @@ const render = {
       const reactions = document.createElement('div');
       reactions.setAttribute('id', 'reactions')
 
+      const reactionForm = document.createElement('form');
+
       const reactionInput = document.createElement('input');
       reactionInput.setAttribute('placeholder', 'schrijf een opmerking...')
       reactionInput.setAttribute('type', 'text')
 
       const reactionProfilePic = document.createElement('img');
       reactionProfilePic.src = doc.profilePic
+
+      const placeReaction = document.createElement('input');
+      placeReaction.setAttribute('type', 'submit');
+      placeReaction.setAttribute('value', 'plaats')
 
       if (!doc.profilePic) {
         profilePic.src = "/assets/placeholder.jpg"
@@ -103,8 +109,10 @@ const render = {
           profilePicName.appendChild(profilePic)
 
         element.appendChild(reactions)
-          reactions.appendChild(reactionProfilePic)
-          reactions.appendChild(reactionInput);
+          reactions.appendChild(reactionForm);
+          reactionForm.appendChild(reactionProfilePic)
+          reactionForm.appendChild(reactionInput)
+          reactionForm.appendChild(placeReaction);
 
         thread.appendChild(element)
 
