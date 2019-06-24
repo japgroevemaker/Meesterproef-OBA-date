@@ -10,13 +10,19 @@ let preview = document.querySelector('#profile-pic-preview');
 
 let inputImg = document.querySelector('#pic')
 
-let removePic = document.querySelector('#remove-pic');
+let imageEncoded = "";
 
-let imageInForm = document.querySelector('#imageInForm')
 
-// added event as param and prevented page reload
-removePic.addEventListener('click', function(event){
-  removePreview()
+if(window.location.pathname === "/shareKnowledge"){
+  let removePic = document.querySelector('#remove-pic');
+
+
+  let imageInForm = document.querySelector('#imageInForm')
+
+  
+  // added event as param and prevented page reload
+  removePic.addEventListener('click', function(event){
+    removePreview()
   event.preventDefault()
 })
 // added event as param and prevented page reload
@@ -35,12 +41,24 @@ function showPic () {
   
   reader.onload = function(e) {
     e.preventDefault()
-    preview.setAttribute('src', reader.result)
     
+    // console.log(reader.result)
+    const imageInString = document.createElement('input')
+    imageInString.setAttribute('name', "picString")
+    imageInString.setAttribute('type', "text")
+    imageInString.setAttribute('id', "inputImageString")
+    // imageInForm.attributes.add('class', 'none')
+    imageInString.value = reader.result
+    // console.log(imageInForm)
+document.querySelector('form').append(imageInString)
 
+
+
+    preview.setAttribute('src', reader.result)
   }
 }
 
 function removePreview () {
-    preview.setAttribute('src', "/assets/placeholder.jpg")
+  preview.setAttribute('src', "/assets/placeholder.jpg")
 }
+} 

@@ -6,11 +6,21 @@ let close = document.querySelector('.close-nav')
 
 let nav = document.querySelector('nav');
 
+
+if(window.location.pathname === "/dashboard"){
+
 trigger.addEventListener('click', function(){
   nav.classList.toggle('nav-unfold');
   cross.classList.toggle('rotate')
 });
 
-close.addEventListener('click', function(){
-  nav.classList.remove('nav-unfold');
-})
+
+  
+  burger.addEventListener('click', function(){
+    nav.classList.add('nav-unfold');
+  });
+  
+  close.addEventListener('click', function(){
+    nav.classList.remove('nav-unfold');
+  })
+}

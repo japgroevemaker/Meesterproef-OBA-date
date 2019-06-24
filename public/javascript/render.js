@@ -39,7 +39,7 @@ if(data === {}){console.log('Data is empty')}
   },
   renderThread: function (data) {
     console.log('New data Retrieved')
-
+console.log(data)
     console.log(typeof (data) != "Array")
     if (!data.push) {
       // console.log(data)

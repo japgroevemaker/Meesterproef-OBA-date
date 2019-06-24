@@ -58,17 +58,16 @@ router.get('/oproepPlaatsen', (req,res)=>{
 
 
 router.post('/msg', (req, res) => {
-    console.log("hier moet iets komen")
-    console.log(req.body.postName)
+    console.log(`Posting: ${req.body.postName}`)
+    console.log(req.body.picString)
     data = {
-        postName: req.body.postName,
-        postContent: req.body.postContent,
-        username: req.body.username,
-        date: new Date(),
-        tags: req.body.tags,
-        image: req.body.tags
+postName: req.body.postName,
+postContent: req.body.postContent,
+username: req.body.username,
+date: Date.now(),
+tags: req.body.tags,
+image: req.body.picString
     }
-    console.log(data)
     /* TODO  :
     1. Lees alle variabelen uit.
     2. Stop deze in een obj
