@@ -1,0 +1,55 @@
+<% include ../components/header.ejs %>
+
+<header id="dashboard-header">
+  <h2>prikbord</h2>
+  <nav>
+    <h2>Oke, wil je
+      <div class="slider">
+        <ul class="slider-words">
+          <li class="slider-word">kennis delen?</li>
+          <li class="slider-word">hulp vragen?</li>
+          <li class="slider-word">koffie drinken?</li>
+           <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
+          <li class="slider-word">kennis delen?</li>
+        </ul>
+      </div>
+    </h2>
+    <!-- <h2 class="close-nav">X</h2> -->
+    <ul>
+      <li><a href="IHaveAGoal">ik heb een doel</a></li>
+      <li><a href="helpMe">ik heb kennis/hulp nodig</a></li>
+      <li><a href="somethingTogether">ik wil samen iets doen</a></li>
+      <li><a href="break">ik heb pauze</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<form id="dashboard-search">
+
+  <div id="checkbox">
+    <input type="checkbox" id="coffee" name="" value="">
+    <label for="coffee">Koffie drinken</label>
+
+    <input type="checkbox" id="help" name="" value="">
+    <label for="help">Hulp nodig</label>
+
+    <input type="checkbox" id="offer-help" name="" value="">
+    <label for="offer-help">Hulp aangeboden</label>
+  </div>
+
+  <h2>Zoek naar posts</h2>
+  <input type="text" name="" id="search-tags" placeholder="zoek hier naar posts">
+</form>
+
+<section id="thread">
+</section>
+
+<footer id="index-footer">
+  <div id="add-post">
+    <img src="/assets/cross.svg" alt="cross">
+  </div>
+</footer>
+
+<% include ../components/scripts.ejs %>
+<% include ../components/footer.ejs %>
