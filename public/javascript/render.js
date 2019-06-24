@@ -52,6 +52,7 @@ if(data === {}){console.log('Data is empty')}
     data.forEach(doc => {
       // console.log(data)
 
+
       // create script after page loads
       const head = document.querySelector('head');
       const script = document.createElement('script');
@@ -62,7 +63,8 @@ if(data === {}){console.log('Data is empty')}
 
       const thread = document.querySelector('#thread')
       const element = document.createElement('section')
-      element.setAttribute('id', 'message')
+      element.setAttribute('class', 'message')
+      element.setAttribute('id', doc.postName.replace(/ /g, "_"))
 
       const headerDiv = document.createElement('div')
       headerDiv.setAttribute('id', 'header')
