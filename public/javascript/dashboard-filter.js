@@ -5,12 +5,12 @@ let filter = search.value.toUpperCase()
 
 let thread = document.querySelector('#thread')
 
-let messages = thread.querySelector('#message')
+let messages = thread.querySelectorAll('#message')
 
 let tags = document.querySelectorAll('.tag')
 
 
-tags.forEach(function(filterTag) {
+messages.forEach(function(filterTag) {
   search.querySelectorAll('.tag')
 
   if (filterTag.innerHTML.toUpperCase().indexOf(filter) > -1) {
