@@ -64,6 +64,7 @@ const render = {
 
         const tag = document.createElement('div');
         tag.setAttribute('class', 'tag')
+        tag.setAttribute('data-bind', completeTag)
 
         const tagName = document.createElement('h3');
         tagName.innerHTML = completeTag
