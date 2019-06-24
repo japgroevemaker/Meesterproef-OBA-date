@@ -3,8 +3,8 @@
   <h1>Oke, </h1> <h2>over wat voor soort kennis beschik je?</h2>
   <p>* vul minimaal 3 keuzes in</p>
   </header>  
-  
-  <input type="text" name="tag" placeholder="typ hier">
+  <form method="post" action="/messageOverview">
+  <input type="text" name="tags" placeholder="typ hier">
   <button type="">voeg toe</button>
   
   <h2>geef een naam aan je bericht</h2>
@@ -12,7 +12,6 @@
 
   <h2>typ je bericht</h2>
     <input type="textarea" name="message">
-
 
     <header>
 <h2>maak jezelf herkenbaar </h2>
@@ -36,8 +35,10 @@
 <a href="">Vorige</a>
 [Help]
 
-<a href="messageOverview" id="nextButton" tabindex="0">volgende</a>
+<button type="submit" id="nextButton" tabindex="0">volgende
+</button>
 
+</form>
 
 <% include ../../components/scripts.ejs %>
 </body>

@@ -27,16 +27,14 @@ const socketServer = function (io) {
             if (postObject.socket === '') {
                 postObject.socket = socket.id
             }
+            if(input.name === 'username'){
+                console.log(input)
+            }
             // push input to the sockets data object
             postObject.postArray.push(input)
             
             // console.log(postObject.postArray.length)
-            fs.writeFile('dummyTest.txt', input.data, (err) => {
-                // throws an error, you could also catch it here
-                if (err) throw err;
-                // success case, the file was saved
-                console.log('file saved!');
-            });
+
         })
         
         // when the user clicks POST button to POST 
@@ -56,7 +54,7 @@ const socketServer = function (io) {
             console.log('posting ' + postObject.postArray[1])
         })
         
-        // send back input data
+        // send back input data --
         socket.on('askData', function () {
             console.log('------------------------')
             // add timestamp
