@@ -6,6 +6,7 @@ const init = {
     onpageLoad: function (socket) {
         // checking for dashboard url and requesting thread data
         if (window.location.pathname == '/dashboard') {
+            console.log('Thread: Listening')
             // listen for thread data message
            socket.on('threadGranted', function(data){
                console.log('threadgranted')
@@ -13,6 +14,7 @@ const init = {
                render.renderThread(data)
                
            })
+           
         }
     },
 }
