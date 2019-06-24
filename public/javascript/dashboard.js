@@ -9,6 +9,7 @@ const init = {
             // listen for thread data message
            socket.on('threadGranted', function(data){
                console.log('threadgranted')
+               console.log(data)
                render.renderThread(data)
                
            })

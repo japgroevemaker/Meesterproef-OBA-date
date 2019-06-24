@@ -1,4 +1,3 @@
-import getInput from './catchInput.js'
 
 let currentPage = 0;
 
@@ -13,10 +12,6 @@ addEvent()
 
 
 function clickNext(event){
-  console.log('calling input locator')
-    //get input from first
-    getInput.getInput.locate()
-  
     currentPage++
     console.log(currentPage);
 

@@ -29,4 +29,8 @@ http.listen(PORT)
 console.log(`Port ${PORT}`);
 
 let io = require('socket.io')(http)
+module.exports = io
+
+
 socketServer(io);
+
