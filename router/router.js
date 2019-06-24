@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
 // dashboard page
 router.get('/dashboard', (req,res)=>{
     console.log('entered dashboard')
-    res.render('./pages/dashboard')
+    res.render('./pages/index')
 })
 
 router.get('/iHaveAGoal', (req,res)=>{
