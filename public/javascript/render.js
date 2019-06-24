@@ -7,7 +7,7 @@ if(data === {}){console.log('Data is empty')}
     handlePost.listener(data)
     // console.log(data)
     const elements = document.querySelectorAll('.data')
-    console.log(elements)
+    // console.log(elements)
     // console.log(elements)
 
     // check each element
@@ -42,15 +42,16 @@ if(data === {}){console.log('Data is empty')}
 
     console.log(typeof (data) != "Array")
     if (!data.push) {
-      console.log(data)
+      // console.log(data)
       data = [data]
-      console.log(data)
+      // console.log(data)
     }
 
 
     // for each doc
-    data.forEach((doc, i) => {
-      console.log(doc)
+    data.forEach(doc => {
+      // console.log(data)
+
 
       // create script after page loads
       const head = document.querySelector('head');

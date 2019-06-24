@@ -57,10 +57,25 @@ router.get('/oproepPlaatsen', (req,res)=>{
 })
 
 
-router.post('/messageOverview', (req, res) => {
+router.post('/msg', (req, res) => {
     console.log("hier moet iets komen")
-    console.log(req.body.tags)
-    res.render("/messageOverview")
+    console.log(req.body.postName)
+    data = {
+        postName: req.body.postName,
+        postContent: req.body.postContent,
+        username: req.body.username,
+        date: new Date(),
+        tags: req.body.tags,
+        image: req.body.tags
+    }
+    console.log(data)
+    /* TODO  :
+    1. Lees alle variabelen uit.
+    2. Stop deze in een obj
+    3. Doe een fetch-get naar de server om te kijken of de naam al in gebruik is, zo ja, error, zo niet, naam is goed en kan meteen gefetched-post worden.
+    Succes.
+    */
+    res.render("./pages/messageOverview", data)
 })
 
 
