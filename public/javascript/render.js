@@ -31,6 +31,14 @@ const render = {
     data.forEach(doc => {
       console.log(data)
 
+      // create script after page loads
+      const head = document.querySelector('head');
+      const script = document.createElement('script');
+      script.setAttribute('type', 'module');
+      script.src = "../javascript/reactions.js"
+
+      head.appendChild(script)
+
       const thread = document.querySelector('#thread')
       const element = document.createElement('section')
       element.setAttribute('id', 'message')
@@ -80,10 +88,12 @@ const render = {
       reactions.setAttribute('id', 'reactions')
 
       const reactionForm = document.createElement('form');
+      reactionForm.setAttribute('class', 'reaction-form')
 
       const reactionInput = document.createElement('input');
       reactionInput.setAttribute('placeholder', 'schrijf een opmerking...')
       reactionInput.setAttribute('type', 'text')
+      reactionInput.setAttribute('class', 'reaction-input')
 
       const reactionProfilePic = document.createElement('img');
       reactionProfilePic.src = doc.profilePic
@@ -91,6 +101,8 @@ const render = {
       const placeReaction = document.createElement('input');
       placeReaction.setAttribute('type', 'submit');
       placeReaction.setAttribute('value', 'plaats')
+      placeReaction.setAttribute('class', 'button')
+      // placeReaction.setAttribute('disabled', 'disabled')
 
       if (!doc.profilePic) {
         profilePic.src = "/assets/placeholder.jpg"
