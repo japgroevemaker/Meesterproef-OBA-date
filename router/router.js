@@ -4,10 +4,7 @@ const router = express.Router()
 
 // index page
 router.get('/',(req,res)=>{
-
     console.log('entered index')
-    console.log('entered startup')
-
     res.render('./pages/startup')
 })
 
@@ -58,6 +55,37 @@ router.get('/oproepPlaatsen', (req,res)=>{
     console.log('entered oproepPlaatsen')
     res.render('./pages/oproepPlaatsen')
 })
+
+
+router.post('/msg', (req, res) => {
+    console.log("hier moet iets komen")
+    console.log(req.body.postName)
+    data = {
+        postName: req.body.postName,
+        postContent: req.body.postContent,
+        username: req.body.username,
+        date: new Date(),
+        tags: req.body.tags,
+        image: req.body.tags
+    }
+    console.log(data)
+    /* TODO  :
+    1. Lees alle variabelen uit.
+    2. Stop deze in een obj
+    3. Doe een fetch-get naar de server om te kijken of de naam al in gebruik is, zo ja, error, zo niet, naam is goed en kan meteen gefetched-post worden.
+    Succes.
+    */
+    res.render("./pages/messageOverview", data)
+})
+
+
+function renderData(){
+    const data = req.body
+    console.log(data)
+    res.render('/messageOverview', {
+        myPizza: pizzaList
+    })
+}
 
 
 module.exports = router;

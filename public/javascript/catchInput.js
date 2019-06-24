@@ -3,8 +3,6 @@ import render from './render.js'
 const socket = io()
 const getInput = {
     locate: function () {
-        console.log('catchinput fired')
-
         // set input fields
         const element = document.querySelectorAll('input, textarea, #tags')
 
@@ -12,46 +10,35 @@ const getInput = {
         element.forEach(element => {
             getInput.handleInput(element)
         })
-        console.log(element)
-
-
-        // if(form.value != null || undefined || ''){
-        //     console.log()
-        // }
-
 
     },
     handleInput: function (element) {
+        console.log(element)
 
-        if(element.getAttribute('id') == 'tags'){
-            console.log('found tags')
+        if(element.getAttribute('id') == 'tags' ){
             element = [element]
-            console.log(element)
-            // check if the tags are in an array
-            //   console.log(element[0].childNodes)
             // if they are handle it seperately from the other inputs
             let tagArray = []
             // console.log(element[0].innerText)
             element[0].childNodes.forEach(tag =>{
                 // the object holds a [0].innerText value of undefined by default so Error handling was added below
-            if(tag.innerText == undefined || tag.innerText == null){
+            if(tag.innerText == undefined || tag.innerText == null || tag.innerText == ""){
                 console.log('tag.innerText == undefined || null . Tag Deleted')
             } else{
-
                 tagArray.push(tag.innerText)
-                console.log(tag.innerText)
+       
                 }
-                // tagArray = 
+  
                 const input = {
                     name: "tags",
                     data: tagArray
                 }
-                // console.log(input)
+    
                 // send to server
                 socket.emit('input', input)
                 
             })
-            // console.log(element.children[0].innerText)
+
         }
         // if input element is empty show feedback
         if (element.value == '') {
@@ -67,7 +54,7 @@ const getInput = {
                     name: element.name,
                     data: element.value
                 }
-                // console.log(input)
+                 console.log(input)
                 // send to server
                 socket.emit('input', input)
             }
@@ -94,6 +81,7 @@ const renderInput = {
         if (window.location.pathname == '/messageOverview') {
             socket.emit('askData')
             socket.on('emitData', function (data) {
+                console.log(data)
                 render.renderInputData(data)
 
             })
