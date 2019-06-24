@@ -1,6 +1,16 @@
 <% include ../components/header.ejs %>
-  <header>
-  <h2>heb je</h2>
+  <header class="index">
+  <h2>heb je
+  <div class="slider">
+    <ul class="slider-words">
+      <li class="slider-word">kennis om te delen?</li>
+      <li class="slider-word">hulp nodig?</li>
+      <li class="slider-word">behoeft aan overleg?</li>
+       <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
+      <li class="slider-word">kennis om te delen?</li>
+    </ul>
+  </div>
+  </h2>
 
   </header>
 
@@ -12,9 +22,9 @@
     </ul>
   </section>
 
-<footer id="navigate-footer">
+<!-- <footer id="navigate-footer">
   <img src="/assets/question-mark.svg" alt="explore">
-</footer>
+</footer> -->
 
 <% include ../components/scripts.ejs %>
 <% include ../components/footer.ejs %>
