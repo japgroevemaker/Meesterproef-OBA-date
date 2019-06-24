@@ -49,8 +49,8 @@ if(data === {}){console.log('Data is empty')}
 
 
     // for each doc
-    data.forEach(doc => {
-      console.log(data)
+    data.forEach((doc, i) => {
+      console.log(doc)
 
       // create script after page loads
       const head = document.querySelector('head');

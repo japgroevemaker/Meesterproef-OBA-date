@@ -1,12 +1,4 @@
-  // let reactionForm = document.querySelectorAll('.reaction-form');
-  //
-  // console.log(reactionForm);
-  //
-  // reactionForm.forEach(function(noDefault){
-  //   noDefault.addEventListener('submit', function(e){
-  //     e.preventDefault()
-  //   })
-  // })
+
 
   let form = document.querySelectorAll(`.reaction-form`)
 
