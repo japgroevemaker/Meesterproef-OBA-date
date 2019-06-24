@@ -492,13 +492,14 @@ section.message div#reactions {
   flex-wrap: wrap;
 }
 
-section.message div#reactions form {
+section.message div#reactions form.reaction-form {
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 1em;
 }
 
-section.message div#reactions form input[type="text"] {
+section.message div#reactions form.reaction-form input[type="text"] {
   font-size: 0.8sem;
   width: 50%;
   height: auto;
@@ -510,9 +511,10 @@ section.message div#reactions form input[type="text"] {
   padding-left: 5%;
 }
 
-section.message div#reactions form img {
+section.message div#reactions form.reaction-form img {
   width: 2.5em;
   height: 2.5em;
+  margin-top: 0;
   margin-left: 5%;
   border: solid #ccc 0.01em;
   border-radius: 100%;
@@ -525,4 +527,36 @@ section.message div#reactions form input[type="submit"] {
   border: none;
   border-radius:0 0.5em 0.5em 0;
   margin-right: 5%;
+}
+
+section.message div#reactions img {
+  width: 2.5em;
+  height: 2.5em;
+  margin-top: 1%;
+  margin-left: 5%;
+  border: solid #ccc 0.01em;
+  border-radius: 100%;
+}
+
+section.message div#reactions p.date-time {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #ccc;
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+
+section.message div#reactions div.reaction {
+  width: 73%;
+  border-radius: 0.2em;
+  padding: 0.2em;
+  height: auto;
+  background-color: var(--input-background);
+  margin-left: 3%;
+  display: flex;
+}
+
+section.message div#reactions div.reaction p {
+  color: #000;
+  margin: auto;
 }
