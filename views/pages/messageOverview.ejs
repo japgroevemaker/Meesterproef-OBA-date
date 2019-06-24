@@ -6,21 +6,22 @@
 
 <section id="message">
   <div id="header">
-    <h2 name="postName" class="data"></h2>
-    <h4 name="" class="data time-text"></h4>
+    <h2 name="postName" class="data"><%= data.postName %></h2>
+    <h4 name="" class="data time-text"><%= data.date %></h4>
     <h4 name="" class="data date-text"></h4>
   </div>
-    <p name="postContent" class="data content-text"></p>
+    <p name="postContent" class="data content-text"> <%= postContent %></p>
 
     <div id="tags">
       <div class="tag data" name="tags"> <!-- give created element this class -->
          <!-- store this elements in created div -->
+         <%= data.tags %>
       </div>
     </div>
 
     <div id="profilePic-name">
       <img src="/assets/placeholder.jpg" alt="">
-      <h2 name="username" class="data"></h2>
+      <h2 name="username" class="data"><%= data.username%></h2>
     </div>
 </section>
 

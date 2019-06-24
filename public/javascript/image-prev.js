@@ -1,17 +1,18 @@
 import getInput from './catchInput.js'
 
 
-let form = document.querySelector('form');
+// let form = document.querySelector('form');
 
-form.addEventListener('submit', function(e){
-  e.preventDefault()
-})
+// form.addEventListener('submit', function(e){
+// })
 
 let preview = document.querySelector('#profile-pic-preview');
 
 let inputImg = document.querySelector('#pic')
 
 let removePic = document.querySelector('#remove-pic');
+
+let imageInForm = document.querySelector('#imageInForm')
 
 // added event as param and prevented page reload
 removePic.addEventListener('click', function(event){
@@ -32,10 +33,10 @@ function showPic () {
   
   
   
-  reader.onload = function(event) {
+  reader.onload = function(e) {
+    e.preventDefault()
     preview.setAttribute('src', reader.result)
-    getInput.getInput.handleImage(reader.result)
-    event.preventDefault()
+    
 
   }
 }
