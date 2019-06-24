@@ -7,7 +7,7 @@ const handlePost = {
             const button = document.querySelector('#postButton')
             button.addEventListener('click', ()=>{
                 console.log('saving post')
-                console.log(data.postArray)
+                console.log(data.postArray[0])
                 socket.emit('savePost', data )
             })
 

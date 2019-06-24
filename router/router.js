@@ -4,10 +4,7 @@ const router = express.Router()
 
 // index page
 router.get('/',(req,res)=>{
-
     console.log('entered index')
-    console.log('entered startup')
-
     res.render('./pages/startup')
 })
 
@@ -58,6 +55,22 @@ router.get('/oproepPlaatsen', (req,res)=>{
     console.log('entered oproepPlaatsen')
     res.render('./pages/oproepPlaatsen')
 })
+
+
+router.post('/messageOverview', (req, res) => {
+    console.log("hier moet iets komen")
+    console.log(req.body.tags)
+    res.render("/messageOverview")
+})
+
+
+function renderData(){
+    const data = req.body
+    console.log(data)
+    res.render('/messageOverview', {
+        myPizza: pizzaList
+    })
+}
 
 
 module.exports = router;

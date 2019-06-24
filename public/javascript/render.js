@@ -1,25 +1,46 @@
 import handlePost from './handlepost.js'
 
 const render = {
-  renderInputData: function(data) {
-
+  renderInputData: function (data) {
+if(data === {}){console.log('Data is empty')}
     // Call postRequest Submit Event Listener
     handlePost.listener(data)
     // console.log(data)
     const elements = document.querySelectorAll('.data')
+    console.log(elements)
     // console.log(elements)
+
+    // check each element
     elements.forEach(element => {
+      // check each
       data.postArray.forEach(prop => {
-        if (prop.name === element.attributes.name.value) {
-          element.insertAdjacentHTML('beforeend', `${prop.data}`)
+        // check if the prop name and the element name are the same
+        // also check if the data is not an array of tags
+        // if the the data are the tags, check if it is an array
+        if (prop.name === "tags") {
+          console.log('prop is tags')
+          if (prop.data.push) {
+            // data is an array --> render it
+            prop.data.forEach(tag => {
+              element.insertAdjacentHTML('beforeend', `<h3 name="tag">${tag}</h3>`)
+            })
+          } else {
+            // data is not an array --> render it
+            element.insertAdjacentHTML('beforeend', `${tag}`)
+          }
+        } else {
+          if (prop.name === element.attributes.name) {
+            console.log('prop is not tags')
+            element.insertAdjacentHTML('beforeend', `${prop.data}`)
+          }
         }
       })
     })
   },
-  renderThread: function(data) {
+  renderThread: function (data) {
     console.log('New data Retrieved')
 
-    console.log(typeof(data) != "Array")
+    console.log(typeof (data) != "Array")
     if (!data.push) {
       console.log(data)
       data = [data]
@@ -50,7 +71,7 @@ const render = {
       const tags = document.createElement('div');
       tags.setAttribute('id', 'tags')
 
-      const tag =  document.createElement('div');
+      const tag = document.createElement('div');
       tag.setAttribute('class', 'tag')
 
       const tagName = document.createElement('h3');
@@ -61,27 +82,27 @@ const render = {
 
       const profilePic = document.createElement('img');
       profilePic.src = doc.profilePic
-      
-        if (!doc.profilePic) {
-          profilePic.src = "/assets/placeholder.jpg"
-        }
+
+      if (!doc.profilePic) {
+        profilePic.src = "/assets/placeholder.jpg"
+      }
 
 
-        console.log(element)
-        element.appendChild(headerDiv);
-          headerDiv.appendChild(title);
-          headerDiv.appendChild(date);
+      console.log(element)
+      element.appendChild(headerDiv);
+      headerDiv.appendChild(title);
+      headerDiv.appendChild(date);
 
-        element.appendChild(postContent);
+      element.appendChild(postContent);
 
-        element.appendChild(tags);
-          tags.appendChild(tag);
-          tag.appendChild(tagName);
+      element.appendChild(tags);
+      tags.appendChild(tag);
+      tag.appendChild(tagName);
 
-        element.appendChild(profilePicName)
-          profilePicName.appendChild(profilePic)
+      element.appendChild(profilePicName)
+      profilePicName.appendChild(profilePic)
 
-        thread.appendChild(element)
+      thread.appendChild(element)
 
       // post htm;
 

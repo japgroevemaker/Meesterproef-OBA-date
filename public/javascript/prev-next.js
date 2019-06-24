@@ -1,11 +1,19 @@
 import getInput from './catchInput.js'
 
-  let currentPage = 0;
+let currentPage = 0;
 
-  let next = document.querySelector('.next');
-  let prev = document.querySelector('.prev')
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev')
 
-  next.addEventListener('click', function(){
+
+function addEvent(){
+  next.addEventListener('click', clickNext)
+}
+addEvent()
+
+
+function clickNext(event){
+  console.log('calling input locator')
     //get input from first
     getInput.getInput.locate()
   
@@ -19,7 +27,8 @@ import getInput from './catchInput.js'
 
     document.getElementById(currentPage).classList.remove('none')
     document.getElementById(currentPage).classList.add('section')
-  })
+  addEvent()
+}
 
   prev.addEventListener('click', function(){
     currentPage--
