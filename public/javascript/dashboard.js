@@ -8,6 +8,7 @@ const init = {
         if (window.location.pathname == '/dashboard') {
             // listen for thread data message
            socket.on('threadGranted', function(data){
+               console.log('threadgranted')
                render.renderThread(data)
                
            })
