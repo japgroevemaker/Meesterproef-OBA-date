@@ -138,8 +138,8 @@ if(data === {}){console.log('Data is empty')}
       element.appendChild(postContent);
 
       element.appendChild(tags);
-      tags.appendChild(tag);
-      tag.appendChild(tagName);
+      // tags.appendChild(tag);
+      // tag.appendChild(tagName);
 
       element.appendChild(profilePicName)
       profilePicName.appendChild(profilePic)
