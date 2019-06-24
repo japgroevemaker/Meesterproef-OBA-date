@@ -1,6 +1,7 @@
 :root {
   --OBA-red: #FF0000;
   --OBA-subColor: #D9582B;
+  --OBA-subColor-Blue: #2668AC;
   --header-color: #707070;
   --OBA-font: Avenir, sans-serif;
   --input-background: #f6f6f6;
@@ -43,11 +44,16 @@ header p {
 }
 
 #startupList ul li {
+  background-color: var(--OBA-subColor-Blue);
   margin: 2em 0 2em 0;
-  border-bottom: solid 0.01em var(--OBA-subColor);
-  display: grid;
+  box-shadow: 0px 1px 4px 1px rgba(0,0,0,0.12);
+  height: 3em;
+  display: flex;
+  border-radius: 0.3em;
+  /* border-bottom: solid 0.01em var(--OBA-subColor); */
+  /* display: grid;
   grid-template-columns: 90% 10%;
-  grid-template-rows: 3em;
+  grid-template-rows: 3em; */
 }
 
 #startupList ul li img {
@@ -57,10 +63,12 @@ header p {
 
 #startupList ul li a {
   text-decoration: none;
-  color: #000;
-  font-size: 1.5em;
+  color: #fff;
+  font-size: 1.2em;
   font-family: var(--OBA-font);
-  grid-column-start: 1;
+  font-weight: lighter;
+  margin: auto;
+  /* grid-column-start: 1; */
 }
 
 footer#navigate-footer {
@@ -277,7 +285,7 @@ section.recognition input[type="text"]{
 }
 
 /* ---------messageOverviewpage--------- */
-section#message {
+section.message {
   background-color: #FAFAFA;
   width: 90%;
   height: auto;
@@ -288,7 +296,7 @@ section#message {
   flex-wrap: wrap;
 }
 
-section#message div#header {
+section.message div#header {
   width: 100%;
   margin: 5% auto 5%;
   display: flex;
@@ -297,14 +305,14 @@ section#message div#header {
   justify-content: space-between;
 }
 
-section#message div#header h2 {
+section.message div#header h2 {
   font-family: var(--OBA-font);
   font-weight: bold;
   margin-left: 5%;
   margin-top: 5%;
 }
 
-section#message div#header h4 {
+section.message div#header h4 {
   font-family: var(--OBA-font);
   font-weight: lighter;
   color: #ccc;
@@ -312,7 +320,7 @@ section#message div#header h4 {
   margin-left: 5%;
 }
 
-section#message p {
+section.message p {
   font-family: var(--OBA-font);
   font-weight: lighter;
   width: 90%;
@@ -320,14 +328,14 @@ section#message p {
   word-wrap: break-word;
 }
 
-section#message div#tags {
+section.message div#tags {
   width: 90%;
   margin: 5% auto 10%;
   display: flex;
   flex-direction: row;
 }
 
-section#message div#tags .tag {
+section.message div#tags .tag {
   background-color: var(--OBA-red);
   width: auto;
   margin: 0.2em;
@@ -337,14 +345,14 @@ section#message div#tags .tag {
   display: flex;
 }
 
-section#message div#tags div.tag span.dot {
+section.message div#tags div.tag span.dot {
   color: #fff;
   border-radius: 100%;
   width: 1em;
   display: block;
 }
 
-section#message div#tags div.tag h3 {
+section.message div#tags div.tag h3 {
   font-family: var(--OBA-font);
   font-size: 0.8em;
   font-weight: lighter;
@@ -363,7 +371,7 @@ div#profilePic-name {
 
 }
 
-section#message div#profilePic-name img {
+section.message div#profilePic-name img {
   border-radius: 100%;
   width: 3.5em;
   height: 3.5em;
@@ -371,7 +379,7 @@ section#message div#profilePic-name img {
   margin: auto 0.5em;
 }
 
-section#message div#profilePic-name h2 {
+section.message div#profilePic-name h2 {
   font-family: var(--OBA-font);
   font-weight: lighter;
   margin: auto;
@@ -482,7 +490,7 @@ form#dashboard-search input[type="text"]{
   padding-left: 5%;
 }
 
-section#message div#reactions {
+section.message div#reactions {
   background-color: #fff;
   padding: 0.5em 0;
   width: 100%;
@@ -492,13 +500,13 @@ section#message div#reactions {
   flex-wrap: wrap;
 }
 
-section#message div#reactions form {
+section.message div#reactions form {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
 
-section#message div#reactions form input[type="text"] {
+section.message div#reactions form input[type="text"] {
   font-size: 0.8sem;
   width: 50%;
   height: auto;
@@ -510,7 +518,7 @@ section#message div#reactions form input[type="text"] {
   padding-left: 5%;
 }
 
-section#message div#reactions form img {
+section.message div#reactions form img {
   width: 2.5em;
   height: 2.5em;
   margin-left: 5%;
@@ -518,7 +526,7 @@ section#message div#reactions form img {
   border-radius: 100%;
 }
 
-section#message div#reactions form input[type="submit"] {
+section.message div#reactions form input[type="submit"] {
   width: 20%;
   color: #fff;
   background-color: var(--OBA-subColor);

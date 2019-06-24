@@ -1,4 +1,3 @@
-
   let reactionForm = document.querySelectorAll('.reaction-form');
 
   console.log(reactionForm);
@@ -9,30 +8,18 @@
     })
   })
 
-  let input = document.querySelectorAll('.reaction-input');
-  let button = document.querySelectorAll('.button')
+  let form = document.querySelectorAll(`.reaction-form`)
 
-  button.forEach(function(getInputValue){
+  form.forEach(f => {
+    let uniqueSectionID = f.parentElement.parentElement.id
+    f.addEventListener('submit', e => {
+      e.preventDefault()
+      let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
+      let reaction = document.createElement('p');
+      console.log(e.target);
+      reaction.innerHTML = f.childNodes[1].value
 
-    getInputValue.addEventListener('click', function(){
+      reactionContainer.appendChild(reaction)
 
-      // let reactions = document.querySelectorAll('#reactions');
-
-      input.forEach(function(iValue) {
-        let reactions = document.querySelector('#reactions');
-
-        let reaction = document.createElement('p');
-        reaction.innerHTML = iValue.value
-
-        reactions.appendChild(reaction)
-        // reactions.forEach(function(newReaction){
-        //   let reaction = document.createElement('p');
-        //   reaction.innerHTML = iValue.value
-        //   newReaction.appendChild(reaction)
-        // })
-
-        console.log(iValue.value);
-        iValue.value = ""
-      })
     })
   })

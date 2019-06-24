@@ -28,8 +28,8 @@ const render = {
 
 
     // for each doc
-    data.forEach(doc => {
-      console.log(data)
+    data.forEach((doc, i) => {
+      console.log(doc)
 
       // create script after page loads
       const head = document.querySelector('head');
@@ -41,7 +41,8 @@ const render = {
 
       const thread = document.querySelector('#thread')
       const element = document.createElement('section')
-      element.setAttribute('id', 'message')
+      element.setAttribute('class', 'message')
+      element.setAttribute('id', doc.postName.replace(/ /g, "_"))
 
       const headerDiv = document.createElement('div')
       headerDiv.setAttribute('id', 'header')
