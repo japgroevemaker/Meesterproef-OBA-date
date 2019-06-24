@@ -62,7 +62,8 @@ if(data === {}){console.log('Data is empty')}
 
       const thread = document.querySelector('#thread')
       const element = document.createElement('section')
-      element.setAttribute('id', 'message')
+      element.setAttribute('class', 'message')
+      element.setAttribute('id', doc.postName.replace(/ /g, "_"))
 
       const headerDiv = document.createElement('div')
       headerDiv.setAttribute('id', 'header')

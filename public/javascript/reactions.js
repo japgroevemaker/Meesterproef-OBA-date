@@ -1,38 +1,45 @@
+  // let reactionForm = document.querySelectorAll('.reaction-form');
+  //
+  // console.log(reactionForm);
+  //
+  // reactionForm.forEach(function(noDefault){
+  //   noDefault.addEventListener('submit', function(e){
+  //     e.preventDefault()
+  //   })
+  // })
 
-  let reactionForm = document.querySelectorAll('.reaction-form');
+  let form = document.querySelectorAll(`.reaction-form`)
 
-  console.log(reactionForm);
-
-  reactionForm.forEach(function(noDefault){
-    noDefault.addEventListener('submit', function(e){
+  form.forEach(f => {
+    let uniqueSectionID = f.parentElement.parentElement.id
+    f.addEventListener('submit', e => {
       e.preventDefault()
-    })
-  })
+      let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
 
-  let input = document.querySelectorAll('.reaction-input');
-  let button = document.querySelectorAll('.button')
+      let time = Date()
+      let timeStamp = time.slice(16, 21)
+      console.log(timeStamp);
 
-  button.forEach(function(getInputValue){
+      let date = Date()
+      let dateStamp = date.slice(4, 10)
+      console.log(dateStamp);
 
-    getInputValue.addEventListener('click', function(){
+      let reactionImg = document.createElement('img');
+      reactionImg.setAttribute('src', '/assets/placeholder.jpg')
+      let reactionBox = document.createElement('div');
+      reactionBox.setAttribute('class', 'reaction');
+      let dateTimeParagraph = document.createElement('p');
+      dateTimeParagraph.setAttribute('class', 'date-time')
+      dateTimeParagraph.innerHTML = `${dateStamp} ${timeStamp}`
+      let reaction = document.createElement('p');
+      console.log(e.target);
+      reaction.innerHTML = f.childNodes[1].value
 
-      // let reactions = document.querySelectorAll('#reactions');
+      reactionContainer.appendChild(reactionImg)
+      reactionBox.appendChild(reaction)
+      reactionContainer.appendChild(reactionBox);
+      reactionContainer.appendChild(dateTimeParagraph);
 
-      input.forEach(function(iValue) {
-        let reactions = document.querySelector('#reactions');
-
-        let reaction = document.createElement('p');
-        reaction.innerHTML = iValue.value
-
-        reactions.appendChild(reaction)
-        // reactions.forEach(function(newReaction){
-        //   let reaction = document.createElement('p');
-        //   reaction.innerHTML = iValue.value
-        //   newReaction.appendChild(reaction)
-        // })
-
-        console.log(iValue.value);
-        iValue.value = ""
-      })
+      f.childNodes[1].value = ""
     })
   })
