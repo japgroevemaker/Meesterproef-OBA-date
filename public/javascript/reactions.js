@@ -1,5 +1,13 @@
 let socket = io()
 
+// listen for messages from the server that a new reaction has been placed and call DOM renderer
+
+  socket.on('updateReaction', function (data) {
+    console.log('Handling new Reaction')
+    console.log(data)
+    react.renderReaction(data, data[0].postName.replace(/ /g, '_'))
+  })
+
 
 const react = {
   // listen for this client's reactions, call DOM renderer and emit the message to the server
@@ -52,13 +60,6 @@ const react = {
     })
   },
 
-  // listen for messages from the server that a new reaction has been placed and call DOM renderer
-  incomingReaction: function () {
-    socket.on('updateReaction', function (data) {
-      console.log('Handling new Reaction')
-      react.renderReaction(data)
-    })
-  },
 
   renderReaction: function (data, uniqueSectionID, fromSelf) {
     // create Time Element
@@ -69,27 +70,43 @@ const react = {
 
     let reactionString = ""
     let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
-
+console.log(document.querySelector(`${uniqueSectionID}`))
 
     if (fromSelf) {
       reactionString = [reactionContainer.querySelector('.reaction-input').value]
+      console.log('new reaction from this client')
+        reactionString.forEach((reaction) => {
+    
+          reactionContainer.innerHTML += `
+        <img src="./assets/placeholder.jpg">  
+        <div class="reaction">
+        <p>${reaction}</p>
+        <p class="date-time">${dateStamp}${timeStamp}
+        </div>
+      
+        `
+        })
     } else {
-      reactionString = [data.reactions]
+      console.log('new reaction from other client')
+      reactionString = data[0].reactions[0].data
+      reactionString.forEach((reaction) => {
+    
+        reactionContainer.innerHTML += `
+      <img src="./assets/placeholder.jpg">  
+      <div class="reaction">
+      <p>${reaction}</p>
+      <p class="date-time">${dateStamp}${timeStamp}
+      </div>
+    
+      `
+      })
     }
-    reactionString.forEach((reaction) => {
-
-      reactionContainer.innerHTML += `
-    <img src="/assets/placeholder.jpg">  
-    <div class="reaction">
-    <p>${reaction}</p>
-    <p class="date-time">${dateStamp}${timeStamp}
-    </div>
-  
-    `
-    })
 
     if (fromSelf) {
+      console.log('reactivating Listener for this client"s reactions')
       react.myReaction()
+    } else{
+
     }
 
     // send the socket reaction to the server. Add the Data ID and the reaction
@@ -145,5 +162,5 @@ const react = {
 }
 
 react.myReaction()
-react.incomingReaction()
+
 export default react
