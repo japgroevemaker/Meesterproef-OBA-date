@@ -2,7 +2,7 @@ const fs = require('fs')
 const colors = require('colors')
 
 const postModel = require('../data/models/post.js')
-const reactionModel = require('../data/models/reaction.js')
+
 const savePost = require('./savePost.js')
 
 // Declare socket api
