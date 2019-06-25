@@ -13,7 +13,7 @@ let inputImg = document.querySelector('#pic')
 let imageEncoded = "";
 
 
-if(window.location.pathname === "/shareKnowledge"){
+if(window.location.pathname === "/shareKnowledge" || "somethingTogether"){
   let removePic = document.querySelector('#remove-pic');
 
 

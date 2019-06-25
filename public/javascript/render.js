@@ -1,8 +1,8 @@
 import handlePost from './handlepost.js'
-
+// id reaction gets a class reaction
 const render = {
   renderInputData: function (data) {
-if(data === {}){console.log('Data is empty')}
+if(data === {}){console.error('Data is empty')}
     // Call postRequest Submit Event Listener
     handlePost.listener(data)
     // console.log(data)
@@ -52,109 +52,132 @@ console.log(data)
     data.forEach(doc => {
       // console.log(data)
 
-
+      
+      
       // create script after page loads
       const head = document.querySelector('head');
       const script = document.createElement('script');
       script.setAttribute('type', 'module');
       script.src = "../javascript/reactions.js"
-
+      
       head.appendChild(script)
-
+      
       const thread = document.querySelector('#thread')
       const element = document.createElement('section')
       element.setAttribute('class', 'message')
       element.setAttribute('id', doc.postName.replace(/ /g, "_"))
-
+      
       const headerDiv = document.createElement('div')
       headerDiv.setAttribute('id', 'header')
-
+      
       const title = document.createElement('h2');
       title.innerHTML = doc.postName;
-
+      
+      
       const date = document.createElement('h4');
       date.innerHTML = doc.date
 
       const postContent = document.createElement('p');
       postContent.innerHTML = doc.postContent
-
+      
       let tags = document.createElement('div');
       tags.setAttribute('id', 'tags')
-
+      
       let newTag = doc.tags
-
+      
       newTag.forEach(function(completeTag){
-
+        
         const tag = document.createElement('div');
         tag.setAttribute('class', 'tag')
         tag.setAttribute('data-bind', completeTag)
-
+        
         const tagName = document.createElement('h3');
         tagName.innerHTML = completeTag
 
         tags.appendChild(tag);
         tag.appendChild(tagName);
       })
-
-
+      
+      
       const profilePicName = document.createElement('div')
       profilePicName.setAttribute('id', 'profilePic-name');
-
+      
       const profilePic = document.createElement('img');
       profilePic.src = doc.profilePic
-
+      
       if (!doc.profilePic) {
         profilePic.src = "/assets/placeholder.jpg"
       }
 
       const reactions = document.createElement('div');
       reactions.setAttribute('id', 'reactions')
-
+      
       const reactionForm = document.createElement('form');
       reactionForm.setAttribute('class', 'reaction-form')
-
+      
       const reactionInput = document.createElement('input');
       reactionInput.setAttribute('placeholder', 'schrijf een opmerking...')
       reactionInput.setAttribute('type', 'text')
       reactionInput.setAttribute('class', 'reaction-input')
-
+      
       const reactionProfilePic = document.createElement('img');
       reactionProfilePic.src = doc.profilePic
-
+      
+      // PROFILE NAME - create, add attribute + content 
+      const profileName = document.createElement('p')
+      profileName.setAttribute('id', 'username')
+      profileName.innerText = doc.username
+      
       const placeReaction = document.createElement('input');
       placeReaction.setAttribute('type', 'submit');
       placeReaction.setAttribute('value', 'plaats')
       placeReaction.setAttribute('class', 'button')
+      
       // placeReaction.setAttribute('disabled', 'disabled')
-
+      
+      
+      // add an element that holds the db id of the data
+      // (invisible)
+      const dataID = document.createElement('p')
+      dataID.setAttribute('class', 'none')
+      dataID.setAttribute('id', 'dataID')
+      dataID.innerText = doc._id
+      
+      const activity = document.createElement('p')
+      activity.setAttribute('name', doc.activity)
+      activity.setAttribute('class', 'none')
+    
       if (!doc.profilePic) {
         profilePic.src = "/assets/placeholder.jpg"
       }
-
+      
       console.log(element)
       element.appendChild(headerDiv);
       headerDiv.appendChild(title);
       headerDiv.appendChild(date);
-
+      
       element.appendChild(postContent);
-
+      
       element.appendChild(tags);
       // tags.appendChild(tag);
       // tag.appendChild(tagName);
-
+      
       element.appendChild(profilePicName)
       profilePicName.appendChild(profilePic)
-
-        element.appendChild(reactions)
+      profilePicName.appendChild(profileName)
+      
+      element.appendChild(reactions)
           reactions.appendChild(reactionForm);
           reactionForm.appendChild(reactionProfilePic)
           reactionForm.appendChild(reactionInput)
           reactionForm.appendChild(placeReaction);
-
+          reactionForm.append(dataID)
+          reactionForm.append(activity)
+          
         thread.appendChild(element)
-
-      // post htm;
-
+        
+        // post htm;
+        
       //              element.innerHTML += `
       // <div id="header">
       //     <h2>${doc.postName}</h2>
