@@ -47,7 +47,7 @@ function showPic () {
     imageInString.setAttribute('name', "picString")
     imageInString.setAttribute('type', "text")
     imageInString.setAttribute('id', "inputImageString")
-    // imageInForm.attributes.add('class', 'none')
+    imageInString.setAttribute('class', 'none')
     imageInString.value = reader.result
     // console.log(imageInForm)
 document.querySelector('form').append(imageInString)

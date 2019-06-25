@@ -3,11 +3,13 @@ const postModel = require('../data/models/post')
 const io = require('../index.js')
 console.log(io)
 function savePost(data) {
-console.log(data)
-
-    const newPost = new postModel({
-        // tags
-        tags: data.tags,
+    return new Promise(function(resolve, reject){
+        
+        console.log(data)
+        
+        const newPost = new postModel({
+            // tags
+            tags: data.tags,
         // title of the post
         postName: data.postName,
         // description
@@ -28,12 +30,13 @@ console.log(data)
     try {
         newPost.save().then((newpost) => {
             console.log('succesfully Saved Post'.green)
-            socket.broadcast.emit('threadGranted', newPost)
         })
-
+        
     } catch (error) {
         console.log(error)
     }
+    resolve()
+})
 }
 
 module.exports = savePost
