@@ -110,6 +110,11 @@ header div.slider ul.slider-words {
           animation-duration: 7s;
 }
 
+#tagField{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 header div.slider ul.slider-words li.slider-word {
   display: block;
   line-height: 1.3em;

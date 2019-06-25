@@ -1,17 +1,61 @@
 // this file contains all routes, it is used by index.js in the root directory!
 const express = require('express')
 const router = express.Router()
+const mongoose = require('mongoose')
 const postModel = require('../data/models/post.js')
+
+
+
+
 // index page
 router.get('/',(req,res)=>{
     console.log('entered index')
-    res.render('./pages/startup')
+    console.log('Retrieving Documents'.yellow)
+    postModel.find({}, function(err, docs) {
+        if (err || !docs) {
+            console.log(err.red)
+        } else {
+            console.log('foundDocuments'.green)
+            // logging individual docs
+            
+            console.log(docs)
+            return docs
+        }
+        if(docs){return docs} else{console.log('no docs retrieved'.red)}
+       
+    }).then((result)=>{
+        res.render('./pages/index.ejs', {data:result})
+
+    })
+
 })
 
 // dashboard page
+<<<<<<< HEAD
 router.get('/', (req,res)=>{
     console.log('entered dashboard')
     res.render('./pages/index')
+=======
+router.get('/dashboard', (req,res)=>{
+    console.log('entered index')
+    console.log('Retrieving Documents'.yellow)
+    postModel.find({}, function(err, docs) {
+        if (err || !docs) {
+            console.log(err.red)
+        } else {
+            console.log('foundDocuments'.green)
+            // logging individual docs
+            
+            console.log(docs)
+            return docs
+        }
+        if(docs){return docs} else{console.log('no docs retrieved'.red)}
+       
+    }).then((result)=>{
+        res.render('./pages/index.ejs', {data:result})
+
+    })
+>>>>>>> 001b8f2eaddec7aaefd29cbdba7e0eba2302d7d3
 })
 
 router.get('/iHaveAGoal', (req,res)=>{
@@ -32,40 +76,23 @@ router.get('/somethingTogether', (req,res)=>{
     console.log('entered somethingTogether')
     res.render('./pages/somethingTogether')
 })
-router.get('/break', (req,res)=>{
-    console.log('entered break')
-    res.render('./pages/break')
-})
-router.get('/discover', (req,res)=>{
-    console.log('entered discover')
-    res.render('./pages/discover')
-})
 
-
-router.get('/recognition', (req,res)=>{
-    console.log('entered recognition')
-    res.render('./pages/recognition')
-})
 router.get('/messageOverview', (req,res)=>{
     console.log('entered messageOverview')
     res.render('./pages/messageOverview')
-})
-// create new call page
-router.get('/oproepPlaatsen', (req,res)=>{
-    console.log('entered oproepPlaatsen')
-    res.render('./pages/oproepPlaatsen')
 })
 
 
 router.post('/msg', (req, res) => {
     console.log(`Posting: ${req.body.postName}`)
-    console.log(req.body)
+const tagArray = req.body.tags.split(',')
+
     data = {
 postName: req.body.postName,
 postContent: req.body.postContent,
 username: req.body.username,
 date: Date.now(),
-tags: req.body.tags,
+tags: tagArray,
 image: req.body.picString,
 activity: req.body.activity
     }
@@ -78,14 +105,6 @@ activity: req.body.activity
     res.render("./pages/messageOverview", data)
 })
 
-
-function renderData(){
-    const data = req.body
-    console.log(data)
-    res.render('/messageOverview', {
-        myPizza: pizzaList
-    })
-}
 
 
 module.exports = router;

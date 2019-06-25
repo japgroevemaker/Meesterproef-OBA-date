@@ -2,7 +2,7 @@ const fs = require('fs')
 const colors = require('colors')
 
 const postModel = require('../data/models/post.js')
-const reactionModel = require('../data/models/reaction.js')
+
 const savePost = require('./savePost.js')
 
 // Declare socket api
@@ -12,12 +12,7 @@ const socketServer = function (io) {
     io.on('connection', function (socket) {
         // Listen for connection query db for them and send data to client
 
-        getDocuments(postModel)
-        postModel.find({}, function (error, docs) {
-     
-                socket.emit('updateReaction', docs)
-            
-        })
+
 
         console.log('a user connected');
         console.log('socket.id = ' + socket.id)
@@ -30,20 +25,38 @@ const socketServer = function (io) {
 
         socket.on('savePost', function (data) {
             console.log('request to save post'.yellow)
-            savePost(data)
-            socket.broadcast.emit('threadGranted', data)
+            // save post
+            savePost(data).then(()=>{
+                postModel.find({postName: data.postName}, function(error, doc){
+                    if(error){
+                        console.log(error)
+                    } else{
+                        // send post to other clients
+                        socket.broadcast.emit('threadGranted', doc)
+
+                    }
+
+                })
+            })
         })
 
         socket.on('newReaction', function (data) {
+            console.log(data)
+            postModel.find({_id:data.id}, (error, doc)=>{
+                if(error){console.log(error)}
+                else{
+                    let newReactionArray = []
+                }
+            })
             postModel.updateOne({
                 _id: data.id
             }, {
                 $set: {
-                    "reactions": data.data
+                    "reactions": {date: data.date, data:data.data }
                 }
             }, function (error, user) {
                 if (error) throw error
-                console.log(user)
+                // console.log(user)
                 console.log(`updated reactions on _id: ${data.id}`.green)
 
                 postModel.find({
