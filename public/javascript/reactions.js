@@ -17,43 +17,43 @@ form.forEach(f => {
     ////
     socket.on('updateReaction', function (data) {
       console.log(data)
-      console.log(f.parentElement)
+  
 
 
 
-      function addOnReceived(data) {
+      // function addOnReceived(data) {
 
-        console.log(data)
+      //   console.log(data)
         
-        data[0].reactions.forEach(receivedReaction => {
-          let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
-          console.log(reactionContainer)
-          // reactionContainer.innerHTML = '';
-          let time = Date()
-          let timeStamp = time.slice(16, 21)
-          console.log(timeStamp);
+      //   data[0].reactions.forEach(receivedReaction => {
+      //     let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
+      //     console.log(reactionContainer)
+      //     // reactionContainer.innerHTML = '';
+      //     let time = Date()
+      //     let timeStamp = time.slice(16, 21)
+      //     console.log(timeStamp);
 
-          let date = Date()
-          let dateStamp = date.slice(4, 10)
-          console.log(dateStamp);
+      //     let date = Date()
+      //     let dateStamp = date.slice(4, 10)
+      //     console.log(dateStamp);
 
-          let reactionImg = document.createElement('img');
-          reactionImg.setAttribute('src', '/assets/placeholder.jpg')
-          let reactionBox = document.createElement('div');
-          reactionBox.setAttribute('class', 'reaction');
-          let dateTimeParagraph = document.createElement('p');
-          dateTimeParagraph.setAttribute('class', 'date-time')
-          dateTimeParagraph.innerHTML = `${dateStamp} ${timeStamp}`
-          let reaction = document.createElement('p');
-          console.log(e.target);
-          reaction.innerHTML = receivedReaction
-          reactionContainer.appendChild(reactionImg)
-          reactionBox.appendChild(reaction)
-          reactionContainer.appendChild(reactionBox);
-          reactionContainer.appendChild(dateTimeParagraph);
-        })
-      }
-      addOnReceived(data)
+      //     let reactionImg = document.createElement('img');
+      //     reactionImg.setAttribute('src', '/assets/placeholder.jpg')
+      //     let reactionBox = document.createElement('div');
+      //     reactionBox.setAttribute('class', 'reaction');
+      //     let dateTimeParagraph = document.createElement('p');
+      //     dateTimeParagraph.setAttribute('class', 'date-time')
+      //     dateTimeParagraph.innerHTML = `${dateStamp} ${timeStamp}`
+      //     let reaction = document.createElement('p');
+      //     console.log(e.target);
+      //     reaction.innerHTML = receivedReaction
+      //     reactionContainer.appendChild(reactionImg)
+      //     reactionBox.appendChild(reaction)
+      //     reactionContainer.appendChild(reactionBox);
+      //     reactionContainer.appendChild(dateTimeParagraph);
+      //   })
+      // }
+      // addOnReceived(data)
 
 
     })
@@ -111,7 +111,7 @@ function reaction(uniqueSectionID, e, f) {
   }
   console.log('sending out new Reaction')
   socket.emit('newReaction', reactionData)
-  socket.emit('updateReaction', reactionData)
+
 
 
   // reset the reaction input to ""
@@ -119,3 +119,5 @@ function reaction(uniqueSectionID, e, f) {
 
 
 }
+
+export default reaction

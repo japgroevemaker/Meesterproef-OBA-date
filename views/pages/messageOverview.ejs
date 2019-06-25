@@ -14,15 +14,19 @@
     <p name="postContent" class="data content-text" id="postContent"> <%= data.postContent %></p>
 
     <div id="tags">
-      <div class="tag data" name="tags" id="tagField"> <!-- give created element this class -->
+      <div class="data" name="tags" id="tagField"> 
+      <input class="none" type="text" name="tags" value=""><!-- give created element this class -->
          <!-- store this elements in created div -->
-         <%= data.tags %>
+         
+         <% data.tags.forEach((tag, i)=>{ %>
+    <p class="tag"><%= tag %></p>
+         <% }) %>
       </div>
     </div>
 
     <div id="profilePic-name">
       <img src="<%= data.image %>" alt="" id="imagePreview">
-      <input type="text" name="pic" class="none" id="imageInForm"><%= data.picSting %>
+      <input type="text" name="pic" class="none" id="imageInForm"><%= data.profilePic %>
       <h2 name="username" class="data" id="username"><%= data.username%></h2>
       
     </div>
