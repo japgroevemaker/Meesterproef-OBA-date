@@ -9,12 +9,8 @@ router.get('/',(req,res)=>{
 })
 
 // dashboard page
-router.get('/dashboard', (req,res)=>{
+router.get('/', (req,res)=>{
     console.log('entered dashboard')
-
-    
-
-
     res.render('./pages/index')
 })
 
