@@ -1,123 +1,149 @@
 let socket = io()
 
-let form = document.querySelectorAll(`.reaction-form`)
 
-form.forEach(f => {
-  let uniqueSectionID = f.parentElement.parentElement.id
-  f.addEventListener('submit', e => {
-    e.preventDefault()
+const react = {
+  // listen for this client's reactions, call DOM renderer and emit the message to the server
+  myReaction: function () {
+    let form = document.querySelectorAll(`.reaction-form`)
+    // listen for new reactions by this Client
+    console.log(form[0])
+    form.forEach(f => {
+      console.log(f)
+      let uniqueSectionID = f.parentElement.parentElement.id
+      // listen for submit
+      f.addEventListener('submit', e => {
+        e.preventDefault()
+        let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
+        console.log(reactionContainer)
 
-    reaction(uniqueSectionID, e, f)
+        // add all reactions to an array and update the reactions prop with the new array that includes all reactions
 
-    // when the server broadcasts a updateReaction message, update DOM on clients
-    //////////////////
-    ///////////
-    ////
-    ///// at the moment there's a bug that duplicates the reactions. there are no duplicates in the data
-    ////
+        // define reaction Object
+        let reactionArray = []
+        const reactionData = {
+          id: f.querySelector('#dataID').textContent,
+          data: reactionArray,
+          date: new Date()
+        }
+        console.log(reactionContainer.childNodes)
+        let allReactions = reactionContainer.childNodes
+        // render this reaction
+        // boolean to see if its from this client
+        const fromSelf = true;
+        react.renderReaction(reactionData, uniqueSectionID, fromSelf)
+
+        // send to server
+        allReactions.forEach(element => {
+          if (element.className === "reaction") {
+            // console.log(element.textContent)
+            if (!allReactions.push) {
+              allReactions = [allReactions]
+            }
+            reactionArray.push(element.textContent)
+          }
+        })
+
+        console.log('sending out new Reaction')
+        socket.emit('newReaction', reactionData)
+        // reset the reaction input to ""
+        f.childNodes[1].value = ""
+
+      })
+    })
+  },
+
+  // listen for messages from the server that a new reaction has been placed and call DOM renderer
+  incomingReaction: function () {
     socket.on('updateReaction', function (data) {
-      console.log(data)
+      console.log('Handling new Reaction')
+      react.renderReaction(data)
+    })
+  },
+
+  renderReaction: function (data, uniqueSectionID, fromSelf) {
+    // create Time Element
+    let time = new Date().toString()
+    let timeStamp = time.slice(16, 21)
+    let date = new Date().toString()
+    let dateStamp = date.slice(4, 10)
+
+    let reactionString = ""
+    let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
+
+
+    if (fromSelf) {
+      reactionString = [reactionContainer.querySelector('.reaction-input').value]
+    } else {
+      reactionString = [data.reactions]
+    }
+    reactionString.forEach((reaction) => {
+
+      reactionContainer.innerHTML += `
+    <img src="/assets/placeholder.jpg">  
+    <div class="reaction">
+    <p>${reaction}</p>
+    <p class="date-time">${dateStamp}${timeStamp}
+    </div>
   
-
-
-
-      // function addOnReceived(data) {
-
-      //   console.log(data)
-        
-      //   data[0].reactions.forEach(receivedReaction => {
-      //     let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
-      //     console.log(reactionContainer)
-      //     // reactionContainer.innerHTML = '';
-      //     let time = Date()
-      //     let timeStamp = time.slice(16, 21)
-      //     console.log(timeStamp);
-
-      //     let date = Date()
-      //     let dateStamp = date.slice(4, 10)
-      //     console.log(dateStamp);
-
-      //     let reactionImg = document.createElement('img');
-      //     reactionImg.setAttribute('src', '/assets/placeholder.jpg')
-      //     let reactionBox = document.createElement('div');
-      //     reactionBox.setAttribute('class', 'reaction');
-      //     let dateTimeParagraph = document.createElement('p');
-      //     dateTimeParagraph.setAttribute('class', 'date-time')
-      //     dateTimeParagraph.innerHTML = `${dateStamp} ${timeStamp}`
-      //     let reaction = document.createElement('p');
-      //     console.log(e.target);
-      //     reaction.innerHTML = receivedReaction
-      //     reactionContainer.appendChild(reactionImg)
-      //     reactionBox.appendChild(reaction)
-      //     reactionContainer.appendChild(reactionBox);
-      //     reactionContainer.appendChild(dateTimeParagraph);
-      //   })
-      // }
-      // addOnReceived(data)
-
-
+    `
     })
 
-  })
-
-
-})
-
-function reaction(uniqueSectionID, e, f) {
-  let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
-
-  let time = Date()
-  let timeStamp = time.slice(16, 21)
-  console.log(timeStamp);
-
-  let date = Date()
-  let dateStamp = date.slice(4, 10)
-  console.log(dateStamp);
-
-  let reactionImg = document.createElement('img');
-  reactionImg.setAttribute('src', '/assets/placeholder.jpg')
-  let reactionBox = document.createElement('div');
-  reactionBox.setAttribute('class', 'reaction');
-  let dateTimeParagraph = document.createElement('p');
-  dateTimeParagraph.setAttribute('class', 'date-time')
-  dateTimeParagraph.innerHTML = `${dateStamp} ${timeStamp}`
-  let reaction = document.createElement('p');
-  console.log(e.target);
-  reaction.innerHTML = f.childNodes[1].value
-
-  reactionContainer.appendChild(reactionImg)
-  reactionBox.appendChild(reaction)
-  reactionContainer.appendChild(reactionBox);
-  reactionContainer.appendChild(dateTimeParagraph);
-
-  // send the socket reaction to the server. Add the Data ID and the reaction
-  // add all reactions to an array and update the reactions prop with the new array that includes all reactions
-  let reactionArray = []
-  console.log(reactionContainer.childNodes)
-  let allReactions = reactionContainer.childNodes
-  allReactions.forEach(element => {
-    if (element.className === "reaction") {
-      // console.log(element.textContent)
-      if (!allReactions.push) {
-        allReactions = [allReactions]
-      }
-      reactionArray.push(element.textContent)
+    if (fromSelf) {
+      react.myReaction()
     }
-  })
 
-  const reactionData = {
-    id: f.querySelector('#dataID').innerText,
-    data: reactionArray
+    // send the socket reaction to the server. Add the Data ID and the reaction
   }
-  console.log('sending out new Reaction')
-  socket.emit('newReaction', reactionData)
 
 
 
-  // reset the reaction input to ""
-  f.childNodes[1].value = ""
 
 
+  //           let reactionBox = document.createElement('div');
+  //           reactionBox.setAttribute('class', 'reaction');
+  //           let dateTimeParagraph = document.createElement('p');
+  //           dateTimeParagraph.setAttribute('class', 'date-time')
+  //           dateTimeParagraph.innerHTML = `${dateStamp} ${timeStamp}`
+  //           let reaction = document.createElement('p');
+  //           reaction.innerText = e.target.querySelector('.reaction-input').value;
+  //           reaction.innerHTML = reaction
+  //           reactionContainer.appendChild(reactionImg)
+  //           reactionBox.appendChild(reaction)
+  //           reactionContainer.appendChild(reactionBox);
+  //           reactionContainer.appendChild(dateTimeParagraph);
+  //         }
+  //         })
+
+  //               function reaction() {
+  //                 let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
+
+  //           let time = Date()
+  //           let timeStamp = time.slice(16, 21)
+  //           console.log(timeStamp);
+
+  //           let date = Date()
+  //           let dateStamp = date.slice(4, 10)
+  //           console.log(dateStamp);
+
+  //           let reactionImg = document.createElement('img');
+  //           reactionImg.setAttribute('src', '/assets/placeholder.jpg')
+  //           let reactionBox = document.createElement('div');
+  //           reactionBox.setAttribute('class', 'reaction');
+  //           let dateTimeParagraph = document.createElement('p');
+  //           dateTimeParagraph.setAttribute('class', 'date-time')
+  //           dateTimeParagraph.innerHTML = `${dateStamp} ${timeStamp}`
+  //           let reaction = document.createElement('p');
+  //           console.log(e.target);
+  //           reaction.innerHTML = f.childNodes[1].value
+
+  //           reactionContainer.appendChild(reactionImg)
+  //           reactionBox.appendChild(reaction)
+  //           reactionContainer.appendChild(reactionBox);
+  //           reactionContainer.appendChild(dateTimeParagraph);
+
+  //       })
 }
 
-export default reaction
+react.myReaction()
+react.incomingReaction()
+export default react

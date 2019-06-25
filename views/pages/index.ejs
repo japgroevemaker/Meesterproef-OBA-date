@@ -1,57 +1,4 @@
 <% include ../components/header.ejs %>
-<body style="border: solid 1px var(--OBA-subColor-Blue)">
-  <header id="dashboard-header">
-    <h2>prikbord</h2>
-    <nav>
-      <h2>heb je
-        <div class="slider">
-          <ul class="slider-words">
-            <li class="slider-word">kennis om te delen?</li>
-            <li class="slider-word">een vraag?</li>
-            <li class="slider-word">zin om koffie te drinken?</li>
-             <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
-            <li class="slider-word">kennis delen?</li>
-          </ul>
-        </div>
-      </h2>
-      <!-- <h2 class="close-nav">X</h2> -->
-      <ul>
-        <li><a href="shareKnowledge">expertise delen</a></li>
-        <li><a href="helpMe">ik heb kennis/hulp nodig</a></li>
-        <li><a href="somethingTogether">ik wil samen iets doen</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-  <form id="dashboard-search">
-    <h2>Zoek naar posts</h2>
-    <input type="text" name="" id="search-tags" placeholder="zoek hier naar posts">
-
-    <div id="checkbox">
-      <input type="checkbox" id="together" name="" value="">
-      <label for="together">Samen doen</label>
-
-      <input type="checkbox" id="help" name="" value="">
-      <label for="help">Hulp nodig</label>
-
-      <input type="checkbox" id="offer-help" name="" value="">
-      <label for="offer-help">Hulp aangeboden</label>
-    </div>
-
-  </form>
-
-  <section id="thread">
-  </section>
-
-  <footer id="index-footer">
-    <div id="add-post">
-      <img src="/assets/cross.svg" alt="cross">
-    </div>
-  </footer>
-
-  <script defer src="../javascript/dashboard-filter.js" type="module"></script>
-</body>
 
 <header id="dashboard-header">
   <h2>prikbord</h2>
@@ -62,8 +9,12 @@
           <li class="slider-word">kennis om te delen?</li>
           <li class="slider-word">een vraag?</li>
           <li class="slider-word">zin om koffie te drinken?</li>
+          <!--
+           <li class="slider-word">eventjes pauze?</li>
+           <li class="slider-word">feedback nodig?</li>
+          -->
            <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
-          <li class="slider-word">kennis delen?</li>
+          <li class="slider-word">kennis om te delen?</li>
         </ul>
       </div>
     </h2>
@@ -100,7 +51,6 @@
 
         <section name="<%= post.activity %>"class="message" id= "<%= post.postName.replace(/ /g, '_') %>">
 
-    <p class="none" id="dataID"><%= data._id %></p>
         <div id="header">
             <h2><%= post.postName %></h2>
             <h4> <%= post.date %></h4>
@@ -117,7 +67,7 @@
 
 
     <div id="profilePic-name">
-    <img src="http://localhost:5555/msg" alt="Profile image">
+    <img src="<%= post.profilePic %>" alt="Profile image">
         <p id="username"><%= post.username %></p>
     </div>
 
@@ -126,25 +76,26 @@
         <img src="">
         <input placeholder="schrijf een opmerking..." type="text" class="reaction-input">
         <input type="submit" value="plaats" class="button">
-        <p class="none" id="<%= post._id %>"></p>
+    <p class="none" id="dataID"><%= post._id %></p>
         </form>
-<img src="<%= post.image %>">
-<div class="reaction">
-<p class="date-time"><% post.date %></p>
+      <% console.log('test') %>
+      <% console.log(post.reactions) %>
+<% 
+if(post.reactions.data){
+
+  post.reactions.data.forEach((reaction)=>{ %>
+<img src="/assets/placeholder.jpg" alt="Profile Image">
+<div class="reaction"><%= reaction.data %>
+<p class="date-time"><%= reactions.date %></p>
 </div>
 
-        
+
+  <% })} %>
     </div>
 </section>
-
 <%
 }) 
-
 %>
-
-
-
-
 </section>
 
 <footer id="index-footer">
@@ -154,7 +105,6 @@
 </footer>
 
 <script defer src="../javascript/dashboard-filter.js" type="module"></script>
-<script src="../javascript/reactions.js"></script>
 
 <% include ../components/scripts.ejs %>
 <% include ../components/footer.ejs %>

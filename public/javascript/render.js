@@ -39,9 +39,8 @@ if(data === {}){console.error('Data is empty')}
       })
     })
   },
-  renderThread: function (data) {
-    console.log('New data Retrieved')
-console.log(data)
+  newPost: function (data) {
+    console.log('New data Retrieved: creating post HTML'.yellow)
     console.log(typeof (data) != "Array")
     if (!data.push) {
       // console.log(data)
@@ -49,10 +48,50 @@ console.log(data)
       // console.log(data)
     }
 
-
+    const allMessages = document.querySelectorAll('.messages')
+    console.log(allMessages)
+    // if(data._id != )
+console.log(data)
     // for each doc
-    data.forEach(doc => {
+    data.forEach(post => {
       // console.log(data)
+console.log(post._id)
+const postElement = document.createElement('section')
+postElement.innerHTML =  `
+
+  <section name=${post.activity} class="message" id=${post.postName.replace(/ /g, '_')}>
+
+  <div id="header">
+  <h2>${post.postName}</h2>
+  <h4>${post.date}</h4>
+  </div>
+  <p>${post.postContent}</p>
+  </div>
+  <div id="profilePic-name">
+  
+  <img src="${post.profilePic}" alt="Profile image">
+  <p id="username">${post.username}</p>
+  </div>
+  
+  <div id="reactions">
+  <form class="reaction-form">
+  <img src="">
+  <input placeholder="schrijf een opmerking..." type="text" class="reaction-input">
+  <input type="submit" value="plaats" class="button">
+  <p class="none" id="dataID"> ${post._id} </p>
+  </form>
+  
+</div>
+</section>
+
+}) 
+`
+const newPostArea = document.querySelector('#thread')
+newPostArea.append(postElement) 
+
+
+
+
 
       
       
@@ -245,7 +284,7 @@ console.log(data)
   //     })
   // })
 
-
+  
 }
 
 export default render;

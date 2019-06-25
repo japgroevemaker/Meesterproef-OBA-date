@@ -1,5 +1,5 @@
 // import render from './render.js'
-
+import render from '../javascript/render.js'
 
 const socket = io()
 const init = {
@@ -11,7 +11,8 @@ const init = {
            socket.on('threadGranted', function(data){
                console.log('threadgranted')
                console.log(data)
-            //    render.renderThread(data)
+               render.newPost(data)
+
                
            })
            
