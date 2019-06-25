@@ -1,8 +1,10 @@
 const fs = require('fs')
 const colors = require('colors')
+// Oba API
+const api = require('../data/api')
+
 
 const postModel = require('../data/models/post.js')
-
 const savePost = require('./savePost.js')
 
 // Declare socket api
@@ -38,6 +40,15 @@ const socketServer = function (io) {
 
                 })
             })
+        })
+
+        // de argumenten voor de api moeten Strings zijn
+        socket.on('apiRequest', function(query, maxLength){
+            if(!maxLength){
+                let maxLength = "5"
+            }
+            console.log(query)
+            console.log(maxLength)
         })
 
         socket.on('newReaction', function (data) {

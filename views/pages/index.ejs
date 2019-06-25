@@ -81,11 +81,12 @@
       <% console.log('test') %>
       <% console.log(post.reactions) %>
 <% 
+console.log(!post.reactions.data)
 if(post.reactions.data){
 
   post.reactions.data.forEach((reaction)=>{ %>
 <img src="/assets/placeholder.jpg" alt="Profile Image">
-<div class="reaction"><%= reaction.data %>
+<div class="reaction"><%= reaction %>
 <p class="date-time"><%= reactions.date %></p>
 </div>
 

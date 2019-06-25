@@ -28,4 +28,3 @@ const handlePost = {
 
 handlePost.listener()
 
-export default handlePost;
