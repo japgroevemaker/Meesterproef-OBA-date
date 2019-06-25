@@ -1,14 +1,30 @@
 <% include ../components/header.ejs %>
 
+<section class="overlay">
+  <h2>Je gaat nu een kaartje samenstellen</h2>
+  <p>Aan de hand van een paar vragen genereren we je kaartje die je vervolgens op het prikbord kunt plaatsen.Nadat je het geplaatst hebt kunnen andere OBA bezoekers die de app ook gebruiken erop reageren</p>
+  <div id="nav-box">
+    <a href="index">terug naar rondkijken</a>
+    <button class="go">we gaan er voor!</button>
+  </div>
+</section>
+
 <form method="post" action="/msg">
     <section id="0" class="input-field section">
     <header>
-      <h2>Oke, </h2> <h2>over wat voor soort kennis beschik je?</h2>
-      <p>* vul minimaal 3 keuzes in</p>
+      <h2>over wat voor soort kennis beschik je?</h2>
+      <p><i>dit zijn de instellingen voor je bericht</i></p>
       </header>
 
       <input type="text" value="shareKnowledge" name="activity" class="none" id="activity">
 
+      <h2>geef een naam aan je bericht</h2>
+      <input type="text" placeholder="geef een naam aan je bericht" name="postName">
+
+      <h2>typ je bericht</h2>
+      <textarea placeholder="typ hier je bericht" name="postContent"></textarea>
+
+      <h2>voeg tags toe aan je bericht</h2>
       <div id="add-tags">
           <input type="text" name="tag" placeholder="typ hier je tag">
           <button>voeg toe</button>
@@ -20,18 +36,12 @@
 
     <input type="text" class="none" name="tags">
 
-      <h2>geef een naam aan je bericht</h2>
-      <input type="text" placeholder="typ hier je naam" name="postName" required>
-
-      <h2>typ je bericht</h2>
-      <textarea placeholder="typ hier je bericht" name="postContent" required></textarea>
-
       <footer id="navigate-footer">
         <div class="prev-next-button">
           <a href="iHaveAGoal">terug</a>
         </div>
 
-        <img src="/assets/question-mark.svg" alt="explore">
+        <!-- <img src="/assets/question-mark.svg" alt="explore"> -->
         <div class="prev-next-button">
           <h3 class="next">volgende</h3>
         </div>
@@ -42,7 +52,7 @@
     <section id="1" class="recognition none section">
       <header>
       <h2>maak jezelf herkenbaar </h2>
-      <p></p>
+      <p><i>niets van deze informatie wordt permanent opgeslagen</i></p>
       </header>
 
       <section class="profilePic">
@@ -64,14 +74,15 @@
         <div class="prev-next-button">
           <h3 class="prev">terug</h3>
         </div>
-        <img src="/assets/question-mark.svg" alt="explore">
+        <!-- <img src="/assets/question-mark.svg" alt="explore"> -->
         <div class="prev-next-button">
           <button type="submit" class="next">volgende</button>
+          <h3 class="next">volgende</h3>
         </div>
       </footer>
 </form>
 
-
+<script defer src="../javascript/clear-overlay.js" type="module"></script>
 <script defer src="../javascript/add-tag.js" type="module"></script>
 <script defer src="../javascript/image-prev.js" type="module"></script>
 <script defer src="../javascript/prev-next.js" type="module"></script>

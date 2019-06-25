@@ -62,7 +62,7 @@
 /* ---------index & goal page--------- */
 header {
   width: 90%;
-  margin: 5% auto 5%;
+  margin: 5% auto 10%;
 }
 
 header h2 {
@@ -164,14 +164,23 @@ footer#navigate-footer {
   height: 5em;
   margin: auto;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 footer#navigate-footer div.prev-next-button {
+  font-weight: bold;
   background-color: #000;
-  width: 7em;
+  width: 40%;
   height: 2em;
+  display: flex;
   text-align: center;
+  border-radius: 0.3em;
+  box-shadow: 0px 1px 4px 1px rgba(0,0,0,0.12);
 }
 
 footer#navigate-footer img {
@@ -181,19 +190,85 @@ footer#navigate-footer img {
 
 footer#navigate-footer div.prev-next-button h3 {
   color: #fff;
-  font-weight: lighter;
   font-family: var(--OBA-font);
-  font-size: 1.2em;
+  font-size: 1em;
+  margin: auto;
+}
+
+footer#navigate-footer div.prev-next-button button {
+  position: absolute;
+  opacity: 0;
+  width: 40%;
+  height: 2em;
 }
 
 footer#navigate-footer div.prev-next-button a {
   text-decoration: none;
   color: #fff;
   font-family: var(--OBA-font);
-  font-size: 1.2em;
+  font-size: 1em;
+  margin: auto;
 }
 
 /* ---------shareKnowledge&helpMe&somethingTogether pages--------- */
+section.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.5s;
+  z-index: 3;
+}
+
+section.overlay h2 {
+  font-family: var(--OBA-font);
+  width: 90%;
+  margin: 50% auto 10%;
+}
+
+section.overlay p {
+  font-family: var(--OBA-font);
+  font-weight: lighter;
+  width: 90%;
+  margin: 0% auto 20%;
+}
+
+section.overlay div#nav-box {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: space-between;
+}
+
+section.overlay div#nav-box a {
+  color: #000;
+  text-decoration: none;
+  font-family: var(--OBA-font);
+  font-size: 0.8em;
+  margin: auto 0;
+}
+
+section.overlay div#nav-box button.go {
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  box-shadow: 0px 1px 4px 1px rgba(0,0,0,0.12);
+  height: 3em;
+  width: 40%;
+  border-radius: 0.3em;
+}
+
+.down {
+  transition: all 0.5s;
+  bottom: -100% !important;
+  /* display: none; */
+}
+
 section.input-field {
   width: 100%;
   margin: auto;
@@ -201,29 +276,43 @@ section.input-field {
   flex-direction: column;
 }
 
+section.input-field header h2 {
+  font-weight: bold;
+  color: #000;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+section.input-field header p {
+  /* font-size: 1.8em; */
+  margin: 0;
+}
+
 section.input-field h2 {
   font-family: var(--OBA-font);
   font-weight: lighter;
-  color: var(--header-color);
+  color: #000;
   margin: auto;
   width: 90%;
+  font-size: 1em;
 }
 
 section.input-field div#add-tags {
   width: 90%;
-  margin: 5% auto 5%;
+  margin: 2% auto 5%;
+  display: flex;
   justify-content: space-between;
 }
 
-section.input-field div#add-tags form {
+/* section.input-field div#add-tags form {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
 
-section.input-field div#add-tags form input[type="text"]{
-  width: 55%;
+section.input-field div#add-tags input[type="text"]{
+  width: 60%;
   height: 3em;
   background-color: var(--input-background);
   border: var(--input-border);
@@ -231,10 +320,10 @@ section.input-field div#add-tags form input[type="text"]{
   padding-left: 5%;
 }
 
-section.input-field div#add-tags form button{
+section.input-field div#add-tags button{
   font-size: 1em;
-  height: 3em;
-  width: 30%;
+  height: auto;
+  width: 40%;
   color: #fff;
   background-color: var(--OBA-subColor);
   border: none;
@@ -279,7 +368,7 @@ section.input-field input[type="text"]{
   height: 3em;
   background-color: var(--input-background);
   border: var(--input-border);
-  margin: 5% auto 10%;
+  margin: 2% auto 10%;
   padding-left: 5%;
 }
 
@@ -289,13 +378,13 @@ section.input-field input[type="text"]{
 
 section.input-field textarea{
   font-family: var(--OBA-font);
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.6em;
   width: 85%;
   height: 10em;
   background-color: var(--input-background);
   border: var(--input-border);
-  margin: 5% auto 10%;
+  margin: 2% auto 10%;
   padding: 2%;
 }
 
@@ -306,6 +395,17 @@ section.recognition {
   flex-direction: column;
 }
 
+section.recognition header h2 {
+  font-weight: bold;
+  color: #000;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+section.recognition header p {
+  margin-left: 0;
+}
+
 section.recognition section.profilePic {
   width: 90%;
   margin: 0 auto 10%;
@@ -313,13 +413,13 @@ section.recognition section.profilePic {
   flex-direction: column;
 }
 
-section.recognition section.profilePic form div.button-align {
+section.recognition section.profilePic div.button-align {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-section.recognition section.profilePic form div.button-align button {
+section.recognition section.profilePic div.button-align button {
   width: 25%;
   padding: 0.5em;
   color: #fff;
@@ -335,7 +435,7 @@ section.recognition section.profilePic form {
   flex-direction: column;
 }
 
-section.recognition section.profilePic form img {
+section.recognition section.profilePic img {
   width: 70%;
   height: 15em;
   margin: 5% auto 5%;
@@ -347,7 +447,7 @@ section.recognition section.profilePic label {
   width: 50%;
   padding: 0.5em;
   color: #fff;
-  font-weight: lighter;
+  font-weight: bold;
   background-color: var(--OBA-subColor);
   font-family: var(--OBA-font);
   text-align: center;
@@ -357,7 +457,8 @@ section.recognition section.profilePic label {
 section.recognition h2 {
   font-family: var(--OBA-font);
   font-weight: lighter;
-  color: var(--header-color);
+  color: #000;
+  font-size: 1em;
   margin: auto;
   width: 90%;
 }
@@ -472,20 +573,27 @@ section.message div#profilePic-name h2 {
 
 /* ---------dashboard--------- */
 header#dashboard-header {
-  background-color: #fff;
+  background-color: var(--OBA-subColor-Blue);
   /* display: grid; */
-  width: 90%;
+  padding-left: 5%;
+  padding-top: 5%;
+  width: 95%;
   height: auto;
   /* border-bottom: var(--input-border); */
   /* grid-template-columns: 50%; */
-  margin: 5% auto 5%;
+  margin: 0% auto 0%;
 }
 
 header#dashboard-header h2 {
+  color: #fff;
   font-size: 3em;
   font-weight: bold;
   /* grid-column-start: 1; */
-  margin: auto;
+  /* margin: auto; */
+}
+
+header#dashboard-header nav h2 {
+  color: #000;
 }
 
 /* header#dashboard-header span.burger {
@@ -603,12 +711,13 @@ header#dashboard-header nav ul li a {
 }
 
 form#dashboard-search {
-  margin: 5% auto 10%;
+  color: #fff;
+  margin: 0% auto 0%;
   width: 90%;
   padding: 5%;
   display: flex;
   flex-direction: column;
-  background-color: var(--input-background);
+  background-color: var(--OBA-subColor-Blue);
 }
 
 form#dashboard-search div#checkbox {
@@ -691,6 +800,7 @@ section.message div#reactions form input[type="submit"] {
 }
 
 footer#index-footer {
+  box-shadow: 0px -10px 10px 1px rgba(0,0,0,0.09);
   width: 100%;
   height: 3em;
   background-color: var(--input-background);
@@ -699,6 +809,7 @@ footer#index-footer {
   right: 0;
   bottom: 0;
   z-index: 10;
+  border-top: solid 1px var(--OBA-subColor-Blue);
 }
 
 footer#index-footer div#add-post {
