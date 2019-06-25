@@ -1,4 +1,4 @@
-import handlePost from './handlepost.js'
+
 import handleReactions from './reactions.js'
 
 // id reaction gets a class reaction
