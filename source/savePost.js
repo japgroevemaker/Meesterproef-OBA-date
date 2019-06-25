@@ -22,6 +22,8 @@ console.log(data)
         favorites: "",
         // tijd
         date: data.date,
+        // activity
+        activity: data.activity,
     })
     try {
         newPost.save().then((newpost) => {

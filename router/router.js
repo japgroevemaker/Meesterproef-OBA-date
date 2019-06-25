@@ -1,7 +1,7 @@
 // this file contains all routes, it is used by index.js in the root directory!
 const express = require('express')
 const router = express.Router()
-
+const postModel = require('../data/models/post.js')
 // index page
 router.get('/',(req,res)=>{
     console.log('entered index')
@@ -11,6 +11,10 @@ router.get('/',(req,res)=>{
 // dashboard page
 router.get('/dashboard', (req,res)=>{
     console.log('entered dashboard')
+
+    
+
+
     res.render('./pages/index')
 })
 
@@ -59,14 +63,15 @@ router.get('/oproepPlaatsen', (req,res)=>{
 
 router.post('/msg', (req, res) => {
     console.log(`Posting: ${req.body.postName}`)
-    console.log(req.body.picString)
+    console.log(req.body)
     data = {
 postName: req.body.postName,
 postContent: req.body.postContent,
 username: req.body.username,
 date: Date.now(),
 tags: req.body.tags,
-image: req.body.picString
+image: req.body.picString,
+activity: req.body.activity
     }
     /* TODO  :
     1. Lees alle variabelen uit.

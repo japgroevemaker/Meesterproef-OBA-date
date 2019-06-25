@@ -20,6 +20,8 @@ const postSchema= new mongoose.Schema({
     favorites: String,
     // tijd
     date: String,
+    // what activity is the post about?
+    activity: String,
 });
 
 // set schema as mongoose model

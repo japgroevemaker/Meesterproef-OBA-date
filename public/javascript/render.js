@@ -1,8 +1,8 @@
 import handlePost from './handlepost.js'
-
+// id reaction gets a class reaction
 const render = {
   renderInputData: function (data) {
-if(data === {}){console.log('Data is empty')}
+if(data === {}){console.error('Data is empty')}
     // Call postRequest Submit Event Listener
     handlePost.listener(data)
     // console.log(data)
@@ -73,6 +73,7 @@ console.log(data)
       const title = document.createElement('h2');
       title.innerHTML = doc.postName;
       
+      
       const date = document.createElement('h4');
       date.innerHTML = doc.date
 
@@ -97,7 +98,7 @@ console.log(data)
         tag.appendChild(tagName);
       })
       
-
+      
       const profilePicName = document.createElement('div')
       profilePicName.setAttribute('id', 'profilePic-name');
       
@@ -133,8 +134,8 @@ console.log(data)
       placeReaction.setAttribute('class', 'button')
       
       // placeReaction.setAttribute('disabled', 'disabled')
-
-
+      
+      
       // add an element that holds the db id of the data
       // (invisible)
       const dataID = document.createElement('p')
@@ -142,6 +143,10 @@ console.log(data)
       dataID.setAttribute('id', 'dataID')
       dataID.innerText = doc._id
       
+      const activity = document.createElement('p')
+      activity.setAttribute('name', doc.activity)
+      activity.setAttribute('class', 'none')
+    
       if (!doc.profilePic) {
         profilePic.src = "/assets/placeholder.jpg"
       }
@@ -167,6 +172,7 @@ console.log(data)
           reactionForm.appendChild(reactionInput)
           reactionForm.appendChild(placeReaction);
           reactionForm.append(dataID)
+          reactionForm.append(activity)
           
         thread.appendChild(element)
         

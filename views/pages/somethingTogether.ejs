@@ -1,74 +1,75 @@
 <% include ../components/header.ejs %>
 
-<section id="0" class="input-field section">
-<header>
-  <h2>Oke, </h2> <h2>wat zou je samen willen doen?</h2>
-  <p>* vul minimaal 3 keuzes in</p>
-  </header>
+<form method="post" action="/msg">
+    <section id="0" class="input-field section">
+    <header>
+      <h2>oke, </h2> <h2>wat zou je samen willen doen?</h2>
+      <p>Hier kun je een bericht maken om op het prikbord te hangen. Nadat je het geplaatst hebt kunnen andere Oba bezoekers erop reageren. Superhandig als je niet alleen wilt lunchen!</p>
+      </header>
 
-  <div id="add-tags">
-    <form action="">
-      <input type="text" name="tag" placeholder="typ hier je tag">
-      <button type="submit">voeg toe</button>
-    </form>
-  </div>
+<input type="text" value="somethingTogether" name="activity" class="none" id="activity">
 
-  <div id="tags">
-
-  </div>
-
-  <h2>geef een naam aan je bericht</h2>
-  <input type="text" placeholder="typ hier je naam" name="postName">
-
-  <h2>typ je bericht</h2>
-  <textarea placeholder="typ hier je bericht" name="postContent"></textarea>
-
-  <footer id="navigate-footer">
-    <div class="prev-next-button">
-      <a href="iHaveAGoal">terug</a>
-    </div>
-
-    <img src="/assets/question-mark.svg" alt="explore">
-    <div class="prev-next-button">
-      <h3 class="next">volgende</h3>
-    </div>
-  </footer>
-
-</section>
-
-<section id="1" class="recognition none section">
-  <header>
-  <h2>maak jezelf herkenbaar </h2>
-  <p></p>
-  </header>
-
-  <section class="profilePic">
-  <form action="getPicture.js">
-      <img id="profile-pic-preview" src="/assets/placeholder.jpg" alt="">
-      <input type="file" id="pic" accept="image/   *" name="pic" class="none">
-
-      <div class="button-align">
-        <label for="pic">upload foto</label>
-        <button id='remove-pic'>verwijder</button>
+      <div id="add-tags">
+          <input type="text" name="tag" placeholder="interesses, hobbies, favorite auteur?">
+          <button type="submit">voeg toe</button>
       </div>
-  </form>
-  </section>
+
+      <div id="tags" name="tags">
+
+      </div>
+
+    <input type="text" class="none" name="tags">
+
+      <h2>geef een naam aan je bericht</h2>
+      <input type="text" placeholder="typ hier je naam" name="postName">
+
+      <h2>typ je bericht</h2>
+      <textarea placeholder="typ hier je bericht" name="postContent"></textarea>
+
+      <footer id="navigate-footer">
+        <div class="prev-next-button">
+          <a href="iHaveAGoal">terug</a>
+        </div>
+
+        <img src="/assets/question-mark.svg" alt="explore">
+        <div class="prev-next-button">
+          <h3 class="next">volgende</h3>
+        </div>
+      </footer>
+
+    </section>
+
+    <section id="1" class="recognition none section">
+      <header>
+      <h2>maak jezelf herkenbaar </h2>
+      <p></p>
+      </header>
+
+      <section class="profilePic">
+          <img id="profile-pic-preview" src="/assets/placeholder.jpg" alt="">
+          <input type="file" id="pic" accept="image/   *" name="pic" class="none" id="imageInForm">
+
+          <div class="button-align">
+            <label for="pic">upload foto</label>
+            <button id='remove-pic'>verwijder</button>
+          </div>
+      </section>
 
 
-  <h2>geef jezelf een naam</h2>
-  <input type="text" name="username" placeholder="jouw naam...">
+      <h2>geef jezelf een naam</h2>
+      <input type="text" name="username" placeholder="jouw naam...">
 
 
-  <footer id="navigate-footer">
-    <div class="prev-next-button">
-      <h3 class="prev">terug</h3>
-    </div>
-    <img src="/assets/question-mark.svg" alt="explore">
-    <div class="prev-next-button">
-      <a href="messageOverview">volgende</a>
-    </div>
-  </footer>
-
+      <footer id="navigate-footer">
+        <div class="prev-next-button">
+          <h3 class="prev">terug</h3>
+        </div>
+        <img src="/assets/question-mark.svg" alt="explore">
+        <div class="prev-next-button">
+          <button type="submit" class="next">volgende</button>
+        </div>
+      </footer>
+</form>
 
 <script defer src="../javascript/add-tag.js" type="module"></script>
 <script defer src="../javascript/image-prev.js" type="module"></script>

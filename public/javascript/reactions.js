@@ -14,7 +14,6 @@ form.forEach(f => {
     ///////////
     ////
     ///// at the moment there's a bug that duplicates the reactions. there are no duplicates in the data
-    // vailiants message had no prop: reactions?
     ////
     socket.on('updateReaction', function (data) {
       console.log(data)
@@ -23,6 +22,9 @@ form.forEach(f => {
 
 
       function addOnReceived(data) {
+
+        console.log(data)
+        
         data[0].reactions.forEach(receivedReaction => {
           let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
           console.log(reactionContainer)
