@@ -20,7 +20,7 @@
     </h2>
     <!-- <h2 class="close-nav">X</h2> -->
     <ul>
-      <li><a href="shareKnowledge">epertise delen</a></li>
+      <li><a href="shareKnowledge">kennis delen</a></li>
       <li><a href="helpMe">ik heb kennis/hulp nodig</a></li>
       <li><a href="somethingTogether">ik wil samen iets doen</a></li>
     </ul>
@@ -55,12 +55,12 @@
             <h2><%= post.postName %></h2>
             <h4> <%= post.date %></h4>
         </div>
-        
+
         <p><%= post.postContent %></p>
-        
+
         <div id="tags"> <% post.tags.forEach((tag)=> { %>
             <div class="tag">
-            <h3><%= tag %> </h3> <% 
+            <h3><%= tag %> </h3> <%
         }) %>
         </div>
     </div>
@@ -80,7 +80,7 @@
         </form>
       <% console.log('test') %>
       <% console.log(post) %>
-<% 
+<%
 console.log(post.reactions[0].data)
 if(post.reactions[0].data){
 
@@ -95,7 +95,7 @@ if(post.reactions[0].data){
     </div>
 </section>
 <%
-}) 
+})
 %>
 </section>
 
