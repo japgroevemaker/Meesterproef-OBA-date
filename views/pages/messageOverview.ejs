@@ -4,10 +4,10 @@
   <h2>zo ziet je bericht er uit</h2>
 </header>
 
-<section class="message">
+<section class="message" name="<%= data.activity %>">
   <div id="header">
   <input class="none" id="activity" value="<%= data.activity %>">
-    <h2 name="postName"id="postName" class="data"><%= data.postName %></h2>
+    <h2 name="postName"id="postName" class="data"><%= data.postName %> <img src="<%=`/assets/${data.activity}.svg` %>"></h2>
     <h4 name="" class="data time-text" id="Date"><%= data.date %></h4>
     <h4 name="" class="data date-text"></h4>
   </div>
@@ -26,7 +26,7 @@
 
     <div id="profilePic-name">
     <%
-    console.log(!data.image)
+ 
      if(data.image != ""){ %>
       <img src="<%= data.image || '' %>" alt="" id="imagePreview">
     

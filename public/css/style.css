@@ -551,6 +551,7 @@ section.message div#tags .tag {
   padding: 0 0.5em;
   height: 2em;
   display: flex;
+  align-items: center;
 }
 
 section.message div#tags div.tag span.dot {
