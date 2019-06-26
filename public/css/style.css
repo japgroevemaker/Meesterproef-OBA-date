@@ -563,7 +563,7 @@ div#profilePic-name {
   margin: 0 auto 10%;
   display: flex;
   flex-direction: row;
-  background-color: #EEEEEE;
+  /* background-color: #EEEEEE; */
   border-radius: 1em;
 
 }
@@ -584,7 +584,7 @@ section.message div#profilePic-name h2 {
 
 /* ---------dashboard--------- */
 header#dashboard-header {
-  background-color: var(--OBA-subColor-Blue);
+  /* background-color: var(--OBA-subColor-Blue); */
   /* display: grid; */
   padding-left: 5%;
   padding-top: 5%;
@@ -596,7 +596,7 @@ header#dashboard-header {
 }
 
 header#dashboard-header h2 {
-  color: #fff;
+  color: #000;
   font-size: 3em;
   font-weight: bold;
   /* grid-column-start: 1; */
@@ -722,13 +722,15 @@ header#dashboard-header nav ul li a {
 }
 
 form#dashboard-search {
-  color: #fff;
+  color: #000;
   margin: 0% auto 0%;
   width: 90%;
   padding: 5%;
   display: flex;
   flex-direction: column;
-  background-color: var(--OBA-subColor-Blue);
+  font-family: var(--OBA-font);
+  font-size: 0.8em;
+  /* background-color: var(--OBA-subColor-Blue); */
 }
 
 form#dashboard-search div#checkbox {
@@ -751,7 +753,7 @@ form#dashboard-search input[type="text"]{
   font-size: 1em;
   width: 95%;
   height: 3em;
-  background-color: #fff;
+  background-color: var(--input-background);
   border: var(--input-border);
   margin: 0 auto 5%;
   padding-left: 5%;
@@ -820,7 +822,6 @@ footer#index-footer {
   right: 0;
   bottom: 0;
   z-index: 10;
-  border-top: solid 1px var(--OBA-subColor-Blue);
 }
 
 footer#index-footer div#add-post {

@@ -40,14 +40,14 @@ router.get('/dashboard', (req,res)=>{
         } else {
             console.log('foundDocuments'.yellow)
             // logging individual docs
-            
+
             //console.log(docs)
             return docs
         }
         if(docs){return docs} else{console.error('no docs retrieved')}
-       
+
     }).then((result)=>{
-        
+
         res.render('./pages/index.ejs', {data:result})
 
     })
