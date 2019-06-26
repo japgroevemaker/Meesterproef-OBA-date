@@ -4,7 +4,7 @@
   <h2>Je gaat nu een kaartje samenstellen</h2>
   <p>Aan de hand van een paar vragen genereren we je kaartje die je vervolgens op het prikbord kunt plaatsen.Nadat je het geplaatst hebt kunnen andere OBA bezoekers die de app ook gebruiken erop reageren</p>
   <div id="nav-box">
-    <a href="index">terug naar rondkijken</a>
+    <a href="/">terug naar rondkijken</a>
     <button class="go">we gaan er voor!</button>
   </div>
 </section>
@@ -19,7 +19,7 @@
       <input type="text" value="shareKnowledge" name="activity" class="none" id="activity">
 
       <h2>geef een naam aan je bericht</h2>
-      <input type="text" placeholder="geef een naam aan je bericht" name="postName">
+      <input type="text" placeholder="geef een naam aan je bericht" name="postName" id="validatePostName" pattern="/^[A-Za-z\s]+$/">
 
       <h2>typ je bericht</h2>
       <textarea placeholder="typ hier je bericht" name="postContent"></textarea>

@@ -34,6 +34,7 @@ const socketServer = function (io) {
                         console.log(error)
                     } else{
                         // send post to other clients
+                        console.log('------------------------------')
                         socket.broadcast.emit('threadGranted', doc)
 
                     }

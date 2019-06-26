@@ -211,6 +211,17 @@ footer#navigate-footer div.prev-next-button a {
 }
 
 /* ---------shareKnowledge&helpMe&somethingTogether pages--------- */
+
+
+.feedback {
+  font-size: 110%;
+  box-sizing: border-box;
+  border: 1px solid papayawhip;
+  background-color: papayawhip;
+  padding: 12px 21px;
+  margin: 30px 33px;
+}
+
 section.overlay {
   position: fixed;
   left: 0;
