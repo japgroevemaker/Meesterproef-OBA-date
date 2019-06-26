@@ -1,0 +1,206 @@
+@media screen and (min-width: 750px) {
+  /* header */
+  header#dashboard-header{
+    width: 65vw;
+  }
+
+  header#dashboard-header img {
+    width: 20vw;
+  }
+
+  header#dashboard-header h2 {
+    font-size: 2em;
+  }
+
+  /* nav */
+  header#dashboard-header nav img{
+    width: 30vw;
+    margin: 5vh auto 0;
+  }
+
+  header#dashboard-header nav h2 {
+    width: 50vw;
+    margin: 20vh auto 0;
+  }
+
+  header#dashboard-header nav ul{
+    width: 50vw;
+  }
+
+  /* dashboard */
+  form#dashboard-search{
+    width: 65vw;
+  }
+
+  form#dashboard-search div#checkbox label {
+    padding: 0.5em 1.5em;
+  }
+
+  section#thread {
+    width: 70vw;
+    margin: 0 auto 15vh;
+  }
+
+  section.message div#reactions div.reaction {
+    width: 75%;
+  }
+
+  /* making call */
+  section.overlay h2 {
+    width: 60vw;
+    margin: 30vh auto 10vh;
+  }
+
+  section.overlay p {
+    width: 60vw;
+  }
+
+  section.overlay div#nav-box {
+    width: 60vw;
+  }
+
+  section.input-field {
+    width: 80vw;
+  }
+
+  footer#navigate-footer {
+    width: 72vw;
+  }
+
+  section.recognition {
+    width: 80vw;
+  }
+
+  section.recognition section.profilePic {
+    width: 100%;
+  }
+
+  section.recognition section.profilePic img {
+    width: 50%;
+    height: 30vh;
+  }
+
+  /* message-overview */
+  header {
+    width: 70vw;
+  }
+
+  section.resp-message {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  /* dashboard */
+form#dashboard-search div#checkbox label {
+  font-size: 1em;
+}
+
+  section#thread {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  section.message {
+    width: 40vw;
+  }
+
+  section.message div#reactions div.reaction {
+    font-size: 0.9em;
+  }
+
+  /* making call */
+  section.overlay h2 {
+    width: 50vw;
+  }
+
+  section.overlay p {
+    width: 50vw;
+  }
+
+  section.overlay div#nav-box {
+    width: 50vw;
+  }
+
+  header {
+    width: 55vw;
+  }
+
+  section.input-field {
+    width: 60vw;
+  }
+
+  footer#navigate-footer {
+    width: 55vw;
+  }
+
+  footer#navigate-footer div.prev-next-button {
+    height: 3em;
+  }
+
+  section.recognition {
+    width: 60vw;
+  }
+
+  /* message overview */
+  section.resp-message {
+    width: 55vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  section.message {
+    width: 25vw;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  /* nav */
+  header#dashboard-header nav img {
+    width: 20vw;
+  }
+
+  header#dashboard-header nav h2 {
+    width: 30vw;
+  }
+
+  header#dashboard-header nav ul {
+    width: 30vw;
+  }
+
+  /* making call */
+  section.overlay h2 {
+    width: 40vw;
+  }
+
+  section.overlay p {
+    width: 40vw;
+  }
+
+  section.overlay div#nav-box {
+    width: 40vw;
+  }
+
+  header {
+    width: 45vw;
+  }
+
+  section.input-field {
+    width: 50vw;
+  }
+
+  footer#navigate-footer {
+    width: 45vw;
+  }
+
+  section.recognition {
+    width: 50vw;
+  }
+
+  /* section.resp-message {
+    width: 45vw;
+  } */
+}

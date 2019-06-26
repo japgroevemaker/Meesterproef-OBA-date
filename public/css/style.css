@@ -349,11 +349,10 @@ section.input-field div#tags {
 }
 
 section.input-field div#tags .tag {
-  background-color: var(--OBA-subColor);
+  background-color: var(--OBA-subColor-Blue);
   width: auto;
   padding: 0 0.5em;
   height: 2em;
-  border-radius: 2em;
   display: flex;
   margin: 0.1em auto;
 }
@@ -514,7 +513,7 @@ section.message div#header h2 img{
   height: 11%;
   position: absolute;
   right: 26px;
-
+  display: none;
 }
 
 section.message div#header h2 {
@@ -552,6 +551,7 @@ section.message div#tags .tag {
   height: 2em;
   display: flex;
   align-items: center;
+  color: #fff;
 }
 
 section.message div#tags div.tag span.dot {
@@ -586,7 +586,6 @@ section.message div#profilePic-name img {
   width: 2.5em;
   height: 2.5em;
   border: solid #ccc 0.01em;
-  margin: auto 0.5em;
 }
 
 section.message div#profilePic-name h2 {
@@ -941,12 +940,14 @@ section.message div#reactions p.date-time {
 }
 
 section.message div#reactions div.reaction {
-  width: 73%;
+  width: 70%;
   border-radius: 0.2em;
+  margin: 0.2em auto;
   padding: 0.2em;
   height: auto;
   background-color: var(--input-background);
-  margin-left: 3%;
+  border: var(--input-border);
+  margin-left: 5%;
   display: flex;
   font-family: var(--OBA-font)
 }
