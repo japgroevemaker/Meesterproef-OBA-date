@@ -17,12 +17,12 @@ router.get('/',(req,res)=>{
         } else {
             console.log('foundDocuments'.green)
             // logging individual docs
-            
+
             console.log(docs)
             return docs
         }
         if(docs){return docs} else{console.log('no docs retrieved'.red)}
-       
+
     }).then((result)=>{
         res.render('./pages/index.ejs', {data:result})
 
@@ -31,11 +31,11 @@ router.get('/',(req,res)=>{
 })
 
 // dashboard page
-<<<<<<< HEAD
 router.get('/', (req,res)=>{
     console.log('entered dashboard')
     res.render('./pages/index')
-=======
+})
+
 router.get('/dashboard', (req,res)=>{
     console.log('entered index')
     console.log('Retrieving Documents'.yellow)
@@ -45,17 +45,17 @@ router.get('/dashboard', (req,res)=>{
         } else {
             console.log('foundDocuments'.green)
             // logging individual docs
-            
+
             console.log(docs)
             return docs
         }
         if(docs){return docs} else{console.log('no docs retrieved'.red)}
-       
+
     }).then((result)=>{
         res.render('./pages/index.ejs', {data:result})
 
     })
->>>>>>> 001b8f2eaddec7aaefd29cbdba7e0eba2302d7d3
+
 })
 
 router.get('/iHaveAGoal', (req,res)=>{
