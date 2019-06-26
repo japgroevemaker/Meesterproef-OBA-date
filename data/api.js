@@ -10,7 +10,7 @@ const api = {
           .pipe(console.log)
           .catch(console.error);
       },
-
+      
 
 
 }
