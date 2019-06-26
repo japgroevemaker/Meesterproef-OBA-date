@@ -4,7 +4,8 @@ let socket = io()
 const handlePost = {
     listener: function(){
         if(window.location.pathname === '/msg'){
-            console.log(document.querySelector('#activity'))
+            const test = document.querySelector('#profile-pic-preview')
+            console.log(test)
             const button = document.querySelector('#postButton')
             button.addEventListener('click', (e)=>{
                 const tags = []

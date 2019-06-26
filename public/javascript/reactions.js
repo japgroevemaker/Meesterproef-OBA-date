@@ -20,9 +20,15 @@ const react = {
       let uniqueSectionID = f.parentElement.parentElement.id
       // listen for submit
       f.addEventListener('submit', e => {
-        e.preventDefault()
+        const currentValueInput = f.querySelector('input[name=reaction').value
+        if(currentValueInput != "" || undefined || null){
+          
+          console.log(f.querySelector('input[name=reaction').value)
+          e.preventDefault()
         let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
-        console.log(reactionContainer)
+      if(!reactionContainer){
+        console.error(`Reaction Container is: ${reactionContainer} \n It probably not be located by uniqueSectionID \n UniqueSectionID:${UniqueSectionID}`)
+      }
 
         // add all reactions to an array and update the reactions prop with the new array that includes all reactions
 
@@ -56,6 +62,10 @@ const react = {
         // reset the reaction input to ""
         f.childNodes[1].value = ""
 
+      }
+      else{
+console.error(currentValueInput)
+      }
       })
     })
   },

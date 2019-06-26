@@ -30,6 +30,7 @@ function savePost(data) {
     try {
         newPost.save().then((newpost) => {
             console.log('succesfully Saved Post'.green)
+        
         })
         
     } catch (error) {
