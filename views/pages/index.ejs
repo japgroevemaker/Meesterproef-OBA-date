@@ -74,19 +74,20 @@
     <div id="reactions">
         <form class="reaction-form">
         <img src="">
-        <input placeholder="schrijf een opmerking..." type="text" class="reaction-input">
+        <input name="reaction" placeholder="schrijf een opmerking..." type="text" class="reaction-input">
         <input type="submit" value="plaats" class="button">
     <p class="none" id="dataID"><%= post._id %></p>
         </form>
       <% console.log('test') %>
-      <% console.log(post.reactions) %>
+      <% console.log(post) %>
 <% 
-if(post.reactions.data){
+console.log(post.reactions[0].data)
+if(post.reactions[0].data){
 
-  post.reactions.data.forEach((reaction)=>{ %>
+  post.reactions[0].data.forEach((reaction)=>{ %>
 <img src="/assets/placeholder.jpg" alt="Profile Image">
-<div class="reaction"><%= reaction.data %>
-<p class="date-time"><%= reactions.date %></p>
+<div class="reaction"><%= reaction %>
+<p class="date-time"><%=  %></p>
 </div>
 
 

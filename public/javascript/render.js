@@ -1,12 +1,11 @@
-import handlePost from './handlepost.js'
+
 import handleReactions from './reactions.js'
 
 // id reaction gets a class reaction
 const render = {
   renderInputData: function (data) {
 if(data === {}){console.error('Data is empty')}
-    // Call postRequest Submit Event Listener
-    handlePost.listener(data)
+    // Call postRequest Submit Event Listene
     // console.log(data)
     const elements = document.querySelectorAll('.data')
     // console.log(elements)

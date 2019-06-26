@@ -2,11 +2,15 @@ let socket = io()
 
 
 const handlePost = {
-    listener: function(data){
+    listener: function(){
         if(window.location.pathname === '/msg'){
-            console.log(document.querySelector('#activity'))
+            const test = document.querySelector('#profile-pic-preview')
+            console.log(test)
             const button = document.querySelector('#postButton')
             button.addEventListener('click', (e)=>{
+                const tags = []
+                const tagElements = document.querySelectorAll('#tagField p')
+                console.log(tagElements)
                 console.log('saving post')
                 const data = {
                     postName: document.querySelector('#postName').innerText,
@@ -28,4 +32,3 @@ const handlePost = {
 
 handlePost.listener()
 
-export default handlePost;
