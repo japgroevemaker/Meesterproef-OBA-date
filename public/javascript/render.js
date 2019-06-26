@@ -69,7 +69,7 @@ postElement.innerHTML =  `
   <div id="profilePic-name">
   
   <img src="${post.profilePic}" alt="Profile image">
-  <p id="username">${post.username}</p>
+  <h2 id="username">${post.username}</h2>
   </div>
   
   <div id="reactions">
