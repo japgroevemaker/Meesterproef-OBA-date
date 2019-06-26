@@ -5,7 +5,7 @@ let filter = search.value.toUpperCase()
 
 let thread = document.querySelector('#thread')
 
-let messages = thread.querySelectorAll('#message')
+let messages = thread.querySelectorAll('.message')
 
 let tags = document.querySelectorAll('.tag')
 
@@ -14,9 +14,9 @@ messages.forEach(function(filterTag) {
   search.querySelectorAll('.tag')
 
   if (filterTag.innerHTML.toUpperCase().indexOf(filter) > -1) {
-    filterTag.className = ''
+    filterTag.classList.remove('none')
   } else {
-    filterTag.className = 'none'
+    filterTag.classList.add('none')
   }
 })
 }

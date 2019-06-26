@@ -1,17 +1,33 @@
 <% include ../components/header.ejs %>
 
+<section class="overlay">
+  <h2>Je gaat nu een kaartje samenstellen</h2>
+  <p>Aan de hand van een paar vragen genereren we je oproep die je vervolgens op het prikbord kunt plaatsen. Nadat je de oproep geplaatst hebt kunnen andere OBA bezoekers die de app ook gebruiken erop reageren</p>
+  <div id="nav-box">
+    <a href="/">terug naar rondkijken</a>
+    <button class="go">we gaan er voor!</button>
+  </div>
+</section>
+
 <form method="post" action="/msg">
     <section id="0" class="input-field section">
     <header>
-      <h2>oke, </h2> <h2>wat zou je samen willen doen?</h2>
-      <p>Hier kun je een bericht maken om op het prikbord te hangen. Nadat je het geplaatst hebt kunnen andere Oba bezoekers erop reageren. Superhandig als je niet alleen wilt lunchen!</p>
+      <h2>wat zou je graag samen willen doen?</h2>
+      <p><i>dit zijn de instellingen voor je bericht</i></p>
       </header>
 
-  <input type="text" value="somethingTogether" name="activity" class="none" id="activity">
+      <input type="text" value="shareKnowledge" name="activity" class="none" id="activity">
 
+      <h2>geef een naam aan je bericht</h2>
+      <input type="text" placeholder="geef een naam aan je bericht" name="postName" id="validatePostName" pattern="/^[A-Za-z\s]+$/">
+
+      <h2>typ je bericht</h2>
+      <textarea placeholder="typ hier je bericht" name="postContent"></textarea>
+
+      <h2>voeg tags toe aan je bericht</h2>
       <div id="add-tags">
-          <input type="text" name="tag" placeholder="interesses, hobbies, favorite auteur?">
-          <button >voeg toe</button>
+          <input type="text" name="tag" placeholder="typ hier je tag">
+          <button>voeg toe</button>
       </div>
 
       <div id="tags" name="tags">
@@ -20,18 +36,12 @@
 
     <input type="text" class="none" name="tags">
 
-      <h2>geef een titel aan je bericht</h2>
-      <input type="text" placeholder="typ hier een leuke titel..." name="postName" required pattern="/^[A-Za-z\s]+$/">
-
-      <h2>typ je bericht</h2>
-      <textarea placeholder="typ hier je bericht" name="postContent" required></textarea>
-
       <footer id="navigate-footer">
         <div class="prev-next-button">
           <a href="iHaveAGoal">terug</a>
         </div>
 
-        <img src="/assets/question-mark.svg" alt="explore">
+        <!-- <img src="/assets/question-mark.svg" alt="explore"> -->
         <div class="prev-next-button">
           <h3 class="next">volgende</h3>
         </div>
@@ -42,7 +52,7 @@
     <section id="1" class="recognition none section">
       <header>
       <h2>maak jezelf herkenbaar </h2>
-      <p></p>
+      <p><i>niets van deze informatie wordt permanent opgeslagen</i></p>
       </header>
 
       <section class="profilePic">
@@ -64,16 +74,19 @@
         <div class="prev-next-button">
           <h3 class="prev">terug</h3>
         </div>
-        <img src="/assets/question-mark.svg" alt="explore">
+        <!-- <img src="/assets/question-mark.svg" alt="explore"> -->
         <div class="prev-next-button">
           <button type="submit" class="next">volgende</button>
+          <h3 class="next">volgende</h3>
         </div>
       </footer>
 </form>
 
+<script defer src="../javascript/clear-overlay.js" type="module"></script>
 <script defer src="../javascript/add-tag.js" type="module"></script>
 <script defer src="../javascript/image-prev.js" type="module"></script>
 <script defer src="../javascript/prev-next.js" type="module"></script>
+<script src="../javascript/handlePost.js" type="module"></script>
 
 <% include ../components/footer.ejs %>
 <% include ../components/scripts.ejs %>
