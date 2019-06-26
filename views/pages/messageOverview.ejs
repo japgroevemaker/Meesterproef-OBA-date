@@ -25,7 +25,15 @@
     </div>
 
     <div id="profilePic-name">
-      <img src="<%= data.image %>" alt="" id="imagePreview">
+    <%
+    console.log(!data.image)
+     if(data.image != ""){ %>
+      <img src="<%= data.image || '' %>" alt="" id="imagePreview">
+    
+    <% }else{ %>
+      <img src="/assets/placeholder.jpg" alt="Placeholder profile picture" id="imagePreview">
+
+    <%}%>
       <input type="text" name="pic" class="none" id="imageInForm"><%= data.profilePic %>
       <h2 name="username" class="data" id="username"><%= data.username%></h2>
       
