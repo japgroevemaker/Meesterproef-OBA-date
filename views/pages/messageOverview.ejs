@@ -4,7 +4,7 @@
   <h2>zo ziet je bericht er uit</h2>
 </header>
 
-<section class="message" name="<%= data.activity %>">
+<section class="message resp-message" name="<%= data.activity %>">
   <div id="header">
   <input class="none" id="activity" value="<%= data.activity %>">
     <h2 name="postName"id="postName" class="data"><%= data.postName %> <img src="<%=`/assets/${data.activity}.svg` %>"></h2>
@@ -14,10 +14,10 @@
     <p name="postContent" class="data content-text" id="postContent"> <%= data.postContent %></p>
 
     <div id="tags">
-      <div class="data" name="tags" id="tagField"> 
+      <div class="data" name="tags" id="tagField">
       <input class="none" type="text" name="tags" value=""><!-- give created element this class -->
          <!-- store this elements in created div -->
-         
+
          <% data.tags.forEach((tag, i)=>{ %>
     <p class="tag"><%= tag %></p>
          <% }) %>
@@ -26,17 +26,17 @@
 
     <div id="profilePic-name">
     <%
- 
+
      if(data.image != ""){ %>
       <img src="<%= data.image || '' %>" alt="" id="imagePreview">
-    
+
     <% }else{ %>
       <img src="/assets/placeholder.jpg" alt="Placeholder profile picture" id="imagePreview">
 
     <%}%>
       <input type="text" name="pic" class="none" id="imageInForm"><%= data.profilePic %>
       <h2 name="username" class="data" id="username"><%= data.username%></h2>
-      
+
     </div>
 </section>
 
@@ -44,7 +44,7 @@
   <div class="prev-next-button">
     <a href="<%= data.activity %>">terug</a>
   </div>
-  <img src="/assets/question-mark.svg" alt="explore">
+  
   <div class="prev-next-button">
     <a id="postButton" href="dashboard">plaats</a>
   </div>
