@@ -546,6 +546,7 @@ section.message div#tags .tag {
   height: 2em;
   border-radius: 2em;
   display: flex;
+  align-items: center;
 }
 
 section.message div#tags div.tag span.dot {

@@ -16,27 +16,48 @@ const init = {
         })
 
     },
-    stylePosts: function () {
-        const posts = document.querySelectorAll('.message')
-const opacity = '0.13'
+    stylePosts: function (posts) {
+    
         const colors = ['rgb(255,160,0)', 'rgb(160,0,120)', 'rgb(0,155,150)', 'rgba(255,160,0,0.10', 'rgba(160,0,120,0.10)', 'rgba(0,155,150,0.10']
-        posts.forEach((post) => {
-            const activity = post.getAttribute('name')
+        if(!posts.forEach){
+            console.log(posts)
+            console.log(posts.getAttribute('name'))
+            const activity = posts.getAttribute('name')
             console.log(activity)
             if (activity == "shareKnowledge") {
 
                 // post.style.border = `2px solid ${colors[0]}`
-                post.style.backgroundColor = colors[3]
+                posts.style.backgroundColor = colors[3]
             } else if (activity == "somethingTogether") {
                 // post.style.border = `2px solid ${colors[1]}`
-                post.style.backgroundColor = colors[4]
+                posts.style.backgroundColor = colors[4]
             } else if (activity == "helpMe") {
                 // post.style.border = `2px solid ${colors[2]}`
-                post.style.backgroundColor = colors[5]
+                posts.style.backgroundColor = colors[5]
             } else {
                 console.error('No post styles were applied')
             }
-        })
+
+        } else{
+            posts.forEach((post) => {
+                const activity = post.getAttribute('name')
+                console.log(activity)
+                if (activity == "shareKnowledge") {
+    
+                    // post.style.border = `2px solid ${colors[0]}`
+                    post.style.backgroundColor = colors[3]
+                } else if (activity == "somethingTogether") {
+                    // post.style.border = `2px solid ${colors[1]}`
+                    post.style.backgroundColor = colors[4]
+                } else if (activity == "helpMe") {
+                    // post.style.border = `2px solid ${colors[2]}`
+                    post.style.backgroundColor = colors[5]
+                } else {
+                    console.error('No post styles were applied')
+                }
+            })
+
+        }
 
     },
     checkboxFilter: function () {
@@ -63,12 +84,23 @@ const opacity = '0.13'
             })
             console.log(filterElement)
         })
-
+        
     }
 }
 
 if (window.location.pathname == '/dashboard' || '/') {
+    console.log('dashboard route')
     init.getThread(socket)
     init.checkboxFilter()
-    init.stylePosts()
+    
+    
+    const posts = document.querySelectorAll('.message')
+    init.stylePosts(posts)
+}
+if(window.location.pathname == '/msg'){
+    console.log('msg route')
+    const posts = document.querySelector('.message')
+  
+    init.stylePosts(posts)
+
 }
