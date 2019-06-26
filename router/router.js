@@ -81,7 +81,10 @@ router.get('/messageOverview', (req,res)=>{
 router.post('/msg', (req, res) => {
     console.log(`Posting: ${req.body.postName}`)
 const tagArray = req.body.tags.split(',')
-
+console.log(req.body.picString)
+if(!req.body.picString){
+    req.body.picString = './assets/placeholder.jpg'
+}
     data = {
 postName: req.body.postName,
 postContent: req.body.postContent,

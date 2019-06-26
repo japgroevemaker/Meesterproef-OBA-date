@@ -348,7 +348,7 @@ section.input-field div#tags {
 }
 
 section.input-field div#tags .tag {
-  background-color: var(--OBA-red);
+  background-color: var(--OBA-subColor);
   width: auto;
   padding: 0 0.5em;
   height: 2em;
@@ -489,7 +489,6 @@ section.message {
   width: 90%;
   height: auto;
   margin: 5% auto 10%;
-  border: var(--input-border);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -502,6 +501,14 @@ section.message div#header {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+section.message div#header h2 img{
+  width: 14%;
+  height: 11%;
+  position: absolute;
+  right: 26px;
+
 }
 
 section.message div#header h2 {
@@ -777,7 +784,7 @@ section.message div#reactions {
   background-color: #fff;
   padding: 0.5em 0;
   width: 100%;
-  border-top: var(--input-border);
+  border-bottom: var(--input-border);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

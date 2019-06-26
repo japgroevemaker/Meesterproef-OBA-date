@@ -36,13 +36,13 @@
   <input type="text" name="" id="search-tags" placeholder="zoek hier naar posts">
 
   <div id="checkbox">
-    <input type="checkbox" id="together" name="" value="">
+    <input type="checkbox" id="together" name="somethingTogether" value="">
     <label for="together">Samen doen</label>
 
-    <input type="checkbox" id="help" name="" value="">
+    <input type="checkbox" id="help" name="helpMe" value="">
     <label for="help">Hulp nodig</label>
 
-    <input type="checkbox" id="offer-help" name="" value="">
+    <input type="checkbox" id="offer-help" name="shareKnowledge" value="">
     <label for="offer-help">Hulp aangeboden</label>
   </div>
 
@@ -55,8 +55,9 @@
         <section name="<%= post.activity %>"class="message" id= "<%= post.postName.replace(/ /g, '_') %>">
 
         <div id="header">
-            <h2><%= post.postName %></h2>
+            <h2><%= post.postName %> <img src="<%=`/assets/${post.activity}.svg` %>"></h2>
             <h4> <%= post.date %></h4>
+            
         </div>
 
         <p><%= post.postContent %></p>
@@ -81,7 +82,7 @@
 
     <div id="reactions">
         <form class="reaction-form">
-        <img src="">
+        <img src="/assets/placeholder.jpg">
         <input name="reaction" placeholder="schrijf een opmerking..." type="text" class="reaction-input">
         <input type="submit" value="plaats" class="button">
     <p class="none" id="dataID"><%= post._id %></p>
