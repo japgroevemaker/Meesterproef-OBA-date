@@ -30,7 +30,6 @@
     "mongodb": "^3.2.7",
     "mongoose": "^5.6.0",
     "nodemon": "^1.19.1",
-    "oba-wrapper": "github:maanlamp/OBA-wrapper",
     "socket.io": "^2.2.0"
   }
 }
