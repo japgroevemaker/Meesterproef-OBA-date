@@ -2,7 +2,10 @@
 
 <header id="dashboard-header">
   <h2>prikbord</h2>
+  <img src="/assets/logo.svg" alt="logo">
   <nav>
+
+    <img src="/assets/logo.svg" alt="logo">
     <h2>heb je
       <div class="slider">
         <ul class="slider-words">
@@ -67,7 +70,12 @@
 
 
     <div id="profilePic-name">
-    <img src="<%= post.profilePic %>" alt="Profile image">
+      <% if(post.profilePic) { %>
+        <img src="<%= post.profilePic %>" alt="Profile image">
+    <% } else { %>
+        <img src="/assets/placeholder.jpg" alt="Profile image">
+  <% } %>
+
         <h2 id="username"><%= post.username %></h2>
     </div>
 
