@@ -18,21 +18,17 @@ const init = {
     },
     stylePosts: function (posts) {
     
-        const colors = ['rgb(255,160,0)', 'rgb(160,0,120)', 'rgb(0,155,150)', 'rgba(255,160,0,0.10', 'rgba(160,0,120,0.10)', 'rgba(0,155,150,0.10']
+        const colors = ['rgb(255,160,0)', 'rgb(160,0,120)', 'rgb(0,155,150)', 'rgba(255,160,0,0.10)', 'rgba(160,0,120,0.10)', 'rgba(0,155,150,0.10)']
         if(!posts.forEach){
             console.log(posts)
             console.log(posts.getAttribute('name'))
             const activity = posts.getAttribute('name')
             console.log(activity)
-            if (activity == "shareKnowledge") {
-
-                // post.style.border = `2px solid ${colors[0]}`
+            if (activity == "shareKnowledge") {  
                 posts.style.backgroundColor = colors[3]
             } else if (activity == "somethingTogether") {
-                // post.style.border = `2px solid ${colors[1]}`
                 posts.style.backgroundColor = colors[4]
             } else if (activity == "helpMe") {
-                // post.style.border = `2px solid ${colors[2]}`
                 posts.style.backgroundColor = colors[5]
             } else {
                 console.error('No post styles were applied')
@@ -70,6 +66,7 @@ const init = {
                     messages.forEach(function (post) {
                         if (post.getAttribute('name') != e.target.getAttribute('name')) {
                             post.classList.add('none')
+                            console.log('restyled post')
                         }
                     })
                 } else if (!e.target.checked) {
@@ -78,6 +75,7 @@ const init = {
                     messages.forEach(function (post) {
                         if (post.getAttribute('name') != e.target.getAttribute('name')) {
                             post.classList.remove('none')
+                            console.log('restyled post')
                         }
                     })
                 }
