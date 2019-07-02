@@ -1,6 +1,6 @@
 window.onscroll = function(){
   let scrollPosY = window.pageYOffset;
-  console.log(scrollPosY);
+  // console.log(scrollPosY);
 
   let header = document.querySelector('#dashboard-header');
   let img = document.querySelector('#dashboard-header #logo');

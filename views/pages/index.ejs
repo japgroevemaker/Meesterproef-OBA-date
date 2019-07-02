@@ -54,7 +54,12 @@
 
         <div id="header">
             <h2><%= post.postName %> <img src="<%=`/assets/${post.activity}.svg` %>"></h2>
-            <h4> <%= post.date %></h4>
+            <% if(post.profilePic) { %>
+              <img src="<%= post.profilePic %>" alt="Profile image">
+          <% } else { %>
+              <img src="/assets/placeholder.jpg" alt="Profile image">
+        <% } %>
+            <h4> <i>Door: <%= post.username %> Om: <%= post.date %></i></h4>
 
         </div>
 
@@ -67,17 +72,11 @@
              <% }) %>
     </div>
 
-
-    <div id="profilePic-name">
-      <% if(post.profilePic) { %>
-        <img src="<%= post.profilePic %>" alt="Profile image">
-    <% } else { %>
-        <img src="/assets/placeholder.jpg" alt="Profile image">
-  <% } %>
-
-        <h2 id="username"><%= post.username %></h2>
+    <div class="toggle-reactions">
+      <img src="/assets/message-circle.svg" alt="message">
+      <p>0</p>
     </div>
-
+    <!-- <p class="toggle-reactions">Plaats de eerste reactie!</p> -->
     <div id="reactions">
         <form class="reaction-form">
         <img src="/assets/placeholder.jpg">
@@ -92,6 +91,8 @@ console.log(post.reactions[0].data)
 if(post.reactions[0].data){
 
   post.reactions[0].data.forEach((reaction)=>{ %>
+  <!-- <%console.log(reaction.length)%> -->
+
 <img src="/assets/placeholder.jpg" alt="Profile Image">
 <div class="reaction"><%= reaction %>
 <p class="date-time"><%=  %></p>
@@ -111,7 +112,7 @@ if(post.reactions[0].data){
     <img src="/assets/cross.svg" alt="cross">
   </div>
 </footer> -->
-
+<script defer src="../javascript/reaction-counter.js" type="module"></script>
 <script defer src="../javascript/scroll.js" type="module"></script>
 <script defer src="../javascript/dashboard-filter.js" type="module"></script>
 
