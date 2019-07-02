@@ -1,38 +1,36 @@
 <% include ../components/header.ejs %>
-
 <header id="dashboard-header">
-  <h2>prikbord</h2>
-  <img src="/assets/logo.svg" alt="logo">
-  <nav>
-
-    <img src="/assets/logo.svg" alt="logo">
-    <h2>heb je
-      <div class="slider">
-        <ul class="slider-words">
-          <li class="slider-word">kennis om te delen?</li>
-          <li class="slider-word">een vraag?</li>
-          <li class="slider-word">zin om koffie te drinken?</li>
-          <!--
-           <li class="slider-word">eventjes pauze?</li>
-           <li class="slider-word">feedback nodig?</li>
-          -->
-           <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
-          <li class="slider-word">kennis om te delen?</li>
-        </ul>
-      </div>
-    </h2>
-    <!-- <h2 class="close-nav">X</h2> -->
-    <ul>
-      <li><a href="shareKnowledge">kennis delen</a></li>
-      <li><a href="helpMe">ik heb kennis/hulp nodig</a></li>
-      <li><a href="somethingTogether">ik wil samen iets doen</a></li>
-    </ul>
-  </nav>
+  <img id="logo" src="/assets/logo.svg" alt="logo">
+  <div id="add-post">
+    <img src="/assets/cross.svg" alt="cross">
+  </div>
 </header>
 
+<nav>
+  <h2>heb je
+    <div class="slider">
+      <ul class="slider-words">
+        <li class="slider-word">kennis om te delen?</li>
+        <li class="slider-word">een vraag?</li>
+        <li class="slider-word">zin om koffie te drinken?</li>
+        <!--
+         <li class="slider-word">eventjes pauze?</li>
+         <li class="slider-word">feedback nodig?</li>
+        -->
+         <!-- This last word needs to duplicate the first one to ensure a smooth infinite animation -->
+        <li class="slider-word">kennis om te delen?</li>
+      </ul>
+    </div>
+  </h2>
+  <!-- <h2 class="close-nav">X</h2> -->
+  <ul>
+    <li style="background-color: rgba(255,160,0,0.3)"><a href="shareKnowledge">kennis delen</a></li>
+    <li style="background-color: rgba(0,155,150,0.3);"><a href="helpMe">ik heb kennis/hulp nodig</a></li>
+    <li style="background-color: rgba(160,0,120,0.3);"><a href="somethingTogether">ik wil samen iets doen</a></li>
+  </ul>
+</nav>
 
 <form id="dashboard-search">
-  <h2>Zoek naar posts</h2>
   <input type="text" name="" id="search-tags" placeholder="zoek hier naar posts">
 
   <div id="checkbox">
@@ -108,12 +106,13 @@ if(post.reactions[0].data){
 %>
 </section>
 
-<footer id="index-footer">
+<!-- <footer id="index-footer">
   <div id="add-post">
     <img src="/assets/cross.svg" alt="cross">
   </div>
-</footer>
+</footer> -->
 
+<script defer src="../javascript/scroll.js" type="module"></script>
 <script defer src="../javascript/dashboard-filter.js" type="module"></script>
 
 <% include ../components/scripts.ejs %>
