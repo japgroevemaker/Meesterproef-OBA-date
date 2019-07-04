@@ -29,7 +29,7 @@
       toggleReactions.style = 'background-color: rgba(160,0,120,0.5);'
     } else if (activityName === 'shareKnowledge') {
       toggleReactions.style = 'background-color: rgba(255,160,0,0.5);'
-    } else if (activityName === 'help') {
+    } else if (activityName === 'helpMe') {
       toggleReactions.style = 'background-color: rgba(0,155,150,0.3)'
     }
 
