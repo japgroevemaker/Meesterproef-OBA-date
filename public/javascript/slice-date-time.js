@@ -1,12 +1,10 @@
-let reactionText = document.querySelectorAll('.reaction')
+let dateText = document.querySelectorAll('.date-text')
 
-reactionText.forEach(function(sliceDateTime){
-  let uniqueSectionID = sliceDateTime.parentElement.parentElement.id
-  let getReactionText = document.querySelectorAll(`#${uniqueSectionID} .reaction p`);
-  console.log(getReactionText);
-  getReactionText.forEach(function(checkLength){
-    console.log(checkLength.firstChild.length);
-    // let makeString = checkLength.toString()
-    // console.log(makeString);
-  })
+dateText.forEach(function(sliceDateTime){
+  let date = sliceDateTime.innerText.slice(0, 10)
+
+  let time = sliceDateTime.innerText.slice(16, 21)
+  console.log(time);
+
+  sliceDateTime.innerText = `Op: ${time} ${date}`
 })
