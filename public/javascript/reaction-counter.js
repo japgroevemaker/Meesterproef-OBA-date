@@ -20,16 +20,19 @@
   message.forEach(function(expand) {
     let uniqueID = expand.id
     let activityName = expand.getAttribute('name')
-    console.log(activityName);
+    // console.log(activityName);
 
     let reactionBox = document.querySelector(`#${uniqueID} #reactions`);
     let toggleReactions = document.querySelector(`#${uniqueID} .toggle-reactions`);
 
     if (activityName === 'somethingTogether') {
+      reactionBox.style = 'background-color: rgba(160,0,120,0.5);'
       toggleReactions.style = 'background-color: rgba(160,0,120,0.5);'
     } else if (activityName === 'shareKnowledge') {
+      reactionBox.style = 'background-color: rgba(255,160,0,0.5);'
       toggleReactions.style = 'background-color: rgba(255,160,0,0.5);'
     } else if (activityName === 'helpMe') {
+      reactionBox.style = 'background-color: rgba(0,155,150,0.3)'
       toggleReactions.style = 'background-color: rgba(0,155,150,0.3)'
     }
 

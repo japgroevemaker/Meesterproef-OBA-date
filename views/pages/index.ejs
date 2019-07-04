@@ -34,14 +34,14 @@
   <input type="text" name="" id="search-tags" placeholder="zoek hier naar posts">
 
   <div id="checkbox">
-    <input type="checkbox" id="together" name="somethingTogether" value="">
-    <label for="together">samen doen</label>
+    <input type="checkbox" id="offer-help" name="shareKnowledge" value="">
+    <label for="offer-help">hulp aangeboden</label>
 
     <input type="checkbox" id="help" name="helpMe" value="">
     <label for="help">hulp nodig</label>
 
-    <input type="checkbox" id="offer-help" name="shareKnowledge" value="">
-    <label for="offer-help">hulp aangeboden</label>
+    <input type="checkbox" id="together" name="somethingTogether" value="">
+    <label for="together">samen doen</label>
   </div>
 
 </form>
@@ -59,7 +59,8 @@
           <% } else { %>
               <img src="/assets/placeholder.jpg" alt="Profile image">
         <% } %>
-            <h4> <i>Door: <%= post.username %> Om: <%= post.date %></i></h4>
+            <h4> <i>Door: <%= post.username %></i></h4>
+            <h4 class="date-text"><i><%= post.date %></i></h4>
 
         </div>
 
@@ -85,8 +86,9 @@
     <p class="none" id="dataID"><%= post._id %></p>
         </form>
       <% console.log('test') %>
-      <% console.log(post) %>
+      <!-- <% console.log(post) %> -->
 <%
+
 
 if(post.reactions.push){
   post.reactions.forEach((reaction)=>{ %> 
@@ -105,11 +107,7 @@ if(post.reactions.push){
 %>
 </section>
 
-<!-- <footer id="index-footer">
-  <div id="add-post">
-    <img src="/assets/cross.svg" alt="cross">
-  </div>
-</footer> -->
+<script defer src="../javascript/slice-date-time.js" type="module"></script>
 <script defer src="../javascript/reaction-counter.js" type="module"></script>
 <script defer src="../javascript/scroll.js" type="module"></script>
 <script defer src="../javascript/dashboard-filter.js" type="module"></script>

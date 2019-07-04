@@ -1,5 +1,5 @@
 let placeTime = document.querySelector('.time-text');
-let placeDate = document.querySelector('.date-text')
+let placeDate = document.querySelectorAll('.date-text')
 
 let timeStamp = Date()
 let time = timeStamp.slice(15, 21)
