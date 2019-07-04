@@ -16,7 +16,10 @@ productbiografie:
 
 
  -->
-![logo](./public/assets/logo.svg "Logo van de applicatie, design door Joep Gravemaker")
+![logo](./public/assets/logo.svg "Logo van de applicatie, design door Joep Gravemaker") 
+
+![screenshot](./public/assets/screenshot2.jpg "screenshot van de indexpagina van de applicatie, zonder scroll") ![screenshot](./public/assets/screenshot1.jpg "screenshot van de indexpagina van de applicatie met scroll") 
+
 
 [Live demo](https://meesterproef-oba-date-qnwopvhidr.now.sh/)
 
