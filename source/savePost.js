@@ -19,7 +19,7 @@ function savePost(data) {
         // creator's username
         username: data.username,
         // reactions of other users:
-        reactions: "",
+        reactions: {},  
         // favorite by user:
         favorites: "",
         // tijd
