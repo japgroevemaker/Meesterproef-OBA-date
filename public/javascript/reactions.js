@@ -22,7 +22,7 @@ const react = {
       f.addEventListener('submit', e => {
         const currentValueInput = f.querySelector('input[name=reaction').value
         if(currentValueInput != "" || undefined || null){
-          
+
           console.log(f.querySelector('input[name=reaction').value)
           e.preventDefault()
         let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
@@ -56,7 +56,6 @@ const react = {
             reactionArray.push(element.textContent)
           }
         })
-
         console.log('sending out new Reaction')
         socket.emit('newReaction', reactionData)
         // reset the reaction input to ""
@@ -72,6 +71,7 @@ console.error(currentValueInput)
 
 
   renderReaction: function (data, uniqueSectionID, fromSelf) {
+
     // create Time Element
     let time = new Date().toString()
     let timeStamp = time.slice(16, 21)
@@ -80,34 +80,33 @@ console.error(currentValueInput)
 
     let reactionString = ""
     let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
-console.log(document.querySelector(`${uniqueSectionID}`))
+    console.log(document.querySelector(`${uniqueSectionID}`))
 
     if (fromSelf) {
       reactionString = [reactionContainer.querySelector('.reaction-input').value]
       console.log('new reaction from this client')
         reactionString.forEach((reaction) => {
-    
+
           reactionContainer.innerHTML += `
-        <img src="./assets/placeholder.jpg">  
+        <img src="./assets/placeholder.jpg">
         <div class="reaction">
         <p>${reaction}</p>
-        <p class="date-time">${dateStamp}${timeStamp}
         </div>
-      
+        <p class="date-time">${dateStamp}${timeStamp}</p>
         `
         })
     } else {
       console.log('new reaction from other client')
       reactionString = data[0].reactions[0].data
       reactionString.forEach((reaction) => {
-    
+
         reactionContainer.innerHTML += `
-      <img src="./assets/placeholder.jpg">  
+      <img src="./assets/placeholder.jpg">
       <div class="reaction">
       <p>${reaction}</p>
       <p class="date-time">${dateStamp}${timeStamp}
       </div>
-    
+
       `
       })
     }
