@@ -16,7 +16,10 @@ productbiografie:
 
 
  -->
-![logo](./public/assets/logo.svg "Logo van de applicatie, design door Joep Gravemaker")
+![logo](./public/assets/logo.svg "Logo van de applicatie, design door Joep Gravemaker") 
+
+![screenshot](./public/assets/screenshot2.jpg "screenshot van de indexpagina van de applicatie, zonder scroll") ![screenshot](./public/assets/screenshot1.jpg "screenshot van de indexpagina van de applicatie met scroll") 
+
 
 [Live demo](https://meesterproef-oba-date-qnwopvhidr.now.sh/)
 
@@ -103,6 +106,11 @@ De hieropvolgende features zijn geïmplementeerd:
 
 ## Iteraties
 De ontwikkelaars en opdrachtgevers zijn verschillende keren bijeen gekomen om de voortgang van het process te bespreken. Hierbij was met name de feedback van de opdrachtgever op het geleverde werk van belang.
+
+Door de iteraties zijn er aanpassingen doorgevoerd op de volgende gebieden:
+
+| Week | Onderwerp | Wijziging na Iteratie  |
+| ------ | ------ | ------ |
 
 ----
 
