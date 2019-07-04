@@ -44,6 +44,15 @@
   }
 }
 
+@keyframes reactionSlideIn{
+  0%{
+    
+  }
+  100%{
+
+  }
+}
+
 :root {
   --OBA-red: #FF0000;
   --OBA-subColor: #D9582B;
