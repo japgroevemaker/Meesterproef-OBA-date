@@ -60,7 +60,7 @@ const socketServer = function (io) {
                 data: data.data,
                 date: data.date
             }
-
+console.log(newReaction)
 
             // find the post and its current reactions
             postModel.findOne({_id:data.id}, (error, doc)=>{
@@ -71,15 +71,15 @@ const socketServer = function (io) {
                     // add these current reactions to the new reaction array
                     doc.reactions.forEach((oldReaction)=>{
                         console.log(oldReaction)
-                        newReactionArray.push({oldReaction})
+                        newReactionArray.push(oldReaction)
                         console.log('old reaction added')
                         // console.log(newReactionArray)
                     })
                     // add the new reaction to the new reaction array
                     console.log(typeof(newReactionArray))
                     console.log('adding new reacton')
+                    newReactionArray.push(newReaction)
                     console.log(newReactionArray)
-                    newReactionArray.push({newReaction})
                 }
             }).then(()=>{
                 // finally update the post 

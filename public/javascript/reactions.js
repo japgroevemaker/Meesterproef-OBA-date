@@ -63,18 +63,19 @@ console.error(currentValueInput)
 
   renderReaction: function (data, uniqueSectionID, fromSelf) {
 
-    // create Time Element
-    let time = new Date().toString()
-    let timeStamp = time.slice(16, 21)
-    let date = new Date().toString()
-    let dateStamp = date.slice(4, 10)
-
+    
     let reactionString = ""
     let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
     console.log(document.querySelector(`${uniqueSectionID}`))
-
+    
     if (fromSelf) {
+      // create Time Element
+      let time = new Date().toString()
+      let timeStamp = time.slice(16, 21)
+      let date = new Date().toString()
+      let dateStamp = date.slice(4, 10)
       reactionString = [reactionContainer.querySelector('.reaction-input').value]
+      
       console.log('new reaction from this client')
         reactionString.forEach((reaction) => {
 
@@ -87,16 +88,20 @@ console.error(currentValueInput)
         `
         })
     } else {
+      const dateStamp = data[0].date.slice(16,21)
+      const timeStamp = data[0].date.slice(4,10)
+      
       console.log('new reaction from other client')
-      reactionString = data[0].reactions[0].data
+
+      reactionString = data[0].reactions
       reactionString.forEach((reaction) => {
 
         reactionContainer.innerHTML += `
       <img src="./assets/placeholder.jpg">
       <div class="reaction">
-      <p>${reaction}</p>
-      <p class="date-time">${dateStamp}${timeStamp}
+      <p>${reaction.data}</p>
       </div>
+      <p class="date-time">${timeStamp}${dateStamp}
 
       `
       })

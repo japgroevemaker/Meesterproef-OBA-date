@@ -1,5 +1,6 @@
 // import render from './render.js'
 import render from '../javascript/render.js'
+const colors = ['rgb(255,160,0)', 'rgb(160,0,120)', 'rgb(0,155,150)', 'rgba(255,160,0,0.10)', 'rgba(160,0,120,0.10)', 'rgba(0,155,150,0.10)']
 
 const socket = io()
 const init = {
@@ -18,7 +19,6 @@ const init = {
     },
     stylePosts: function (posts) {
     
-        const colors = ['rgb(255,160,0)', 'rgb(160,0,120)', 'rgb(0,155,150)', 'rgba(255,160,0,0.10)', 'rgba(160,0,120,0.10)', 'rgba(0,155,150,0.10)']
         if(!posts.forEach){
             console.log(posts)
             console.log(posts.getAttribute('name'))
@@ -102,3 +102,5 @@ if(window.location.pathname == '/msg'){
     init.stylePosts(posts)
 
 }
+
+export default colors
