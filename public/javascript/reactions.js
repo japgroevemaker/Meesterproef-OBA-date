@@ -1,4 +1,6 @@
 let socket = io()
+import reactionCounter from './reaction-counter.js'
+// use reaction counter in function renderReaction!!!!!!
 
 // listen for messages from the server that a new reaction has been placed and call DOM renderer
 
@@ -63,6 +65,7 @@ console.error(currentValueInput)
 
   renderReaction: function (data, uniqueSectionID, fromSelf) {
 
+
     
     let reactionString = ""
     let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
@@ -113,6 +116,8 @@ console.error(currentValueInput)
     } else{
 
     }
+console.log(reactionCounter)
+    reactionCounter()
 
     // send the socket reaction to the server. Add the Data ID and the reaction
   }
