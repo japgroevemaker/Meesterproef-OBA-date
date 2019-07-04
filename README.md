@@ -49,7 +49,6 @@ Naast dat Bart een oproep kan plaatsen voor zijn hulpvraag is het voor hem ook m
 
 ### Stakeholders:
 
-<details>
 | Naam / Organisatie | Functie | Belang  |
 | ------ | ------ | ------ |
 | _Mark OBA_ | Mark is de contactpersoon bij de oba. Met hem wordt wekelijks onderzocht in hoeverre de applicatie tijdens het ontwikkelingsproces aan de eisen en behoeften van de oba voldoet. Mark geeft de eindbeoordeling namens de oba. |Mark legt verantwoording af aan het bestuur van de oba. Mark heeft er belang bij dat de ontwikkeling van de applicatie zoveel mogelijk in lijn ligt met de wensen, doelgroepen en huidige toepassingen van de oba |
@@ -62,7 +61,6 @@ Naast dat Bart een oproep kan plaatsen voor zijn hulpvraag is het voor hem ook m
 | _Joep Gravemaker_ _Stan Ooms_ | Uitvoerend producenten en ontwikkelaars van de meesterproef en deze applicatie. | Het belang van Stan en Joep is het uitvoeren van een professioneel opgezet ontwikkelingsproces waarbij aan het einde van de meesterproef een voldoende als eindbeoordeling genoten mag worden.
 | _Janno Kapritsias_ | Coach gedurende de meesterproef. Janno is tevens het aanspreekpunt voor feedback. Met Janno is er wekelijks een feedback moment waarop gereflecteerd wordt op de doelstellingen en waarmee de progressie in kaart gebracht wordt. | Het belang van Janno is wekelijks resultaten te zien krijgen zodat hij mondeling zo goed mogelijk zijn feedback aan de uitvoerend producenten kan beargumenteren. Van belang is hierbij de kwaliteit van de documentatie van het ontwikkelingsproces (productbiografie) |
 
-</details>
 
 ### User Requirements
 
@@ -103,6 +101,11 @@ De hieropvolgende features zijn geïmplementeerd:
 
 ## Iteraties
 De ontwikkelaars en opdrachtgevers zijn verschillende keren bijeen gekomen om de voortgang van het process te bespreken. Hierbij was met name de feedback van de opdrachtgever op het geleverde werk van belang.
+
+Door de iteraties zijn er aanpassingen doorgevoerd op de volgende gebieden:
+
+| Week | Onderwerp | Wijziging na Iteratie  |
+| ------ | ------ | ------ |
 
 ----
 
