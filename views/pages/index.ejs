@@ -90,13 +90,12 @@
 console.log(post.reactions[0].data)
 if(post.reactions[0].data){
 
-  post.reactions[0].data.forEach((reaction)=>{ %>
-  <!-- <%console.log(reaction.length)%> -->
+  post.reactions[0].data.forEach((reaction)=>{ %> 
 
 <img src="/assets/placeholder.jpg" alt="Profile Image">
 <div class="reaction"><%= reaction %>
-<p class="date-time"><%=  %></p>
 </div>
+<p class="date-time"><%=  %></p>
 
 
   <% })} %>
