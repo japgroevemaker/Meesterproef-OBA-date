@@ -7,9 +7,15 @@
 <section class="message resp-message" name="<%= data.activity %>">
   <div id="header">
   <input class="none" id="activity" value="<%= data.activity %>">
-    <h2 name="postName"id="postName" class="data"><%= data.postName %> <img src="<%=`/assets/${data.activity}.svg` %>"></h2>
-    <h4 name="" class="data time-text" id="Date"><%= data.date %></h4>
-    <h4 name="" class="data date-text"></h4>
+    <h2 name="postName" id="postName" class="data"><%= data.postName %> <img src="<%=`/assets/${data.activity}.svg` %>"></h2>
+    <%if(data.image != ""){ %>
+     <img src="<%= data.image || '' %>" alt="" id="imagePreview">
+
+   <% }else{ %>
+     <img src="/assets/placeholder.jpg" alt="Placeholder profile picture" id="imagePreview">
+
+   <%}%>
+    <h4> <i>Door: <%= data.username %> Om: <%= data.date %></i></h4>
   </div>
     <p name="postContent" class="data content-text" id="postContent"> <%= data.postContent %></p>
 
@@ -24,7 +30,7 @@
       </div>
     </div>
 
-    <div id="profilePic-name">
+    <!-- <div id="profilePic-name">
     <%
 
      if(data.image != ""){ %>
@@ -37,14 +43,14 @@
       <input type="text" name="pic" class="none" id="imageInForm"><%= data.profilePic %>
       <h2 name="username" class="data" id="username"><%= data.username%></h2>
 
-    </div>
+    </div> -->
 </section>
 
 <footer id="navigate-footer">
   <div class="prev-next-button">
     <a href="<%= data.activity %>">terug</a>
   </div>
-  
+
   <div class="prev-next-button">
     <a id="postButton" href="dashboard">plaats</a>
   </div>
