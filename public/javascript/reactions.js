@@ -16,15 +16,15 @@ const react = {
     // listen for new reactions by this Client
     console.log(form[0])
     form.forEach(f => {
-      console.log(f)
+      // console.log(f)
       let uniqueSectionID = f.parentElement.parentElement.id
       // listen for submit
       f.addEventListener('submit', e => {
         const currentValueInput = f.querySelector('input[name=reaction').value
+        e.preventDefault()
         if(currentValueInput != "" || undefined || null){
 
           console.log(f.querySelector('input[name=reaction').value)
-          e.preventDefault()
         let reactionContainer = document.querySelector(`#${uniqueSectionID} #reactions`)
       if(!reactionContainer){
         console.error(`Reaction Container is: ${reactionContainer} \n It probably not be located by uniqueSectionID \n UniqueSectionID:${UniqueSectionID}`)
@@ -33,29 +33,20 @@ const react = {
         // add all reactions to an array and update the reactions prop with the new array that includes all reactions
 
         // define reaction Object
-        let reactionArray = []
+        let reaction = currentValueInput
+        console.log(reaction)
         const reactionData = {
           id: f.querySelector('#dataID').textContent,
-          data: reactionArray,
+          data: currentValueInput,
           date: new Date()
         }
-        console.log(reactionContainer.childNodes)
-        let allReactions = reactionContainer.childNodes
         // render this reaction
         // boolean to see if its from this client
         const fromSelf = true;
         react.renderReaction(reactionData, uniqueSectionID, fromSelf)
 
         // send to server
-        allReactions.forEach(element => {
-          if (element.className === "reaction") {
-            // console.log(element.textContent)
-            if (!allReactions.push) {
-              allReactions = [allReactions]
-            }
-            reactionArray.push(element.textContent)
-          }
-        })
+
         console.log('sending out new Reaction')
         socket.emit('newReaction', reactionData)
         // reset the reaction input to ""

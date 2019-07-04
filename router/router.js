@@ -89,12 +89,14 @@ if(!req.body.picString){
 postName: req.body.postName,
 postContent: req.body.postContent,
 username: req.body.username,
-date: Date.now(),
+date: new Date(),
 tags: tagArray,
 image: req.body.picString,
 activity: req.body.activity
     }
-    /* TODO  :
+    console.log('-----------')
+    console.log(data.date)
+        /* TODO  :
     1. Lees alle variabelen uit.
     2. Stop deze in een obj
     3. Doe een fetch-get naar de server om te kijken of de naam al in gebruik is, zo ja, error, zo niet, naam is goed en kan meteen gefetched-post worden.

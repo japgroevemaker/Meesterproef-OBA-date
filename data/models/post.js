@@ -15,7 +15,7 @@ const postSchema= new mongoose.Schema({
     // creator's username
     username: String,
     // reactions of other users:
-    reactions:  [{  type: Object }],
+    reactions:  [{data: String, date: String}],
     // favorite by user:
     favorites: String,
     // tijd
