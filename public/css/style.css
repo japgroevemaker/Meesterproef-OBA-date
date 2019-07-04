@@ -349,12 +349,13 @@ section.input-field div#tags {
 }
 
 section.input-field div#tags .tag {
-  background-color: var(--OBA-subColor-Blue);
   width: auto;
   padding: 0 0.5em;
   height: 2em;
   display: flex;
+  border-radius: 0.3em;
   margin: 0.1em auto;
+  border: solid 2px var(--OBA-subColor-Blue);
 }
 
 section.input-field div#tags div.tag span.dot {
@@ -368,7 +369,7 @@ section.input-field div#tags div.tag h3 {
   font-family: var(--OBA-font);
   font-size: 1em;
   font-weight: lighter;
-  color: #fff;
+  color: #000;;
   margin: auto;
 }
 
