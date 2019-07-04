@@ -34,14 +34,14 @@
   <input type="text" name="" id="search-tags" placeholder="zoek hier naar posts">
 
   <div id="checkbox">
-    <input type="checkbox" id="together" name="somethingTogether" value="">
-    <label for="together">samen doen</label>
+    <input type="checkbox" id="offer-help" name="shareKnowledge" value="">
+    <label for="offer-help">hulp aangeboden</label>
 
     <input type="checkbox" id="help" name="helpMe" value="">
     <label for="help">hulp nodig</label>
 
-    <input type="checkbox" id="offer-help" name="shareKnowledge" value="">
-    <label for="offer-help">hulp aangeboden</label>
+    <input type="checkbox" id="together" name="somethingTogether" value="">
+    <label for="together">samen doen</label>
   </div>
 
 </form>
@@ -85,17 +85,21 @@
     <p class="none" id="dataID"><%= post._id %></p>
         </form>
       <% console.log('test') %>
-      <% console.log(post) %>
+      <!-- <% console.log(post) %> -->
 <%
 console.log(post.reactions[0].data)
 if(post.reactions[0].data){
 
-  post.reactions[0].data.forEach((reaction)=>{ %> 
+  post.reactions[0].data.forEach((reaction)=>{ %>
+    <% console.log('-----------------') %>
+    <% console.log(reaction) %>
+    <% console.log('-----------------') %>
 
 <img src="/assets/placeholder.jpg" alt="Profile Image">
-<div class="reaction"><%= reaction %>
+<div class="reaction">
+<p><%=reaction%></p>
 </div>
-<p class="date-time"><%=  %></p>
+<p class="date-time"><%=reaction.date%></p>
 
 
   <% })} %>
@@ -106,11 +110,6 @@ if(post.reactions[0].data){
 %>
 </section>
 
-<!-- <footer id="index-footer">
-  <div id="add-post">
-    <img src="/assets/cross.svg" alt="cross">
-  </div>
-</footer> -->
 <script defer src="../javascript/reaction-counter.js" type="module"></script>
 <script defer src="../javascript/scroll.js" type="module"></script>
 <script defer src="../javascript/dashboard-filter.js" type="module"></script>
