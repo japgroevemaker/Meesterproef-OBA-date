@@ -15,7 +15,7 @@
      <img src="/assets/placeholder.jpg" alt="Placeholder profile picture" id="imagePreview">
 
    <%}%>
-    <h4> <i>Door: <%= data.username %> Om: <%= data.date %></i></h4>
+    <h4> <i>Door: <span id="username"><%= data.username %></span> Om: <span id="Date"><%= data.date %></span></i></h4>
   </div>
     <p name="postContent" class="data content-text" id="postContent"> <%= data.postContent %></p>
 
@@ -38,10 +38,10 @@
 
     <% }else{ %>
       <img src="/assets/placeholder.jpg" alt="Placeholder profile picture" id="imagePreview">
+      <input type="text" name="pic" class="none" id="imageInForm"><%= data.profilePic %>
 
     <%}%>
-      <input type="text" name="pic" class="none" id="imageInForm"><%= data.profilePic %>
-      <h2 name="username" class="data" id="username"><%= data.username%></h2>
+      <h2 name="username" class="data" id="username"><%= data.username %></h2>
 
     </div> -->
 </section>

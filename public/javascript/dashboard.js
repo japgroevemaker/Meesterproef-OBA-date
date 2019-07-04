@@ -37,7 +37,7 @@ const init = {
         } else{
             posts.forEach((post) => {
                 const activity = post.getAttribute('name')
-                console.log(activity)
+                // console.log(activity)
                 if (activity == "shareKnowledge") {
     
                     // post.style.border = `2px solid ${colors[0]}`
