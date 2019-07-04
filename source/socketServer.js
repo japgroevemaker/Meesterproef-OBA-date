@@ -53,35 +53,61 @@ const socketServer = function (io) {
         // })
 
         socket.on('newReaction', function (data) {
-            console.log(data)
-            postModel.find({_id:data.id}, (error, doc)=>{
+            // define reaction object
+            let newReactionArray = []
+            //console.log(data)
+            const newReaction = {
+                data: data.data,
+                date: data.date
+            }
+
+
+            // find the post and its current reactions
+            postModel.findOne({_id:data.id}, (error, doc)=>{
                 if(error){console.log(error)}
                 else{
-                    let newReactionArray = []
-                }
-            })
-            postModel.updateOne({
-                _id: data.id
-            }, {
-                $set: {
-                    "reactions": {date: data.date, data:data.data }
-                }
-            }, function (error, user) {
-                if (error) throw error
-                // console.log(user)
-                console.log(`updated reactions on _id: ${data.id}`.green)
+                    console.log('test'.yellow)
 
-                postModel.find({
+                    // add these current reactions to the new reaction array
+                    doc.reactions.forEach((oldReaction)=>{
+                        console.log(oldReaction)
+                        newReactionArray.push({oldReaction})
+                        console.log('old reaction added')
+                        // console.log(newReactionArray)
+                    })
+                    // add the new reaction to the new reaction array
+                    console.log(typeof(newReactionArray))
+                    console.log('adding new reacton')
+                    console.log(newReactionArray)
+                    newReactionArray.push({newReaction})
+                }
+            }).then(()=>{
+                // finally update the post 
+                postModel.updateOne({   
                     _id: data.id
-                }, function (err, doc) {
-                    if (err || !doc) {
-                        console.log(err.red)
-                    } else {
-                        socket.broadcast.emit('updateReaction', doc)
-                        console.log('broadCasted Reaction'.gray)
+                }, {
+                    $set: {
+                        "reactions": newReactionArray
                     }
+                }, function (error, user) {
+                    if (error) throw error
+                    // console.log(user)
+                    console.log(`updated reactions on _id: ${data.id}`.green)
+    
+                    // retrieve the post again and broadcast it to all other clients 
+                    postModel.find({
+                        _id: data.id
+                    }, function (err, doc) {
+                        if (err || !doc) {
+                            console.log(err.red)
+                        } else {
+                            socket.broadcast.emit('updateReaction', doc)
+                            console.log('broadCasted Reaction'.gray)
+                        }
+                    })
+    
+    
                 })
-
 
             })
         })

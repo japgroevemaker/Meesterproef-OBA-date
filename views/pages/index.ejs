@@ -88,9 +88,8 @@
       <% console.log('test') %>
       <!-- <% console.log(post) %> -->
 <%
-console.log(post.reactions[0].data)
-if(post.reactions[0].data){
 
+<<<<<<< HEAD
   post.reactions[0].data.forEach((reaction)=>{ %>
     <% console.log('-----------------') %>
     <% console.log(reaction) %>
@@ -101,6 +100,15 @@ if(post.reactions[0].data){
 <p><%=reaction%></p>
 </div>
 <p class="date-time"><%=reaction.date%></p>
+=======
+if(post.reactions.push){
+  post.reactions.forEach((reaction)=>{ %> 
+
+<img src="/assets/placeholder.jpg" alt="Profile Image">
+<div class="reaction"><%= reaction.data %>
+</div>
+<p class="date-time"><%=  reaction.date %></p>
+>>>>>>> 056d565e6856794ec38fbbb2c6db484669153292
 
 
   <% })} %>
