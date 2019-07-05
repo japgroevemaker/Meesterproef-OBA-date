@@ -8,3 +8,14 @@ dateText.forEach(function(sliceDateTime){
 
   sliceDateTime.innerText = `Op: ${time} ${date}`
 })
+
+let reactionDate = document.querySelectorAll('.date-time');
+
+reactionDate.forEach(function(reactionSlice){
+  let date = reactionSlice.innerText.slice(5, 10)
+  console.log(date);
+  let time = reactionSlice.innerText.slice(11, 16)
+  console.log(time);
+
+  reactionSlice.innerHTML = `${time}  ${date}`
+})

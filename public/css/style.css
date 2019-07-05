@@ -534,7 +534,7 @@ section.message div#header h4 {
   font-weight: lighter;
   color: #000;
   font-size: 0.8em;
-  margin: auto 5%;
+  margin-left: 3%;
 }
 
 section.message p {
@@ -550,6 +550,7 @@ section.message div#tags {
   margin: 5% auto 10%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 section.message div#tags .tag {
