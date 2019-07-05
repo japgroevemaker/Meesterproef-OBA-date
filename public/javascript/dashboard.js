@@ -80,7 +80,7 @@ const init = {
                     })
                 }
             })
-            console.log(filterElement)
+            //console.log(filterElement)
         })
         
     }
