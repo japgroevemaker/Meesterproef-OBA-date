@@ -175,10 +175,6 @@ footer#navigate-footer {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 footer#navigate-footer div.prev-next-button {

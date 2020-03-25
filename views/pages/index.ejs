@@ -85,13 +85,12 @@
         <input type="submit" value="plaats" class="button">
     <p class="none" id="dataID"><%= post._id %></p>
         </form>
-      <% console.log('test') %>
+      <!-- <% console.log('test') %> -->
       <!-- <% console.log(post) %> -->
-<%
 
 
-if(post.reactions.push){
-  post.reactions.forEach((reaction)=>{ %> 
+<% if(post.reactions.push){
+  post.reactions.forEach((reaction)=>{ %>
 
 <img src="/assets/placeholder.jpg" alt="Profile Image">
 <div class="reaction"><%= reaction.data %>
