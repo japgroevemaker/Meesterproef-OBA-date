@@ -28,7 +28,7 @@
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "mongodb": "^3.2.7",
-    "mongoose": "^5.7.5",
+    "mongoose": "^6.4.6",
     "nodemon": "^1.19.1",
     "socket.io": "^2.2.0"
   }
